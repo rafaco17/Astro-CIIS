@@ -1,0 +1,1 @@
+console.log("Adapta los datos de ediciones para la vista")
