@@ -1,0 +1,55 @@
+---
+import Card from "./Card.astro"
+---
+
+<div class="m-auto mt-36 max-w-4xl font-bold text-container">
+    <h1 class="text-7xl text-center text-secondary">
+        <!-- animation 3 segundos -->
+        <span class="text-primary">
+            Congreso Internacional
+        </span>
+        <!-- animation wait de 3 segundos -->
+        <p class="inline-block">
+            en Informática y Sistemas
+        </p>
+        <!-- animation wait de 6 segundos -->
+        <span class="text-primary">
+            Edición XXV
+        </span>
+    </h1>
+
+    <h1 class="text-center mt-60 text-5xl text-[#ffffff]">
+        Sobre nuestros <span class="text-[#6e91d6]">speackers</span>
+    </h1>
+    <p class="text-center font-normal mt-3 text-[white]/80">
+        Divulgadores y profesionales de programación y la tecnología.
+    </p>
+
+    <div class="w-64 h-9 bg-[#2e2e2e]">
+        <p class="text-[#ffffff]">Este es un texto cualquiera</p>
+    </div>
+
+    <Card />
+</div>
+
+
+<style>
+
+.text-primary {
+    background-image: var(--accent-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+}
+
+.text-secondary {
+    background-image: var(--accent-gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+}
+
+
+</style>

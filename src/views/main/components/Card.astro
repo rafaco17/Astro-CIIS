@@ -1,0 +1,32 @@
+---
+import { Color } from '../../../models/colors';
+import { useColorWithOpacity } from '../../../utilities/use-color-with-opacity';
+
+const backgroundColor = Color.TEST; // '#FF0000'
+const opacity = 0.5; // 50% opacity
+const rgbaColor = useColorWithOpacity(backgroundColor,opacity);
+---
+
+<article class={`relative flex flex-col items-center justify-center w-52 transition-all bg-[${Color.TEST}]/50 hover:bg-[${Color.COLOR_BG_SURFACE_PRIMARY_HOVER}]/50 border rounded-[20px] overflow-hidden hover:scale-110 border-[#27272a]/40`}>
+    <div class="w-full p-[14px] rounded transition">
+        <figure class="flex items-center justify-center">
+            <img class="object-cover w-full aspect-square rounded-[10px]" src="https://pm1.aminoapps.com/6188/1d296d988fcc897c591fd1926476cf6c812479c2_hq.jpg" alt="speaker: DotCSV">
+            <img class="absolute opacity-70 transform-gpu blur-lg -z-10 block object-cover w-full aspect-square transition bg-white rounded-[10px]" src="https://pm1.aminoapps.com/6188/1d296d988fcc897c591fd1926476cf6c812479c2_hq.jpg" alt="speaker: DotCSV">
+        </figure>
+        <header class="flex items-center justify-between mt-4 gap-x-2">
+            <h3 class="text-[16px] font-bold text-left text-white">
+                <a href="https://twitter.com/dotcsv" target="_blank" rel="external noopener nofollow">DotCSV</a>
+            </h3>
+            <a class="text-[10px] text-white/60 flex items-center" href="https://twitter.com/dotcsv" target="_blank" rel="external noopener nofollow">@dotcsv</a>
+        </header>
+        <footer class="flex items-center justify-between gap-x-2">
+            <p class="text-xs text-left text-white/60">Divulgador de IA</p>
+            <span class="text-white">🇮🇨</span>
+        </footer>
+    </div>
+    
+</article>
+
+<div style={{ backgroundColor: rgbaColor }} class="w-64 h-48 text-white">
+    HOLAssssssssssssssssssssssss
+</div>
