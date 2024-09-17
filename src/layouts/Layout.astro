@@ -20,26 +20,108 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<Header></Header>
-		<slot />
-		<Footer></Footer>
+		<div class="flex flex-col h-dvh">
+			<Header></Header>
+			<div class="flex-1">
+				<slot />
+			</div>
+			<Footer></Footer>
+		</div>
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
+		--accent-primary: 58, 136, 234;
+		--accent-light-primary: 204, 224, 250;
+		--accent-dark-primary: 10, 49, 101;
+		--accent-gradient-primary: linear-gradient(
 			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
+			rgb(var(--accent-primary)),
+			rgb(var(--accent-light-primary)) 30%,
 			white 60%
 		);
+
+		--accent-secondary: 240, 240, 240;
+		--accent-light-secondary: 250, 250, 250;
+		--accent-dark-secondary: 200, 200, 200;
+		--accent-gradient-secondary: linear-gradient(
+			45deg,
+			rgb(var(--accent-secondary)),
+			rgb(var(--accent-light-secondary)) 30%,
+			white 60%
+		);
+
+		/* --color + UI ELEMENT + PRORITY + STATE*/
+
+		/* BACKGROUND */
+		--color-bg: linear-gradient(15deg, #000615 0, #000515 12.5%, #000515 25%, #000415 37.5%, #010315 50%, #040215 62.5%, #070114 75%, #090113 87.5%, #0c0012 100%);
+
+		/* BACKGROUND SURFACE */
+		--color-bg-surface-primary-default: #121226;  
+		--color-bg-surface-primary-hover: #1b1b38;     
+		--color-bg-surface-primary-active: #0e0e20;    
+		--color-bg-surface-primary-disabled: #2e2e46;  
+
+		--color-bg-surface-secondary-default: #fff; /* FALTA ESTA PARTE*/
+		--color-bg-surface-secondary-hover: #fff;
+		--color-bg-surface-secondary-active: #fff;
+		--color-bg-surface-secondary-disabed: #fff;
+
+		/* BACKGROUND FILL */
+		--color-bg-fill-primary-default: #e5eaf2;   
+		--color-bg-fill-primary-hover: #d0d6e3;     
+		--color-bg-fill-primary-active: #b0b8d4;    
+		--color-bg-fill-primary-disabled: #c0c6d5;
+
+		--color-bg-fill-secondary-default: #2e2e2e;
+		--color-bg-fill-secondary-hover: #3a3a3a;   
+		--color-bg-fill-secondary-active: #4a4a4a; 
+		--color-bg-fill-secondary-disabled: #5a5a5a; 
+
+
+		/* BORDER COLOR */
+		--color-border-primary-default: #27272a;
+		--color-border-primary-hover: #3f3f46;
+		--color-border-primary-active: #1c1c1f;
+		--color-border-primary-disabled: #9ca3af;	/* FALTA VERIFICAR LA COLORIMETRIA */
+
+		--color-border-secondary-default: #fff;
+		--color-border-secondary-hover: #fff;
+		--color-border-secondary-active: #fff;
+		--color-border-secondary-disabled: #fff;
+		
+		/* TEXT COLOR */
+		--color-text-primary-default: #6e91d6;   
+		--color-text-primary-hover: #567bbd;     
+		--color-text-primary-active: #3e5ba3;    
+		--color-text-primary-disabled: #b1b7c9;  
+
+		--color-text-secondary-default: #ffffff;  
+		--color-text-secondary-hover: #e5e5e5;    
+		--color-text-secondary-active: #cccccc; 
+		--color-text-secondary-disabled: #a3a3a3; 
+		
+		/* ICON COLOR */
+		--color-icon-primary-default: #6e91d6;   
+		--color-icon-primary-hover: #567bbd;     
+		--color-icon-primary-active: #3e5ba3;    
+		--color-icon-primary-disabled: #b1b7c9;  
+
+		--color-icon-secondary-default: #ffffff; 
+		--color-icon-secondary-hover: #e5e5e5;   
+		--color-icon-secondary-active: #cccccc;  
+		--color-icon-secondary-disabled: #a3a3a3;
+
+		--test: #FF0000;
+	}
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		background-image: var(--color-bg);
 	}
 	code {
 		font-family:
