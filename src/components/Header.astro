@@ -1,3 +1,103 @@
-<div class="fixed top-0 left-0 right-0 backdrop-blur-[10px] md:backdrop-blur-0 w-full mb-10 overflow-hidden z-[99999] py-8">
-    Aqui va el navbar de nuestro compoentneaAqui va el navbar de nuestro compoentneaAqui va el navbar de nuestro compoentneaAqui va el navbar de nuestro compoentneaAqui va el navbar de nuestro compoentneaAqui va el navbar de nuestro compoentneaAqui va el navbar de nuestro compoentnea
-</div>|
+--- 
+    const styleHeader = "fixed top-0 left-0 right-0 animate-[reduce-header_linear_both] [animation-timeline:scroll()] [animation-range:0_150px]"
+    const bg_button = "bg-gradient-to-b from-[#3152df95] to-[#1e254595]"
+    const shadow_button = "shadow-[inset_0_6px_12px_#4c64d2,0_0_17px_rgba(110,137,255,0.77),inset_0_1px_10px_hsla(0,0%,100%,0.55)]"
+    const shadow_button_hover = "hover:shadow-[inset_0_6px_12px_#4c64d2,_0_0_34px_rgba(110,137,255,0.77),_inset_0_1px_10px_hsla(0,0%,100%,0.55)]"
+---
+
+<header class={`${styleHeader} backdrop-blur-[10px] min-[864px]:backdrop-blur-0 
+                w-full mb-10 overflow-hidden z-[99999] py-8`}>
+    <div class="grid items-center justify-center md:justify-normal w-full grid-cols-[auto_1fr] mx-auto text-white gap-x-10 md:flex max-w-screen-base">
+      <a href="/" class="ml-4 transition-transform duration-300 hover:scale-125" title="Ir a la página principal" aria-label="Ir a la página principal">
+        <svg preserveAspectRatio="xMidYMid" viewBox="0 0 228 198" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="w-10 h-12">
+          <g>
+            <path fill="#199afc" d="M73.2 126.4c-15 15-15 39.3 0 54.3L19 126.4C4 111.5 4 87.2 19 72.2L73.2 18c15-15 39.2-15 54.2 0s15 39.2 0 54.2z"></path>
+            <path fill="#1d5682" d="m73.2 126.4 27.1-27.1 27.1 27.1c15 15 15 39.3 0 54.3-15 14.9-39.2 14.9-54.2 0-15-15-15-39.3 0-54.3z"></path>
+            <g>
+              <path fill="#199afc" d="M185.5 84.3c8.3-8.2 8.3-21.7 0-29.9l30 29.9c8.2 8.3 8.2 21.7 0 30l-30 30c-8.3 8.3-21.7 8.3-30 0s-8.3-21.7 0-30z"></path>
+              <path fill="#1d5682" d="m185.5 84.3-15 15-15-15c-8.3-8.2-8.3-21.7 0-29.9 8.3-8.3 21.7-8.3 30 0 8.3 8.2 8.3 21.7 0 29.9z"></path>
+            </g>
+          </g>
+        </svg>
+      </a>
+      <nav id=":R16:" class="col-span-full overflow-x-auto row-[2/3] grid min-[864px]:block grid-rows-[0fr] transition-[grid-template-rows]">
+        <ul class="flex flex-col items-center overflow-x-auto overflow-y-hidden md:overflow-hidden md:flex-row">
+          <li class="flex justify-center w-full first:mt-5 md:first:mt-0 md:block md:w-auto">
+            <a href="/#speakers" class="flex items-center justify-center w-full gap-1 px-5 py-4 text-xl duration-300 md:w-auto md:py-2 md:text-base hover:scale-110 max-[1000px]:px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                  </svg>
+                  
+              Principal
+            </a>
+          </li>
+          <li class="flex justify-center w-full first:mt-5 md:first:mt-0 md:block md:w-auto">
+            <a href="/#sponsors" class="flex items-center justify-center w-full gap-1 px-5 py-4 text-xl duration-300 md:w-auto md:py-2 md:text-base hover:scale-110 max-[1000px]:px-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+              </svg>                              
+              Ponentes
+            </a>
+          </li>
+          <li class="flex justify-center w-full first:mt-5 md:first:mt-0 md:block md:w-auto">
+            <a href="/#regalos" class="flex items-center justify-center w-full gap-1 px-5 py-4 text-xl duration-300 md:w-auto md:py-2 md:text-base hover:scale-110 max-[1000px]:px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                </svg>                  
+              Auspiciadores
+            </a>
+          </li>
+          <li class="flex justify-center w-full first:mt-5 md:first:mt-0 md:block md:w-auto">
+            <a href="/#agenda" class="flex items-center justify-center w-full gap-1 px-5 py-4 text-xl duration-300 md:w-auto md:py-2 md:text-base hover:scale-110 max-[1000px]:px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                  </svg>                  
+              Agenda
+            </a>
+          </li>
+          <li class="flex justify-center w-full first:mt-5 md:first:mt-0 md:block md:w-auto">
+            <a href="/#agenda" class="flex items-center justify-center w-full gap-1 px-5 py-4 text-xl duration-300 md:w-auto md:py-2 md:text-base hover:scale-110 max-[1000px]:px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                  </svg>                 
+              Ediciones
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="flex items-center gap-4 mr-4 md:ml-auto">
+        <a href="https://discord.gg/midudev" target="_blank" 
+          class={`flex items-center cursor-pointer gap-2 rounded-lg px-3 
+                  py-[10px] transition-all duration-300 disabled:opacity-50 
+                  disabled:cursor-not-allowed ${bg_button} text-white 
+                  ${shadow_button} ${shadow_button_hover} hover:scale-110 
+                  ml-auto font-medium`} 
+          title="Únete al CIIS XXV" 
+          aria-label="Inscribite en el Congreso Internacional de Informática y Sistemas">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="m11.645 20.91l-.007-.003l-.022-.012l-.082-.045q-.108-.06-.301-.173a25.2 25.2 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25C2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052A5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25c0 3.925-2.438 7.111-4.739 9.256a25 25 0 0 1-4.244 3.17a15 15 0 0 1-.383.219l-.022.012l-.007.004l-.003.001a.75.75 0 0 1-.704 0z"/></svg>
+          Inscribirse
+        </a>
+        <button class="flex items-center justify-center py-2 min-[864px]:hidden" aria-expanded="false" aria-controls=":R16:" title="Mostrar Menú" aria-label="Mostrar menú">
+          <div class="flex items-center justify-center p-2 cursor-pointer group">
+            <div class="space-y-2">
+              <span class="block h-1 w-8 origin-center rounded-full bg-white/60 transition-transform ease-in-out"></span>
+              <span class="block h-1 w-8 origin-center rounded-full bg-white/60 transition-transform ease-in-out"></span>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+</header>
+
+<style>
+  @keyframes reduce-header {
+    100% {
+      box-shadow: 0 5px 50px -5px hsla(0, 0%, 100%, .1), 0 0 0 1px hsla(0, 0%, 100%, .1);
+      background: rgba(0, 0, 0, .3);
+      padding-block: 1rem;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+  }
+</style>
+  
