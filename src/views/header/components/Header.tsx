@@ -32,7 +32,7 @@ export const Header = () => {
                 }`}
             </style>
             <header
-                className={`${styleHeader} backdrop-blur-[10px] min-[864px]:backdrop-blur-0 w-full mb-10 overflow-hidden z-[99999] py-8`}
+                className={`${styleHeader} m-auto backdrop-blur-[10px] min-[864px]:backdrop-blur-0 w-full max-w-5xl mb-10 overflow-hidden z-[99999] py-8`}
             >
                 <div className="grid items-center justify-center md:justify-normal w-full grid-cols-[auto_1fr] mx-auto text-white gap-x-10 md:flex max-w-screen-base">
                     <a

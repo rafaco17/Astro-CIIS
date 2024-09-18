@@ -1,1 +1,33 @@
-<!-- este debe ser un boton general -->
+---
+import IconHeart from "../../public/icons/IconHeart.astro";
+
+const bgButton = "bg-gradient-to-b from-[#3152df95] to-[#1e254595]";
+const shadowButton = "shadow-[inset_0_6px_12px_#4c64d2,0_0_17px_rgba(110,137,255,0.77),inset_0_1px_10px_hsla(0,0%,100%,0.55)]";
+const shadowButtonHover = "hover:shadow-[inset_0_6px_12px_#4c64d2,_0_0_34px_rgba(110,137,255,0.77),_inset_0_1px_10px_hsla(0,0%,100%,0.55)]";
+
+const { description } = Astro.props;
+---
+
+<button class={`flex items-center cursor-pointer gap-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${bgButton} text-white ${shadowButton} hover:${shadowButtonHover} hover:scale-110 px-6 py-5 text-lg font-bold md:text-3xl rounded-xl tracking-wide`}>
+    
+      
+    {description}
+    <div class="animationRotate">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 22 22"><path fill="#fff" d="M11 8h1V7h-1m-2 3h1V9h1V8h-1V7H9V6h1v1h1V6h1v1h1v1h1V7h1V5h1V4H6v1h1v1h1v2h1m1 3h1v-1h-1m1 2h1v-1h-1m8 9H3v-3h1v-1h1v-2h1v-2h1v-2H6V8H5V6H4V5H3V2h16v3h-1v1h-1v2h-1v2h-1v2h1v2h1v2h1v1h1m-6-7V8h-1v1h-1v1m5 8v-1h-1v-2h-1v-2h-1v-1h-1v2h1v2h1v1H8v-1h1v-2h1v-1h1v-1H9v1H8v2H7v2H6v1Z"/></svg>
+    </div>
+</button>
+
+<style>
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(180deg);
+        }
+    }
+
+    .animationRotate {
+        animation: spin 0.75s linear infinite;
+    }
+</style>

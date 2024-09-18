@@ -1,13 +1,9 @@
 ---
-import Counter from "./Counter/Counter"
-
-export const prerender = false
-
-const eventDate = '2024-11-11T13:30:00Z';
+import Button from "../../../components/Button.astro"
 ---
 
-<div class="m-auto mt-36 h-dvh max-w-4xl">
-    <h1 class="text-7xl text-center text-secondary">
+<div class="m-auto mt-56 calculate-height max-w-4xl">
+    <h1 class="text-7xl text-center text-secondary tracking-tighter">
         <strong class="text-primary font-bold">
             Congreso Internacional
         </strong>
@@ -18,12 +14,16 @@ const eventDate = '2024-11-11T13:30:00Z';
             Edición XXV
         </strong>
     </h1>
-    <div class="m-auto w-3/4 mt-16 shadow-lg conter-shadow">
-        <Counter eventDate={eventDate} client:load/>
+    <div class="flex justify-center mt-12">
+        <Button description="Inscríbete Ahora!" />
     </div>
 </div>
 
 <style>
+
+    .calculate-height {
+        height: calc(100dvh - 224px);
+    }
 
     .text-primary {
         background-image: var(--accent-gradient-primary);
