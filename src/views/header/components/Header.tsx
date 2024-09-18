@@ -10,13 +10,13 @@ export const Header = () => {
     const shadowButtonHover =
         "hover:shadow-[inset_0_6px_12px_#4c64d2,_0_0_34px_rgba(110,137,255,0.77),_inset_0_1px_10px_hsla(0,0%,100%,0.55)]";
 
-    const [menu, setMenu] = useState(false);
+    const [menu, setMenu] = useState(true);
 
     const handleMenuToggle = () => {
         setMenu(!menu);
     };
     
-    const personalizado = menu ? 'grid-rows-[0fr]' : 'grid-rows-[1fr]';
+    const openMenu = menu ? 'grid-rows-[0fr]' : 'grid-rows-[1fr]';
 
     return (
         <>
@@ -32,9 +32,9 @@ export const Header = () => {
                 }`}
             </style>
             <header
-                className={`${styleHeader} m-auto backdrop-blur-[10px] min-[864px]:backdrop-blur-0 w-full max-w-5xl mb-10 overflow-hidden z-[99999] py-8`}
+                className={`${styleHeader} m-auto backdrop-blur-[10px] min-[1040px]:backdrop-blur-0 w-full mb-10 overflow-hidden z-[99999] py-8`}
             >
-                <div className="grid items-center justify-center md:justify-normal w-full grid-cols-[auto_1fr] mx-auto text-white gap-x-10 md:flex max-w-screen-base">
+                <div className=" max-w-5xl grid items-center justify-center min-[1040px]:justify-normal w-full grid-cols-[auto_1fr] mx-auto text-white gap-x-10 min-[1040px]:flex max-w-screen-base">
                     <a
                         href="/"
                         className="ml-4 transition-transform duration-300 hover:scale-125"
@@ -45,15 +45,15 @@ export const Header = () => {
                     </a>
                     <nav
                         id=":R16:"
-                        className={`col-span-full overflow-x-auto row-[2/3] grid min-[864px]:block ${personalizado} transition-[grid-template-rows]`}
+                        className={`col-span-full overflow-x-auto row-[2/3] grid min-[1040px]:block ${openMenu} transition-[grid-template-rows]`}
                     >
-                        <ul className="flex flex-col items-center overflow-x-auto overflow-y-hidden md:overflow-hidden md:flex-row">
+                        <ul className="flex flex-col items-center overflow-x-auto overflow-y-hidden min-[1040px]:overflow-hidden min-[1040px]:flex-row">
                             {navItems.map((item) => (
                                 <NavItem key={item.name} name={item.name} icon={item.icon} href={item.href} />
                             ))}
                         </ul>
                     </nav>
-                    <div className="flex items-center gap-4 mr-4 md:ml-auto">
+                    <div className="flex items-center gap-4 mr-4 min-[1040px]:ml-auto">
                         <a
                             href="#"
                             target="_blank"
@@ -71,7 +71,7 @@ export const Header = () => {
                         </a>
                         <button
                             onClick={handleMenuToggle}
-                            className="flex items-center justify-center py-2 min-[864px]:hidden"
+                            className="flex items-center justify-center py-2 min-[1040px]:hidden"
                             aria-expanded={menu}
                             aria-controls=":R16:"
                             title="Mostrar Menú"
