@@ -9,4 +9,5 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [tailwind(), react()],
   output: 'hybrid'
+  // https://docs.astro.build/en/guides/integrations-guide/react/ Es necesario un adaptador
 });
