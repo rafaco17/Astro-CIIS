@@ -1,5 +1,5 @@
-import { NavItem } from "./NavItem";
-import navItems from "../services/header";
+import { NavItem } from "./components/NavItem";
+import navItems from "./services/header";
 import { useState } from "react";
 
 export const Header = () => {
