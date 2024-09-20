@@ -32,9 +32,15 @@ export const Header = () => {
                 }`}
             </style>
             <header
-                className={`${styleHeader} m-auto backdrop-blur-[10px] min-[1040px]:backdrop-blur-0 w-full mb-10 overflow-hidden z-[99999] py-8`}
+                className={`
+                    ${styleHeader} m-auto backdrop-blur-[10px] min-[1040px]:backdrop-blur-0 w-full 
+                     overflow-hidden z-[99999] sticky py-8
+                `}
             >
-                <div className=" max-w-5xl grid items-center justify-center min-[1040px]:justify-normal w-full grid-cols-[auto_1fr] mx-auto text-white gap-x-10 min-[1040px]:flex max-w-screen-base">
+                <div 
+                    className="max-w-5xl grid items-center justify-center min-[1040px]:justify-normal 
+                    w-full grid-cols-[auto_1fr] mx-auto text-white gap-x-10 min-[1040px]:flex 
+                    max-w-screen-base">
                     <a
                         href="/"
                         className="ml-4 transition-transform duration-300 hover:scale-125"
@@ -79,8 +85,16 @@ export const Header = () => {
                         >
                             <div className="flex items-center justify-center p-2 cursor-pointer group">
                                 <div className="space-y-2">
-                                    <span className="block h-1 w-8 origin-center rounded-full bg-white/60 transition-transform ease-in-out"></span>
-                                    <span className="block h-1 w-8 origin-center rounded-full bg-white/60 transition-transform ease-in-out"></span>
+                                    <span 
+                                        className={`block h-1 w-8 origin-center rounded-full bg-white/60 transition-transform ease-in-out
+                                            ${menu ? '' : 'translate-y-1.5 rotate-45'}
+                                        `}>     
+                                    </span>
+                                    <span 
+                                        className={`block h-1 w-8 origin-center rounded-full bg-white/60 transition-transform ease-in-out
+                                            ${menu ? '' : '-translate-y-1.5 -rotate-45'}
+                                        `}>
+                                    </span>
                                 </div>
                             </div>
                         </button>

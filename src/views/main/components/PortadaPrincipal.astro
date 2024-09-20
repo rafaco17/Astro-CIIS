@@ -2,29 +2,35 @@
 import Button from "../../../components/Button.astro"
 ---
 
-<div class="m-auto mt-56 calculate-height max-w-4xl">
-    <h1 class="text-7xl text-center text-secondary tracking-tighter">
-        <strong class="text-primary font-bold">
-            Congreso Internacional
-        </strong>
-        <p class="inline-block font-bold">
-            en Informática y Sistemas
-        </p>
-        <strong class="text-primary font-bold">
-            Edición XXV
-        </strong>
-    </h1>
-    <div class="flex justify-center mt-12">
-        <Button description="Inscríbete Ahora!" />
+<div class="m-auto h-dvh pt-56 max-w-4xl ">
+    <div class="relative">
+        <h1 class="text-7xl text-center text-secondary tracking-tighter">  
+            <strong class="text-primary font-bold">
+                Congreso Internacional
+            </strong>
+            <p class="inline-block font-bold">
+                en Informática y Sistemas
+            </p>
+            <strong class="text-primary font-bold">
+                Edición XXV
+            </strong>
+        </h1>
+        <div class="flex justify-center mt-12">
+            <Button description="Inscríbete Ahora!" />
+        </div>
+        <div 
+            class="text-white absolute top-0 right-0 !rotate-[25deg] bg-gradient-to-b from-[#3152df] to-[#1e2545] rounded-full px-3 py-1
+            shadow pointer-events-none hidden md:block w-fit h-fit             
+            ">
+            11 Nov 2024
+        </div>
     </div>
 </div>
 
 <style>
-
     .calculate-height {
         height: calc(100dvh - 224px);
     }
-
     .text-primary {
         background-image: var(--accent-gradient-primary);
         -webkit-background-clip: text;
@@ -32,7 +38,6 @@ import Button from "../../../components/Button.astro"
         background-size: 400%;
         background-position: 0%;
     }
-
     .text-secondary {
         background-image: var(--accent-gradient-secondary);
         -webkit-background-clip: text;
@@ -40,5 +45,4 @@ import Button from "../../../components/Button.astro"
         background-size: 400%;
         background-position: 0%;
     }
-
 </style>
