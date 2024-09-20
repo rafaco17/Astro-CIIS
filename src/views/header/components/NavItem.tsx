@@ -3,7 +3,9 @@ interface NavItemProps {
     icon: string;
     href: string;
   }
-  
+
+import { Color } from "../../../models/colors";
+
 export const NavItem = ({ name, icon, href }: NavItemProps) => {
     return(
         <>
