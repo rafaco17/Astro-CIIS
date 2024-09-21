@@ -1,20 +1,28 @@
 ---
+import anonimo from '../../../../public/speakers/anonimo.webp'
+
 interface Props {
-  nameSpeaker: string;
-  rolSpeaker: string;
+    nameSpeaker?: string;
+    rolSpeaker?: string;
+    link_image?: ImageMetadata;
+    alt?: string;
 }
 
-const { nameSpeaker, rolSpeaker }: Props = Astro.props;
+const { nameSpeaker = "Ponente por confirmar", rolSpeaker = "Sin descripción", link_image = anonimo, alt = "Ponente Anonimo" }: Props = Astro.props;
 ---
-
-
+<!-- https://nelkodev.com/blog/uso-avanzado-de-la-etiqueta-html-img-para-multimedia/ revisar -->
 <!-- https://nucleoapp.com/svg-flag-icons -->
 
 <article class="text-color w-72 p-4 rounded-[28px] active:bg-[#0e0e20] hover:scale-105 transition-transform border border-default relative">
     <div class="w-full">
         <figure class="w-full mb-2 overflow">
-            <img class="object-cover w-full aspect-square rounded-xl" src="speakers/Claudio.jpeg" alt="Primer ponente">
-            <img class="absolute blur-lg -z-10 block object-cover w-full aspect-square transition-all opacityImage bg-white rounded-[10px] top-0 lef-0 right-0" src="speakers/Claudio.jpeg" alt="Primer ponente">
+            <!-- <picture>
+                <source srcset="/url en avif" type="image/avif">
+                <source srcset="/url en webp" type="image/webp">
+                <img src="/url en el formato cualquiera" alt="" decoding="async" loading="lazy">
+            </picture> -->
+            <img class="object-cover w-full aspect-square rounded-xl" src={link_image.src} alt={alt} decoding="async" loading="lazy">
+            <img class="absolute blur-lg -z-10 block object-cover w-full aspect-square transition-all opacityImage bg-white rounded-[10px] top-0 lef-0 right-0" src={link_image.src} alt={alt} decoding="async" loading="lazy">
         </figure>
         <div class="relative">
             <h4 class="font-bold tracking-wider text-lg">
