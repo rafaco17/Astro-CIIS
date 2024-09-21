@@ -1,89 +1,108 @@
 ---
-import FlagBrazil from "../../../public/icons/FlagBrazil.astro"
 import CardSpeakers from "./components/CardSpeakers.astro"
+import { FlagArgentina, FlagBolivia, FlagBrazil, FlagChile, FlagPeru, FlagSouthKorea } from '../../../public/icons/flags/index.astro'
+import { ImageAlfredo, ImageCesar, ImageClaudioMeneses, ImageEric, ImageFerdinand, ImageRene, ImageRicardo, ImageYeonsoon } from '../../../public/speakers/index.astro'
 ---
 
 <section class="">
-    <div class="m-auto max-w-5xl pb-10">
+    <div class="m-auto max-w-5xl pb-16">
         <h2 class="text-2xl font-bold text-center text-secondary sm:text-6xl">
             Conoce a nuestros<span class="text-primary"> Ponentes</span>
-          </h2>
+        </h2>
     </div>
     <div class="m-auto max-w-5xl grid gap-y-8 grid-cols-1 lg:grid-cols-3 sm:grid-cols-2">
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
+            <CardSpeakers 
+                nameSpeaker="Rafhael Isaias" 
+                rolSpeaker="Empresario de Pornhub" 
+                link_image={ImageYeonsoon} 
+                alt="Imagen del ponente Yeonsoon">
+                <FlagSouthKorea slot="icon" />
             </CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
+            <CardSpeakers 
+                nameSpeaker="Rafhael Isaias" 
+                rolSpeaker="Empresario de Pornhub" 
+                link_image={ImageRicardo} 
+                alt="Imagen del ponente Ricardo">
+                <FlagChile slot="icon" />
             </CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
+            <CardSpeakers 
+                nameSpeaker="Rafhael Isaias" 
+                rolSpeaker="Empresario de Pornhub" 
+                link_image={ImageRene} 
+                alt="Imagen del ponente Rene">
+                <FlagBolivia slot="icon" />
             </CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
+            <CardSpeakers 
+                nameSpeaker="Rafhael Isaias" 
+                rolSpeaker="Empresario de Pornhub" 
+                link_image={ImageFerdinand} 
+                alt="Imagen del ponente Ferdinand">
+                <FlagPeru slot="icon" />
             </CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
+            <CardSpeakers 
+                nameSpeaker="Rafhael Isaias" 
+                rolSpeaker="Empresario de Pornhub" 
+                link_image={ImageEric} 
+                alt="Imagen del ponente Eric">
+                <FlagArgentina slot="icon" />
             </CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
+            <CardSpeakers 
+                nameSpeaker="Rafhael Isaias" 
+                rolSpeaker="Empresario de Pornhub" 
+                link_image={ImageClaudioMeneses} 
+                alt="Imagen del ponente Claudio">
+                <FlagChile slot="icon" />
             </CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
+            <CardSpeakers 
+                nameSpeaker="Rafhael Isaias" 
+                rolSpeaker="Empresario de Pornhub" 
+                link_image={ImageCesar}
+                alt="Imagen del ponente Cesar">
+                <FlagPeru slot="icon" />
             </CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
+            <CardSpeakers 
+                nameSpeaker="Rafhael Isaias" 
+                rolSpeaker="Empresario de Pornhub" 
+                link_image={ImageAlfredo}
+                alt="Imagen del ponente Alfredo">
+                <FlagPeru slot="icon" />
             </CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
-            </CardSpeakers>
+            <CardSpeakers></CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
-            </CardSpeakers>
+            <CardSpeakers></CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
-            </CardSpeakers>
+            <CardSpeakers></CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
-            </CardSpeakers>
+            <CardSpeakers></CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
-            </CardSpeakers>
+            <CardSpeakers></CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
-            </CardSpeakers>
+            <CardSpeakers></CardSpeakers>
         </div>
         <div class="m-auto animation-view">
-            <CardSpeakers nameSpeaker="Rafhael Isaias" rolSpeaker="Empresario de Pornhub">
-                <FlagBrazil slot="icon" />
-            </CardSpeakers>
+            <CardSpeakers></CardSpeakers>
         </div>
     </div>
 </section>
@@ -108,7 +127,7 @@ import CardSpeakers from "./components/CardSpeakers.astro"
         animation: portfolio both;
         animation-timeline: view();
         animation-range-start: cover 0%;
-        animation-range-end: contain 20%;
+        animation-range-end: contain 40%;
     }
 
     @keyframes portfolio {
