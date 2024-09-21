@@ -5,12 +5,16 @@ interface PropsTopics {
   image2: string
 }
 
-export const Card = ({ name, description, image1, image2 }: PropsTopics) => {
+import { useColorWithOpacity } from "../../../utilities/use-color-with-opacity";
+import { Color } from "../../../models/colors";
 
+export const Card = ({ name, description, image1, image2 }: PropsTopics) => {
+  const color_card = Color.COLOR_TEXT_PRIMARY_ACTIVE;
+  const bg_primary = useColorWithOpacity(color_card, 0.5);
   const topicName = name.length;
   const translateProperty = topicName < 26 ? "group-hover:translate-y-10" : "group-hover:translate-y-1/2"
   return (
-    <div className={`h-80 relative flex items-center justify-center py-5 transition-all duration-500 border rounded-2xl group px-7 bg-[rgba(0,153,255,0.3)] border-[rgb(0,153,255)]  cursor-crosshair`}>
+    <div style={{ backgroundColor: bg_primary }} className={`h-80 relative flex items-center justify-center py-5 transition-all duration-500 border rounded-2xl group px-7 border-[rgb(0,153,255)]  cursor-crosshair`}>
       <p className={`absolute w-full text-2xl font-bold text-center text-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[20ch] transition-all duration-500 z-[60] ${translateProperty} group-hover:text-lg`}>
         {name}
       </p>
