@@ -23,6 +23,7 @@ const { title } = Astro.props;
 	<body>
 		<Header client:load/>
 		<slot />	
+		<Footer />
 	</body>
 </html>
 <style is:global>
@@ -117,7 +118,8 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background-image: var(--color-bg);
+		/* background-image: var(--color-bg); */
+		background-color: #000415;
 		color: var(--color-text-secondary-default)
 	}
 	code {
