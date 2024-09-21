@@ -1,12 +1,12 @@
 ---
-import { Card } from "./components/Card";
+import Card from "./components/Card.astro";
 import { topic } from "../topics/services/topics";
 ---
 
 <section id="topics" class="px-4 pt-24">
   <section
     id="topics"
-    class="pt-24 bg_button shadow_button rounded-[40px] max-w-screen-xl mx-auto px-4"
+    class="pt-24 rounded-[40px] max-w-screen-xl mx-auto px-4"
   >
     <h2 class="text-2xl font-bold text-center text-primary sm:text-6xl">
       Descubre las tendencias<span class="text-secondary">
@@ -47,15 +47,6 @@ import { topic } from "../topics/services/topics";
     -webkit-text-fill-color: transparent;
     background-size: 400%;
     background-position: 0%;
-  }
-  .bg_button {
-    background-image: linear-gradient(180deg, #3152df95, #1e254595);
-  }
-  .shadow_button {
-    box-shadow:
-      inset 0 6px 12px #4c64d2,
-      0 0 17px rgba(110, 137, 255, 0.77),
-      inset 0 1px 10px hsla(0, 0%, 100%, 0.55);
   }
   .bg_primary {
     background-color: rgba(0, 153, 255, 0.3);

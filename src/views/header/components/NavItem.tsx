@@ -18,3 +18,4 @@ export const NavItem = ({ name, icon, href }: NavItemProps) => {
         </>
     );
 };
+
