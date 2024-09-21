@@ -1,0 +1,30 @@
+---
+interface Props {
+    title: string,
+    descriptions: string[]
+}
+const { title, descriptions } : Props = Astro.props
+---
+<div class="w-full">
+    <h4 class="text-2xl font-semibold tracking-wide pb-6 text-white/90">{title}</h4>
+    <ul class="text-white/50 pl-12 space-y-4">
+        {descriptions.map((description: string) => (
+            <li class="list-style">{description}</li>
+        ))}
+    </ul>
+</div>
+
+<style>
+    .list-style {
+        list-style: none;
+    }
+    .list-style::before {
+        content: '✨';
+        scale: 1.6;
+        color: white;
+        display: inline-block;
+        width: 2.5em;
+        margin-left: -2.5em;
+        opacity: 0.8;
+    }
+</style>

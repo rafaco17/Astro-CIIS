@@ -1,0 +1,65 @@
+---
+import SectionAboutUs from "./components/SectionAboutUs.astro"
+import SectionAside from "./components/SectionAside.astro"
+import SectionImages from "./components/SectionImages.astro"
+import { ImageAlfredo } from "../../../public/speakers/index.astro"
+import { Companieros_One, Companieros_Two, Docentes, Robot } from "../../../public/memories/index.astro"
+---
+
+<footer class="w-full pt-6 footer-text-color footer-border-color animation-view">
+    <div class="m-auto flex justify-center max-w-[1360px] space-x-12">
+        <SectionAboutUs 
+            title="About Us" 
+            description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam possimus voluptatem nobis aspernatur architecto eligendi, labore soluta. Molestiae quae debitis tempore praesentium laudantium! Modi nostrum recusandae inventore incidunt minima voluptas?"
+        />
+        <SectionAside 
+            title="Latest Tweet"
+            descriptions={[
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum minima, a, similique qui dolorem ducimus ea eius expedita !",
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum minima, a, similique qui dolorem ducimus ea eius expedita",
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laborum minima, a, similique qui dolorem ducimus ea eius expedita"
+            ]}
+        />
+        <SectionImages title="Instagram" images={[
+            Companieros_One,
+            Companieros_Two,
+            Docentes,
+            Robot,
+        ]}/>
+    </div>
+    <div class="text-center w-full p-6 my-8">
+        @ 2024 CIIS por Círculo de Estudio de la ESIS
+    </div>
+</footer>
+
+<style>
+    .footer-text-color {
+        color: var(--color-text-secondary-default);
+    }
+    .footer-border-color {
+        border-top: 1px solid var(--color-border-primary-default);
+        --tw-border-opacity: 1;
+    }
+    .footer-border-color:hover {
+        border-color: var(--color-border-primary-hover);
+    }
+    .footer-border-color:active {
+        border-color: var(--color-border-primary-active);
+    }
+
+    .animation-view {
+        animation: portfolio both;
+        animation-timeline: view();
+        animation-range-start: cover 0%;
+        animation-range-end: contain 40%;
+    }
+
+    @keyframes portfolio {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>

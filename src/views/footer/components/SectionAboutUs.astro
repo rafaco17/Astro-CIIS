@@ -1,0 +1,42 @@
+---
+import IconMessage from "../../../../public/icons/IconMessage.astro"
+import IconPhone from "../../../../public/icons/IconPhone.astro"
+import SocialNetwork from "./SocialNetwork.astro"
+import SpanWithIcon from "./SpanWithIcon.astro"
+import { Color } from "../../../models/colors"
+
+const iconColor = Color.COLOR_ICON_PRIMARY_DEFAULT
+
+interface Props {
+    title: string,
+    description: string
+}
+
+const { title, description }: Props = Astro.props
+
+---
+<div class="w-full">
+    <h4 class="text-2xl font-semibold tracking-wide pb-6 text-white/90">{title}</h4>
+    <p class="text-white/50 text-base">{description}</p>
+    <div class="mt-6 space-y-2">
+        <SpanWithIcon description="+51 987122182">
+            <IconPhone 
+                fill={iconColor} 
+                stroke="#000" 
+                size={6} 
+                slot='icon'
+            />
+        </SpanWithIcon>
+        <SpanWithIcon description="info@gmail.com">
+            <IconMessage 
+                fill={iconColor} 
+                stroke="#000" 
+                size={6} 
+                slot='icon'
+            />
+        </SpanWithIcon>
+    </div>
+    <div class="mt-8">
+        <SocialNetwork />
+    </div>
+</div>
