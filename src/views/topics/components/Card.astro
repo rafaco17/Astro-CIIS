@@ -16,7 +16,7 @@ const translateProperty =
 
 <div
     style={{ backgroundColor: bg_primary }}
-    class={`h-80 relative flex items-center justify-center py-5 transition-all duration-500 border rounded-2xl group px-7 border-[rgb(0,153,255)]  cursor-crosshair`}
+    class={`animation-view h-80 relative flex items-center justify-center py-5 transition-all duration-500 border rounded-2xl group px-7 border-[rgb(0,153,255)]  cursor-crosshair`}
 >
     <p
         class={`absolute w-full text-2xl font-bold text-center text-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[20ch] transition-all duration-500 z-[60] ${translateProperty} group-hover:text-lg`}
@@ -34,12 +34,30 @@ const translateProperty =
         <Image
             src={image1}
             class="rounded-sm w-auto h-48 drop-shadow-gift border-2 border-white"
-            alt={`Imagen principal del tema ${name}`}
+            alt={`Imagen principal sobre ${name}`}
         />
         <Image
             src={image2}
             class="rounded-sm h-24 w-auto drop-shadow-gift absolute -bottom-0.5 -right-2 border-2 border-white"
-            alt={`Imagen secundaria del tema ${name}`}
+            alt={`Imagen secundaria sobre ${name}`}
         />
     </div>
 </div>
+
+<style>
+    .animation-view {
+        animation: topics both;
+        animation-timeline: view();
+        animation-range-start: cover 0%;
+        animation-range-end: contain 40%;
+    }
+
+    @keyframes topics{
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
