@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import { ImageAnonimo } from "../../../../public/speakers/index.astro"
+type LimitedImages = [ImageMetadata?, ImageMetadata?, ImageMetadata?, ImageMetadata?];
+
+interface Props {
+    title: string,
+    images?: LimitedImages
+}
+
+const { title, images = [] }: Props = Astro.props;
+
+const fullImages = [
+    ...images,
+    ImageAnonimo,
+    ImageAnonimo,
+    ImageAnonimo,
+    ImageAnonimo,
+].slice(0, 4);
+---
+
+<div class="w-full max-w-xl px-4">
+    <h4 class="w-min text-2xl font-semibold tracking-wide pb-6 text-white/90">{title}</h4>
+    <div class="m-auto grid grid-cols-2 gap-4 max-w-72">
+        {fullImages.map((image: ImageMetadata | undefined) => (
+            <div class="w-full overflow">
+                <Image src={image || ImageAnonimo} alt="xdxd" class='object-cover w-full aspect-square rounded-sm'/>
+            </div>
+        ))}
+    </div>
+</div>
