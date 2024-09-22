@@ -1,8 +1,4 @@
-interface NavItemProps {
-    name: string;
-    icon: string;
-    href: string;
-}
+import type NavItemProps from "../adapters/headerAdapter";
 
 export const NavItem = ({ name, icon, href }: NavItemProps) => {
     return (

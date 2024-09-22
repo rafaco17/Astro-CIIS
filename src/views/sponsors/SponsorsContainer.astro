@@ -1,0 +1,43 @@
+---
+import Card from "../sponsors/components/Card.astro";
+import sponsors from "../sponsors/services/sponsors";
+---
+
+<section
+    id="sponsors"
+    class="relative flex flex-col items-center justify-center w-full h-full gap-4 py-20 overflow-hidden rounded-lg max-w-screen-base bg-background"
+>
+    <h2 class="pb-16 text-2xl font-bold text-center text-secondary sm:text-6xl">
+        Conoce a nuestros<span class="text-primary"> Patrocinadores</span>
+    </h2><div
+        class="grid gap-4 md:flex md:flex-wrap md:justify-center md:grid-cols-2 lg:grid-cols-2"
+    >
+        {
+            sponsors.map((sponsor) => (
+                <Card
+                    name={sponsor.name}
+                    description={sponsor.description}
+                    image={sponsor.image}
+                    link={sponsor.link}
+                />
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .text-primary {
+        background-image: var(--accent-gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+    .text-secondary {
+        background-image: var(--accent-gradient-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+</style>
