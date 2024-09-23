@@ -3,7 +3,7 @@ import navItems from "./services/header";
 import { useState } from "react";
 
 export const Header = () => {
-    const styleHeader = "fixed top-0 left-0 right-0 animate-[reduce-header_linear_both] [animation-timeline:scroll()] [animation-range:0_150px]";
+    const styleHeader = "top-0 left-0 right-0 animate-[reduce-header_linear_both] [animation-timeline:scroll()] [animation-range:0_150px]";
     const bgButton = "bg-gradient-to-b from-[#3152df95] to-[#1e254595]";
     const shadowButton =
         "shadow-[inset_0_6px_12px_#4c64d2,0_0_17px_rgba(110,137,255,0.77),inset_0_1px_10px_hsla(0,0%,100%,0.55)]";
@@ -34,7 +34,7 @@ export const Header = () => {
             <header
                 className={`
                     ${styleHeader} m-auto backdrop-blur-[10px] min-[1040px]:backdrop-blur-0 w-full 
-                     overflow-hidden z-[99999] sticky py-8
+                     overflow-hidden z-[99999] fixed py-8
                 `}
             >
                 <div 
