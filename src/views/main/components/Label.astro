@@ -1,0 +1,13 @@
+---
+interface Props {
+    description: string
+}
+const { description } : Props = Astro.props
+---
+
+<div class="flex">
+    <p class="flex items-center justify-center bg-[#2e2e2e]/70 gap-x-2 m-auto px-3 py-1 rounded-full ">
+        <slot name="icon"/>
+        <span class="text-[#7AAEF1] tracking-tighter">{description}</span>    
+    </p>
+</div>

@@ -1,0 +1,41 @@
+---
+interface Props {
+    description: string
+}
+const { description }: Props = Astro.props
+---
+
+<div class="m-auto max-w-[720px] flex flex-col gap-6">
+    <h1 class="text-7xl text-center text-secondary tracking-tighter">  
+        <p class="text-secondary font-bold">
+            Congreso <strong class="font-bold text-primary">Internacional</strong> de <strong class="font-bold text-primary">Informática</strong> y <strong class="font-bold text-primary">Sistemas</strong> XXV
+        </p>
+        <!-- <strong class="text-primary font-bold">
+            Congreso Internacional
+        </strong>
+        <p class="inline-block font-bold">
+            en Informática y Sistemas
+        </p> -->
+    </h1>
+    <span class="text-center text-slate-100/75">{description}</span>
+</div>
+
+<style>
+    .calculate-height {
+        height: calc(100dvh - 224px);
+    }
+    .text-primary {
+        background-image: var(--accent-gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+    .text-secondary {
+        background-image: var(--accent-gradient-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+</style>
