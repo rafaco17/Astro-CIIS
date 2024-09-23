@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import type Props from "../adapters/cardAdapter";
 import FlagArgentina from '../../../../public/icons/flags/FlagArgentina.astro';
 
-const { nameSpeaker = "Ponente por confirmar", rolSpeaker = "Sin descripción", link_image = anonimo, alt = "Ponente Anonimo" }: Props = Astro.props;
+const { nameSpeaker = "Ponente por confirmar", rolSpeaker = "Sin descripción", link_image = "https://i.imgur.com/ORANbku.jpeg", alt = "Ponente Anonimo" }: Props = Astro.props;
 ---
 <!-- https://nelkodev.com/blog/uso-avanzado-de-la-etiqueta-html-img-para-multimedia/ revisar -->
 <!-- https://nucleoapp.com/svg-flag-icons -->
@@ -17,8 +17,8 @@ const { nameSpeaker = "Ponente por confirmar", rolSpeaker = "Sin descripción", 
                     <source srcset="/url en webp" type="image/webp">
                     <img src="/url en el formato cualquiera" alt="" decoding="async" loading="lazy">
                 </picture> -->
-                <Image class="object-cover w-full aspect-square rounded-xl" src={link_image} alt={alt}></Image>
-                <Image class="absolute blur-lg -z-10 block object-cover w-full aspect-square transition-all opacityImage bg-white rounded-[10px] top-0 lef-0 right-0" src={link_image} alt={alt}>
+                <Image class="object-cover w-full aspect-square rounded-xl" width={300} height={300} src={link_image} alt={alt} />
+                <Image class="absolute blur-lg -z-10 block object-cover w-full aspect-square transition-all opacityImage bg-white rounded-[10px] top-0 lef-0 right-0" width={300} height={300} src={link_image} alt={alt} />
             </figure>
             <div class="relative">
                 <h4 class="font-bold tracking-wider text-lg">
@@ -28,7 +28,7 @@ const { nameSpeaker = "Ponente por confirmar", rolSpeaker = "Sin descripción", 
                     <p class="break-words text-sm text-color-secondary">{rolSpeaker}</p>
                 </div>
                 <div class="flex items-center absolute right-0 bottom-0 top-0">
-                    <FlagArgentina slot="icon" />
+                    <slot name="icon"/>
                 </div>
             </div>
         </div>
