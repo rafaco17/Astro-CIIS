@@ -1,6 +1,8 @@
 import type Props from "../adapters/cardAdapter";
 import { ImageAlfredo, ImageCesar, ImageClaudioMeneses } from "../../../assets/speakers/index.astro";
 
+
+
 const speaker = [
     {
         name: "Rafhael Isaias",

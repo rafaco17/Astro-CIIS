@@ -1,43 +1,71 @@
 ---
-import CardSpeakers from "./components/CardSpeakers.astro"
-import { FlagArgentina, FlagBolivia, FlagBrazil, FlagChile, FlagPeru, FlagSouthKorea } from '../../../public/icons/flags/index.astro'
-import { ImageAlfredo, ImageCesar, ImageClaudioMeneses, ImageEric, ImageFerdinand, ImageRene, ImageRicardo, ImageYeonsoon } from '../../assets/speakers/index.astro'
-import speaker from "./services/speaker"
+import CardSpeakers from "./components/CardSpeakers.astro";
+import {
+  FlagArgentina,
+  FlagBolivia,
+  FlagBrazil,
+  FlagChile,
+  FlagPeru,
+  FlagSouthKorea,
+} from "../../../public/icons/flags/index.astro";
+import useSpeakers from "./services/useSpeaker";
+import type Speakers from "./adapters/speakers";
+import type Speaker from "./adapters/speakers";
+
+const speakers: Speakers[] | undefined = await useSpeakers();
 ---
 
 <section id="speakers" class="pt-48">
-    <div class="m-auto max-w-5xl pb-16">
-        <h2 class="text-2xl font-bold text-center text-secondary sm:text-6xl">
-            Conoce a nuestros<span class="text-primary"> Ponentes</span>
-        </h2>
-    </div>
-    <div class="m-auto max-w-5xl grid gap-y-8 grid-cols-1 lg:grid-cols-3 sm:grid-cols-2">
-        {
-            speaker.map((speaker) => (
-                <CardSpeakers 
-                    nameSpeaker={speaker.name} 
-                    rolSpeaker={speaker.description} 
-                    link_image={speaker.image} 
-                    alt="Imagen del ponente Yeonsoon">
-                </CardSpeakers>
-            ))
-        }
-    </div>
+  <div class="m-auto max-w-5xl pb-16">
+    <h2 class="text-2xl font-bold text-center text-secondary sm:text-6xl">
+      Conoce a nuestros<span class="text-primary"> Ponentes</span>
+    </h2>
+  </div>
+  <div
+    class="m-auto max-w-5xl grid gap-y-8 grid-cols-1 lg:grid-cols-3 sm:grid-cols-2"
+  >
+    {
+      speakers?.map((speaker: Speaker) => (
+        <CardSpeakers
+          nameSpeaker={`${speaker.grade} ${speaker.name} ${speaker.lastname}`}
+          rolSpeaker={speaker.description}
+          alt={`Imagen del ponente ${speaker.grade} ${speaker.name} ${speaker.lastname}`}
+          link_image={`${import.meta.env.DOMAIN_BASE}/${speaker.avatar}`}
+        >
+          {speaker.nationality === "Chile" && <FlagChile slot="icon" />}
+          {speaker.nationality === "Peru" && <FlagPeru slot="icon" />}
+          {speaker.nationality === "Corea del Sur" && (
+            <FlagSouthKorea slot="icon" />
+          )}
+          {speaker.nationality === "Bolivia" && <FlagBolivia slot="icon" />}
+          {speaker.nationality === "Argentina" && <FlagArgentina slot="icon" />}
+          {speaker.nationality === "Brasil" && <FlagBrazil slot="icon" />}
+        </CardSpeakers>
+      ))
+    }
+    <CardSpeakers />
+    <CardSpeakers />
+    <CardSpeakers />
+    <CardSpeakers />
+    <CardSpeakers />
+    <CardSpeakers />
+    <CardSpeakers />
+  </div>
 </section>
 
 <style>
-    .text-primary {
-        background-image: var(--accent-gradient-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0%;
-    }
-    .text-secondary {
-        background-image: var(--accent-gradient-secondary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0%;
-    }
+  .text-primary {
+    background-image: var(--accent-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .text-secondary {
+    background-image: var(--accent-gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
 </style>
