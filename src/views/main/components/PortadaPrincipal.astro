@@ -8,7 +8,7 @@ import Label from "./Label.astro"
 
 ---
 
-<div class="m-auto h-dvh max-w-4xl pt-36 z-50">
+<div class="m-auto h-dvh max-w-4xl pt-36 z-50 relative">
     <dir class="mb-5">
         <Label description="Del 10 al 11 de noviembre">
             <IconStar size={5} fill="#7AAEF1" slot="icon"/>
@@ -19,7 +19,7 @@ import Label from "./Label.astro"
     <div class="mb-4">
         <Counter eventDate="2024-11-11T13:30:00Z" client:load/>
     </div>
-    <FlagsContainer />
+    <FlagsContainer props="absolute bottom-8 right-0 left-0"/>
 </div>
 
 <style>
