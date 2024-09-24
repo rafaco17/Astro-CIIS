@@ -4,7 +4,17 @@ const { title1, title2, description } = Astro.props;
 ---
 
 <div class="w-52 p-4 text-center z-10">
-    <h2 class="text-5xl font-bold mb-2.5 text-white">{title1}</h2>
-    <div class="text-2xl font-bold mt-4 text-white">{title2}</div>
-    <div class="text-sm mt-4">{description}</div>
+    <h2 class="text-5xl font-bold mb-2.5 text-white italic">{title1}</h2>
+    <div class="text-2xl font-bold mt-4 text-primary">{title2}</div>
+    <div class="text-sm mt-4 tracking-tight text-slate-100/85">{description}</div>
 </div>
+
+<style>
+    .text-primary {
+        background-image: var(--accent-gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+</style>
