@@ -6,12 +6,12 @@ import TitleMain from "./Counter/TitleMain.astro"
 import FlagsContainer from "./FlagsContainer.astro"
 import Label from "./Label.astro"
 ---
-<video autoplay muted loop id="myVideo" class="opacity-30 absolute inset-0 w-full h-full object-cover backdrop-blur-sm">
-    <source src="video.mp4" type="video/mp4" media="(min-width: 1024px)">
-    <source src="0923.mp4" type="video/mp4">
-</video>
 
-<div class="m-auto h-dvh max-w-4xl pt-36 z-50 relative">
+
+<div class="m-auto h-auto w-full pt-36 z-50 relative sm:h-dvh">
+    <video autoplay muted loop id="myVideo" class="opacity-30 absolute inset-0 w-full h-full object-cover backdrop-blur-sm -z-30">
+        <source src="video.mp4" type="video/mp4">
+    </video>
     <dir class="mb-5">
         <Label description="Del 10 al 11 de noviembre">
             <IconStar size={5} fill="#7AAEF1" slot="icon"/>
