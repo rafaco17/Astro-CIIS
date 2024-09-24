@@ -5,10 +5,13 @@ import Counter from "./Counter/Counter"
 import TitleMain from "./Counter/TitleMain.astro"
 import FlagsContainer from "./FlagsContainer.astro"
 import Label from "./Label.astro"
-
 ---
 
-<div class="m-auto h-dvh max-w-4xl pt-36 z-50 relative">
+
+<div class="m-auto h-auto w-full pt-36 z-50 relative sm:h-dvh">
+    <video autoplay muted loop id="myVideo" class="opacity-30 absolute inset-0 w-full h-full object-cover backdrop-blur-sm -z-30">
+        <source src="video.mp4" type="video/mp4">
+    </video>
     <dir class="mb-5">
         <Label description="Del 10 al 11 de noviembre">
             <IconStar size={5} fill="#7AAEF1" slot="icon"/>
@@ -19,13 +22,14 @@ import Label from "./Label.astro"
     <div class="mb-4 text-focus-in">
         <Counter eventDate="2024-11-11T13:30:00Z" client:load/>
     </div>
-    <FlagsContainer props="absolute bottom-8 right-0 left-0"/>
+    <FlagsContainer props="static bottom-8 right-0 left-0 sm:absolute"/>
 </div>
 
 <style>
     .calculate-height {
         height: calc(100dvh - 224px);
     }
+
     .text-primary {
         background-image: var(--accent-gradient-primary);
         -webkit-background-clip: text;
@@ -33,6 +37,7 @@ import Label from "./Label.astro"
         background-size: 400%;
         background-position: 0%;
     }
+
     .text-secondary {
         background-image: var(--accent-gradient-secondary);
         -webkit-background-clip: text;
