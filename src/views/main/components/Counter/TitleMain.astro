@@ -5,17 +5,19 @@ interface Props {
 const { description }: Props = Astro.props
 ---
 
-<div class="m-auto max-w-[720px] flex flex-col gap-6">
+<div class="m-auto max-w-[720px] flex flex-col gap-6 text-focus-in">
     <h1 class="text-7xl text-center text-secondary tracking-tighter">  
         <p class="text-secondary font-bold">
-            Congreso <strong class="font-bold text-primary">Internacional</strong> de <strong class="font-bold text-primary">Informática</strong> y <strong class="font-bold text-primary">Sistemas</strong> XXV
+            Congreso <strong class="font-bold text-primary">Internacional</strong> 
         </p>
-        <!-- <strong class="text-primary font-bold">
-            Congreso Internacional
-        </strong>
-        <p class="inline-block font-bold">
-            en Informática y Sistemas
-        </p> -->
+        
+        <p class="text-secondary font-bold">
+            de <strong class="font-bold text-primary">Informática</strong> y
+        </p>
+
+        <p class="text-secondary font-bold">
+            <strong class="font-bold text-primary">Sistemas</strong> XXV
+        </p>
     </h1>
     <span class="text-center text-slate-100/75">{description}</span>
 </div>
@@ -38,4 +40,35 @@ const { description }: Props = Astro.props
         background-size: 400%;
         background-position: 0%;
     }
+
+    .text-focus-in {
+	    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+    @-webkit-keyframes text-focus-in {
+        0% {
+            -webkit-filter: blur(12px);
+                    filter: blur(12px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-filter: blur(0px);
+                    filter: blur(0px);
+            opacity: 1;
+        }
+    }
+    @keyframes text-focus-in {
+        0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+        }
+        100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+        }
+    }
+
 </style>
