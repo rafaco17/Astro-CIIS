@@ -5,13 +5,12 @@ import sponsors from "../sponsors/services/sponsors";
 
 <section
     id="sponsors"
-    class="pt-40 sm:pt-48 relative flex flex-col items-center justify-center w-full h-full gap-4 py-20 overflow-hidden rounded-lg max-w-screen-base bg-background"
+    class="pt-40 sm:pt-48 relative flex flex-col items-center justify-center w-full h-full gap-4 py-20 rounded-lg"
 >
-    <h2 class="pb-16 text-4xl font-bold text-center text-secondary sm:text-6xl">
+    <h2 class="pb-16 text-4xl font-bold text-center text-secondary sm:text-6xl slide-top">
         Conoce a nuestros<span class="text-primary"> Auspiciadores</span>
-    </h2><div
-        class="grid gap-4 md:flex md:flex-wrap md:justify-center md:grid-cols-2 lg:grid-cols-2"
-    >
+    </h2>
+    <div class="grid gap-4 md:flex md:flex-wrap md:justify-center md:grid-cols-2 lg:grid-cols-2">
         {
             sponsors.map((sponsor) => (
                 <Card
@@ -40,4 +39,26 @@ import sponsors from "../sponsors/services/sponsors";
         background-size: 400%;
         background-position: 0%;
     }
+
+    .slide-top {
+    animation: slide-top both;
+    animation-timeline: view();
+    animation-range-start: cover 0%;
+    animation-range-end: contain 40%;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+  @keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(-100px);
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 </style>
