@@ -1,34 +1,28 @@
-
 const aboutCIIS = [
     {
         title1: "15",
         title2: "Ponencias", 
-        description: "¡Con importantes ponentes internacionales se tendrán 15 ponencias°"
-
+        description: "15 ponencias con destacados expertos internacionales. ¡No te las pierdas!"
     },
     {
         title1: "25va",
         title2: "Edición", 
-        description: "Con 24 años de trayectoria, el CIIS continua reuniendo ponentes de todas partes del mundo"
-
+        description: "25 años reuniendo a los mejores ponentes del mundo. ¡Únete a la celebración!"
     },
     {
         title1: "9",
         title2: "Temáticas", 
-        description: "¡Variedad en las temáticas! En esta 25va han sido confirmadas 9 temáticas de actualidad"
-
+        description: "9 temas actuales que no querrás perderte. ¡Explora lo último en tecnología!"
     },
     {
         title1: "5",
         title2: "Talleres", 
-        description: "!Contaremos con talleres! En esta 25va han sido confirmados 5 importantes talleres."
-
+        description: "5 talleres clave confirmados. ¡Desarrolla nuevas habilidades!"
     },
     {
         title1: "3",
         title2: "Concursos", 
-        description: "!Participa en nuestros concursos! 3 estarán disponbles, ¿te atreverás a participar?"
-
+        description: "3 concursos emocionantes. ¿Estás listo para el desafío?"
     },
 ]
 

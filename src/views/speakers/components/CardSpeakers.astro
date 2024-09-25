@@ -1,15 +1,22 @@
 ---
-import anonimo from '../../../../public/speakers/anonimo.webp'
-import { Image } from 'astro:assets';
+import anonimo from "../../../../public/speakers/anonimo.webp";
+import { Image } from "astro:assets";
 import type Props from "../adapters/cardAdapter";
-import FlagArgentina from '../../../../public/icons/flags/FlagArgentina.astro';
+import FlagArgentina from "../../../../public/icons/flags/FlagArgentina.astro";
 
-const { nameSpeaker = "Ponente por confirmar", rolSpeaker = "Sin descripción", link_image = "https://i.imgur.com/ORANbku.jpeg", alt = "Ponente Anonimo" }: Props = Astro.props;
+const {
+    nameSpeaker = "Ponente por confirmar",
+    rolSpeaker = "Sin descripción",
+    link_image = "https://i.imgur.com/ORANbku.jpeg",
+    alt = "Ponente Anonimo",
+}: Props = Astro.props;
 ---
-<!-- https://nelkodev.com/blog/uso-avanzado-de-la-etiqueta-html-img-para-multimedia/ revisar -->
-<!-- https://nucleoapp.com/svg-flag-icons -->
+
+<!-- https://nelkodev.com/blog/uso-avanzado-de-la-etiqueta-html-img-para-multimedia/ revisar --><!-- https://nucleoapp.com/svg-flag-icons -->
 <div class="m-auto animation-view">
-    <article class="text-color w-72 p-4 rounded-[28px] active:bg-[#0e0e20] hover:scale-105 transition-transform border border-default relative">
+    <article
+        class="text-color w-72 p-4 rounded-[28px] active:bg-[#0e0e20] hover:scale-105 transition-transform border border-default relative"
+    >
         <div class="w-full">
             <figure class="w-full mb-2 overflow">
                 <!-- <picture>
@@ -17,18 +24,32 @@ const { nameSpeaker = "Ponente por confirmar", rolSpeaker = "Sin descripción", 
                     <source srcset="/url en webp" type="image/webp">
                     <img src="/url en el formato cualquiera" alt="" decoding="async" loading="lazy">
                 </picture> -->
-                <Image class="object-cover w-full aspect-square rounded-xl" width={300} height={300} src={link_image} alt={alt} />
-                <Image class="absolute blur-lg -z-10 block object-cover w-full aspect-square transition-all opacityImage bg-white rounded-[10px] top-0 lef-0 right-0" width={300} height={300} src={link_image} alt={alt} />
+                <Image
+                    class="object-cover w-full aspect-square rounded-xl"
+                    width={300}
+                    height={300}
+                    src={link_image}
+                    alt={alt}
+                />
+                <Image
+                    class="absolute blur-lg -z-10 block object-cover w-full aspect-square transition-all opacityImage bg-white rounded-[10px] top-0 lef-0 right-0"
+                    width={300}
+                    height={300}
+                    src={link_image}
+                    alt={alt}
+                />
             </figure>
             <div class="relative">
                 <h4 class="font-bold tracking-wider text-lg">
                     {nameSpeaker}
                 </h4>
                 <div class="flex-wrap max-w-52">
-                    <p class="break-words text-sm text-color-secondary">{rolSpeaker}</p>
+                    <p class="break-words text-sm text-color-secondary">
+                        {rolSpeaker}
+                    </p>
                 </div>
                 <div class="flex items-center absolute right-0 bottom-0 top-0">
-                    <slot name="icon"/>
+                    <slot name="icon" />
                 </div>
             </div>
         </div>
@@ -41,7 +62,7 @@ const { nameSpeaker = "Ponente por confirmar", rolSpeaker = "Sin descripción", 
     }
 
     .text-color-secondary {
-        color: var(--color-text-secondary-active)
+        color: var(--color-text-secondary-active);
     }
     .opacityImage {
         opacity: 0.4;
