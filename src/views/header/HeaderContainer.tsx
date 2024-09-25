@@ -1,8 +1,6 @@
 import { NavItem } from "./components/NavItem";
 import navItems from "./services/header";
 import { useState } from "react";
-import { Color } from "../../models/colors";
-import { useColorWithOpacity } from "../../utilities/use-color-with-opacity";
 import LoginContainer from "../login/LoginContainer";
 
 export const Header = () => {
@@ -13,16 +11,13 @@ export const Header = () => {
     const shadowButtonHover =
         "hover:shadow-[inset_0_6px_12px_#4c64d2,_0_0_34px_rgba(110,137,255,0.77),_inset_0_1px_10px_hsla(0,0%,100%,0.55)]";
 
-    const colorOverlay = Color.COLOR_BG_SURFACE_PRIMARY_CURRENT;
-    const bg_overlay = useColorWithOpacity(colorOverlay, 0.7);
-
     const [menu, setMenu] = useState(true);
 
     const handleMenuToggle = () => {
         setMenu(!menu);
     };
 
-    const [login, setLogin] = useState(false);
+    const [login, setLogin] = useState(true);
 
     const handleLogin = () => {
         setLogin(!login);
@@ -44,12 +39,7 @@ export const Header = () => {
                 }`}
             </style>
             <section>
-                {
-                    login ? <div style={{ backgroundColor: bg_overlay }} className={`w-dvw h-dvh overflow-hidden fixed z-[9999]`}>
-                        <LoginContainer />
-                    </div> :
-                        null
-                }
+                <LoginContainer disabled={login} handleLogin={handleLogin} />
             </section>
             <header
                 className={`
@@ -67,7 +57,7 @@ export const Header = () => {
                         title="Ir a la página principal"
                         aria-label="Ir a la página principal"
                     >
-                        <img src="/LOGOCIIS.png" alt="Logo del CIIS XXV" width="112" height="112" />
+                        <img src="/LOGOCIIS.svg" alt="Logo del CIIS XXV" width="112" height="112" />
                     </a>
                     <nav
                         id=":R16:"
