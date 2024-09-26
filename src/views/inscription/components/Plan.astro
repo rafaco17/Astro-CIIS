@@ -10,23 +10,21 @@ const { name, description, price, src }: Props = Astro.props;
 ---
 
 <div
-    class={`p-1 bg-red-50  w-[350px] h-[450px] rounded-md hover:scale-105 transition-transform bg-gradient-to-r from-[#e0e0e0] via-[#c0c0c0] to-[#909090]`}
+    class={`w-[350px] h-[450px] rounded-xl hover:scale-105 transition-transform overflow-hidden`}
 >
     <div
-        class="w-full h-full bg-[#000415] overflow-hidden flex flex-col justify-center items-center pb-6"
+        class="w-full h-full  overflow-hidden flex flex-col justify-center items-center pb-6 bg-[#0e0e20]"
     >
         <div class="w-full h-1/2 relative">
             <img
                 src={src}
-                class="object-cover h-full w-full opacity-30 blur-sm"
+                class="object-cover h-full w-full opacity-50 blur-sm"
                 alt="Background"
             />
             <div
                 class="absolute inset-0 flex flex-col justify-center items-center z-50 text-center"
             >
-                <div
-                    class={`text-3xl font-bold p-1 mb-3 `}
-                >
+                <div class={`text-3xl font-bold p-1 mb-3 `}>
                     {name}
                 </div>
 
@@ -36,15 +34,17 @@ const { name, description, price, src }: Props = Astro.props;
                 <div class={`mt-2 text-5xl font-bold`}>{`S/. ${price}`}</div>
             </div>
         </div>
-        <div class="w-full h-1/2 p-4 flex flex-col items-center justify-between">
+        <div
+            class="w-full h-1/2 p-4 flex flex-col items-center justify-between"
+        >
             <ul class="planBenefits">
                 <li>Certificado de 120 horas</li>
                 <li>Kit de herramientas útiles en tu asistencia al evento</li>
             </ul>
-            <button class="w-1/2 bg-slate-900 py-2 text-white rounded-md">
+            <button class="w-1/2 bg-[#3e5ba380] py-2 text-white rounded-md font-bold">
                 !Lo quiero!
             </button>
-        </div>     
+        </div>
     </div>
 </div>
 
@@ -69,4 +69,3 @@ const { name, description, price, src }: Props = Astro.props;
         margin-right: 10px;
     }
 </style>
-
