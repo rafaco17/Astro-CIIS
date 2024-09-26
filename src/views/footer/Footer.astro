@@ -1,0 +1,65 @@
+---
+import SectionAboutUs from "./components/SectionAboutUs.astro"
+import SectionAside from "./components/SectionAside.astro"
+import SectionImages from "./components/SectionImages.astro"
+import { ImageAlfredo } from "../../../public/speakers/index.astro"
+import { Companieros_One, Companieros_Two, Docentes, Robot } from "../../../public/memories/index.astro"
+---
+
+<footer class="w-full pt-6 footer-text-color footer-border-color animation-view">
+    <div class="m-auto flex justify-center items-start max-w-[1360px] space-x-0 lg:space-x-12 flex-col lg:flex-row ">
+        <SectionAboutUs 
+            title="Sobre Nosotros" 
+            description="El 25° Congreso Internacional de Informática y Sistemas (CIIS) reúne a expertos de todo el mundo para discutir los avances en Informática y Sistemas, con énfasis en IA, IoT, Ciencia de Datos, Ciberseguridad y Robótica. Ofrecerá conferencias, talleres y presentaciones de investigación, fomentando la colaboración interdisciplinaria en el sur del Perú."
+        />
+        <SectionAside 
+            title="Objetivos del CIIS XXV"
+            descriptions={[
+                "Fomentar el intercambio de conocimientos para desarrollar soluciones tecnológicas en áreas emergentes como IA y Robótica.",
+                "Difundir investigaciones y aplicaciones que impulsen la transformación digital y el bienestar social.",
+                "Promover la colaboración internacional, creando oportunidades para proyectos futuros de investigación y desarrollo."
+            ]}
+        />
+        <SectionImages title="Galería" images={[
+            Companieros_One,
+            Companieros_Two,
+            Robot,
+            Docentes,
+        ]}/>
+    </div>
+    <div class="text-center w-full p-6 my-8">
+        @ 2024 CIIS por Círculo de Estudio de la ESIS
+    </div>
+</footer>
+
+<style>
+    .footer-text-color {
+        color: var(--color-text-secondary-default);
+    }
+    .footer-border-color {
+        border-top: 1px solid var(--color-border-primary-default);
+        --tw-border-opacity: 1;
+    }
+    .footer-border-color:hover {
+        border-color: var(--color-border-primary-hover);
+    }
+    .footer-border-color:active {
+        border-color: var(--color-border-primary-active);
+    }
+
+    .animation-view {
+        animation: portfolio both;
+        animation-timeline: view();
+        animation-range-start: cover 0%;
+        animation-range-end: contain 40%;
+    }
+
+    @keyframes portfolio {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>

@@ -1,0 +1,46 @@
+---
+import IconFacebook from "../../../../public/icons/IconFacebook.astro"
+import IconLinkedin from "../../../../public/icons/iconLinkedin.astro"
+import IconYoutube from "../../../../public/icons/IconYoutube.astro"
+import { Color } from "../../../models/colors"
+
+const iconColor = Color.COLOR_ICON_SECONDARY_DEFAULT
+---
+
+<div class="flex gap-2">
+    <a 
+        href="https://www.facebook.com/ciistacna" 
+        target="_blank" 
+        rel="external noopener nofollow" 
+        class='p-[6px] background-fill rounded-full hover:scale-110'>
+        <IconFacebook fill={iconColor} size={5} />
+    </a>
+    <a 
+        href="https://www.youtube.com/@ciistacna" 
+        target="_blank" 
+        rel="external noopener nofollow" 
+        class='p-[6px] background-fill rounded-full hover:scale-110'>
+        <IconYoutube fill={iconColor} size={5} />
+    </a>
+    <a 
+        href="https://www.linkedin.com/in/congreso-internacional-de-inform%C3%A1tica-y-sistemas-a33bb5226/?originalSubdomain=pe" 
+        target="_blank" 
+        rel="external noopener nofollow" 
+        class='p-[6px] background-fill rounded-full hover:scale-110'>
+        <IconLinkedin fill={iconColor} size={5} />
+    </a>
+</div>
+
+<style>
+    .background-fill {
+        background-color: var(--color-bg-fill-secondary-default);
+    }
+
+    .background-fill:hover {
+        background-color: var(--color-bg-fill-secondary-hover);
+    }
+
+    .background-fill:active {
+        background-color: var(--color-bg-fill-secondary-active);
+    }
+</style>

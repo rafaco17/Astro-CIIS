@@ -12,10 +12,10 @@ interface PropsCardCounter {
 const CardCounter = ({time, description}: PropsCardCounter) => {
     return (
         <div className="flex flex-col">
-            <div style={{ backgroundColor: rgbaColor }} className="text-2xl px-4 py-2 rounded-t-lg font-bold tracking-wider">
+            <div className="text-4xl px-4 rounded-t-lg font-bold tracking-wider">
                 {time}
             </div>
-            <span style={{ backgroundColor: rgbaColorBase }} className="block text-xs w-full text-center rounded-b-lg pb-1">
+            <span className="block text-xs text-slate-300 w-full text-center rounded-b-lg pb-1">
                 {description}
             </span>
         </div>

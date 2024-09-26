@@ -1,14 +1,9 @@
 ---
-import { Robot } from "../header/components/Robot";
 import Counter from "./components/Counter/Counter";
 import PortadaPrincipal from "./components/PortadaPrincipal.astro";
 const eventDate = '2024-11-11T13:30:00Z';
 ---
 
-<div class="w-full relative">
+<div id="main">
     <PortadaPrincipal />
-    <div class="block absolute right-2 bottom-0">
-        <Counter eventDate={eventDate} client:load/>
-    </div>
-    <!-- <Robot client:load/> -->
 </div>

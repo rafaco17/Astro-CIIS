@@ -27,7 +27,7 @@ const Counter = ({eventDate}: PropsCounter) => {
     }, [eventDate])
 
     return (
-        <div className="flex gap-x-3 justify-center text-5xl mt-8 transition-transform hover:scale-110 animate-bounce">
+        <div className="flex gap-x-3 justify-center text-5xl mt-8 transition-transform ">
             <CardCounter time={time.remainDays} description="dias"/>
             <CardCounter time={time.remainHours} description="horas"/>
             <CardCounter time={time.remainMinutes} description="minutos"/>
