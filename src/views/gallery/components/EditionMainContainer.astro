@@ -1,0 +1,93 @@
+<section 
+        class="w-full h-screen bg-cover bg-center relative overflow-hidden" 
+        style="background-image: url('/logos/logo-edition-optimiced.webp');">
+    <div class="absolute w-full h-full bg-[#000415]/90 top-0 z-30 grid place-content-center">
+        <div class="m-auto max-w-[720px] flex flex-col gap-6 ">
+            <h1 class="text-5xl text-center text-secondary tracking-tighter tracking-in-contract-bck sm:text-6xl">  
+                <p class=" text-yellow-200 font-extrabold uppercase tracking-wide">
+                    Ediciones
+                </p>
+            </h1>
+            <span class="text-center text-slate-100/75 text-sm sm:text-2xl text-focus-in">"Revive las ediciones pasadas del Congreso Internacional de Informática y Sistemas a través de esta galería. Un recorrido visual por los momentos y recuerdos que han marcado la historia de nuestro evento."</span>
+        </div>
+    </div>
+</section>
+
+
+<style>
+
+    .tracking-in-contract-bck {
+	-webkit-animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    }
+
+    @-webkit-keyframes tracking-in-contract-bck {
+  0% {
+    -webkit-transform: perspective(200px) translateZ(400px);
+            transform: perspective(200px) translateZ(400px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: perspective(200px) translateZ(0);
+            transform: perspective(200px) translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract-bck {
+  0% {
+    -webkit-transform: perspective(200px) translateZ(400px);
+            transform: perspective(200px) translateZ(400px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: perspective(200px) translateZ(0);
+            transform: perspective(200px) translateZ(0);
+    opacity: 1;
+  }
+}
+
+
+    .text-primary {
+        background-image: var(--accent-gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+
+    .text-focus-in {
+	    -webkit-animation: text-focus-in 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+	    animation: text-focus-in 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+    }
+
+    @-webkit-keyframes text-focus-in {
+        0% {
+            -webkit-filter: blur(12px);
+                    filter: blur(12px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-filter: blur(0px);
+                    filter: blur(0px);
+            opacity: 1;
+        }
+    }
+    @keyframes text-focus-in {
+        0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+        }
+        100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+        }
+    }
+</style>
