@@ -24,10 +24,9 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                             <div className="flex items-center mb-6 text-2xl font-semibold justify-between">
                                 <h2>Iniciar sesión</h2>
                                 <button onClick={handleLogin} className="text-gray-400 hover:text-white focus:outline-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.5" stroke="currentColor" className="size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3.5" stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
-
                                 </button>
                             </div>
                             <form className="space-y-4 md:space-y-6" >
