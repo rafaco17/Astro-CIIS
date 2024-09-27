@@ -1,4 +1,6 @@
 ---
+import { PlanSelect } from './PlanSelect';
+
 interface Props {
     name: string;
     description: string;
@@ -41,9 +43,7 @@ const { name, description, price, src }: Props = Astro.props;
                 <li>Certificado de 120 horas</li>
                 <li>Kit de herramientas útiles en tu asistencia al evento</li>
             </ul>
-            <button class="w-1/2 bg-[#3e5ba380] py-2 text-white rounded-md font-bold">
-                !Lo quiero!
-            </button>
+            <PlanSelect plan={name} />
         </div>
     </div>
 </div>
