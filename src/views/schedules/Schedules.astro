@@ -1,0 +1,111 @@
+---
+import CardPonent from "./components/CardPonent.astro"
+
+// Usamos typescript uwu
+
+const data = [
+  {
+    time: '12:00',
+    name: 'Sebastian dadasdad',
+    profession: 'Jugador de LOL',
+    theme: 'Las ventajas de dejar el LOL',
+    img: '',
+    day: 'lunes'
+  },
+  {
+    time: '12:00',
+    name: 'Sebastian Remusgo',
+    profession: 'Jugador de LOL',
+    theme: 'Las ventajas de dejar el LOL',
+    img: '',
+    day: 'martes'
+  },
+  {
+    time: '12:00',
+    name: 'Sebastian Remusgo',
+    profession: 'Jugador de LOL',
+    theme: 'Las ventajas de dejar el LOL',
+    img: '',
+    day: 'miercoles'
+  },
+  {
+    time: '12:00',
+    name: 'Sebastian Remusgo',
+    profession: 'Jugador de LOL',
+    theme: 'Las ventajas de dejar el LOL',
+    img: '',
+    day: 'jueves'
+  },
+]
+
+function scrollToDay(day: string):void {
+  const el = document.getElementById(day)
+  el?.scrollIntoView({ behavior: 'smooth', inline: 'start' })
+}
+
+const styleButton = "px-6 py-2 rounded-lg cursor-pointer card-custom"
+const dayTitle = "text-center text-xl font-bold mb-4 text-blue-500"
+---
+
+<div class="carrucel-custom flex flex-col justify-center items-center mb-24 mx-auto ">
+  <h2 class="text-center font-bold text-4xl mb-4">Agenda</h2>
+  <p class="text-center text-base mb-8">Todas las charlas estan en directo gracias a JohnArDev</p>
+  <div class="w-full flex justify-around mb-5">
+    <a class={styleButton} href="#item-1">Lunes</a> 
+    <a class={styleButton} href="#item-2">Martes</a> 
+    <a class={styleButton} href="#item-3">Miercoles</a> 
+    <a class={styleButton} href="#item-4">Jueves</a> 
+    <a class={styleButton} href="#item-5">Viernes</a> 
+  </div>
+
+  <!-- Carrusel con scroll horizontal -->
+  <div class="w-full overflow-hidden scroll-smooth whitespace-nowrap flex justify-around gap-12 rounded-2xl">
+    <div id="item-1" class="w-full relative flex-shrink-0 flex flex-col items-center justify-center rounded-2xl">
+      <h3 class={dayTitle}>Lunes</h3>
+      {data.map((ponente) => {
+        if (ponente.day === 'lunes') {
+          return (
+            <CardPonent 
+              time={ponente.time}
+              name={ponente.name}
+              profession={ponente.profession}
+              theme={ponente.theme}
+              img={ponente.img}
+            />
+          );
+        }
+      })}
+    </div>
+    
+    <div id="item-2" class="w-full flex-shrink-0 relative flex flex-col items-center justify-center rounded-2xl">
+      <h3 class={dayTitle}>Martes</h3>
+      {data.map((ponente) => {
+        if (ponente.day === 'martes') {
+          return (
+            <CardPonent 
+              time={ponente.time}
+              name={ponente.name}
+              profession={ponente.profession}
+              theme={ponente.theme}
+              img={ponente.img}
+            />
+          );
+        }
+      })}
+    </div>
+  </div>
+
+</div>
+
+<!-- Poner mucho css con estilo uwu -->
+<style>
+  .carrucel-custom {
+    width: 650px;
+  }
+  .card-custom {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .card-custom:hover {
+    background-color: #3235ff
+  }
+</style>
