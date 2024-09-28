@@ -6,3 +6,4 @@ export { default as IconHome } from './IconHome';
 export { default as IconUser } from './IconUser';
 export { default as IconChevronRight} from './IconChevronRight'
 export { default as IconChevronLeft} from './IconChevronLeft'
+export { default as IconOptions} from './IconOptions'

@@ -7,27 +7,26 @@ import {
   IconHome,
   IconUser,
   IconChevronRight,
-  IconChevronLeft,
-} from "../../../../../public/icons/private";
+  IconChevronLeft,IconOptions
+} from "../../../../assets/private";
 import ItemSideBar from "./components/item-sidebar";
 import { SideBarProvider } from "./context/SideBarProvider";
 import generateSkin from "../../services/generateSkin";
 
-const SideBarPanel = () => {
+interface SideBarProps {
+  nameUser: string,
+  emailUser: string,
+  itemStates: boolean[];
+  setItemStates: React.Dispatch<React.SetStateAction<boolean[]>>;
+}
+
+const SideBarPanel = ({ nameUser, emailUser, itemStates, setItemStates }:SideBarProps) => {
   const [expanded, setExpanded] = useState(true);
-  const [itemStates, setItemStates] = useState([
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
   const [avatarUrl, setAvatarUrl] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
 
   const userFeatures = {
-    name: "Rafhael Isaias Echevarria Mamani",
+    name: nameUser,
     background: "#2e2e2e",
     color: "#7AAEF1",
     size: 48,
@@ -46,7 +45,7 @@ const SideBarPanel = () => {
   }, []);
 
   return (
-    <nav className="h-full border-r border-white/10">
+    <nav className="h-full border-r border-white/10 select-none">
       <div className="flex flex-col justify-between h-full p-4 pb-4">
         <div className="space-y-4">
           <div
@@ -127,11 +126,13 @@ const SideBarPanel = () => {
               <img src={avatarUrl} alt="Avatar del usuario" className="rounded-md" />
             )}
             <div className={`text-base flex flex-col ${!expanded ? "invisible w-0" : "visible"}`}>
-              <p>Rafhael Echevarría</p>
-              <span className="text-xs text-slate-400">riechevarriam@unjbg.edu.pe</span>
+              <p>{nameUser}</p>
+              <span className="text-xs text-slate-400">{emailUser}</span>
             </div>
           </div>
-          <div className={`cursor-pointer ${!expanded ? "invisible w-0" : "visible"}`}>:</div>
+          <div className={`cursor-pointer p-1.5 hover:bg-gray-700 rounded-lg ${!expanded ? "invisible w-0" : "visible"}`}>
+            <IconOptions size={6}/>
+          </div>
         </div>
       </div>
     </nav>
