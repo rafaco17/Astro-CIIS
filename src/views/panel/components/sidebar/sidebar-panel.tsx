@@ -21,7 +21,7 @@ interface SideBarProps {
 }
 
 const SideBarPanel = ({ nameUser, emailUser, itemStates, setItemStates }:SideBarProps) => {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -33,6 +33,21 @@ const SideBarPanel = ({ nameUser, emailUser, itemStates, setItemStates }:SideBar
     rounded: false,
     bold: true,
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setExpanded(false); 
+      } else {
+        setExpanded(true); 
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchAvatar = async () => {
@@ -130,7 +145,7 @@ const SideBarPanel = ({ nameUser, emailUser, itemStates, setItemStates }:SideBar
               <span className="text-xs text-slate-400">{emailUser}</span>
             </div>
           </div>
-          <div className={`cursor-pointer p-1.5 hover:bg-gray-700 rounded-lg ${!expanded ? "invisible w-0" : "visible"}`}>
+          <div className={`cursor-pointer hover:bg-gray-700 rounded-lg ${!expanded ? "invisible w-0 p-0" : "visible p-1.5"}`}>
             <IconOptions size={6}/>
           </div>
         </div>
