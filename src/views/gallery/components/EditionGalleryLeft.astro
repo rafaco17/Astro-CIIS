@@ -11,12 +11,12 @@ const {titleSpan, titleStrong}: Props = Astro.props
 <article class="article_height px-2 sm:px-24 slide-in-left relative">
     <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-y-0 h-full">
         <div class="w-full lg:w-2/5 grid place-content-center ">
-            <h1 class="text-4xl font-bold text-center sm:text-6xl">
+            <h1 class="flex flex-col text-4xl font-bold text-center sm:text-6xl">
                 <span class="text-secondary">{titleSpan}</span>
-                <strong class="text-primary font-bold">{titleStrong}</strong>
+                <strong class="text-primary font-bold uppercase">{titleStrong}</strong>
             </h1>
         </div>
-        <div class="w-full h-full lg:w-3/5  flex gap-2 parent">
+        <div class="w-full h-full lg:w-3/5 flex gap-2 parent">
             <div class="flex-1 duration-300 hover:flex-[4] overflow-hidden active-image relative">
                 <Image 
                     src="/editions-image/CIIS-XIV/ciis-xxiv-concurso-robotica.jpg" 
@@ -163,13 +163,13 @@ const {titleSpan, titleStrong}: Props = Astro.props
 }
 
     .parent > div:first-child {
-        border-top-left-radius: 36px;
-        border-bottom-left-radius: 36px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
     }
 
     .parent > div:last-child {
-        border-top-right-radius: 36px;
-        border-bottom-right-radius: 36px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
     }
 
 
