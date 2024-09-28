@@ -14,11 +14,11 @@ const IconGraduation = ({ fill = 'none', size }: Props) => {
     >
       <g
         fill="none"
-        stroke="#BABABA"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"
-        color="#BABABA"
+        color="currentColor"
       >
         <path
           d="M1.998 8c0 1.341 8.096 5 9.988 5s9.987-3.659 9.987-5c0-1.343-8.096-5.001-9.987-5.001s-9.988 3.658-9.988 5"

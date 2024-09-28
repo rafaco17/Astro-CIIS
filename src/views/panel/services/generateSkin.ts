@@ -20,18 +20,7 @@ const generateSkin = async ({ name, background = "000", color = "fff", size = 12
   });
 
   const apiUrl = `${DOMAIN_AVATAR}/?${params.toString()}`;
-  
-  try {
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error("Error en la respuesta de la API");
-    }
-    const result = await response.url;
-    console.log(result);
-    return result;
-  } catch (error) {
-    console.error("Error al generar la Skin:", error);
-  }
+  return apiUrl; 
 };
 
 export default generateSkin;

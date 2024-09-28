@@ -2,28 +2,38 @@ import type { ReactNode } from "react"
 import { createContext, useContext } from 'react'
 
 interface RiemContextType {
-    riemContextValue: boolean | undefined
+    expanded: boolean | undefined
+    itemStates: boolean[]
 }
 
 const RiemContext = createContext<RiemContextType | undefined>(undefined)
 
 interface SideBarProps {
     children: ReactNode
-    contextValue: boolean
+    expanded: boolean
+    itemsStates: boolean[]
 }
 
-export const SideBarProvider = ({ children, contextValue }: SideBarProps) => {
+export const SideBarProvider = ({ children, expanded, itemsStates }: SideBarProps) => {
     return (
-        <RiemContext.Provider value={{riemContextValue: contextValue}}>
+        <RiemContext.Provider value={{expanded:expanded, itemStates:itemsStates}}>
             {children}
         </RiemContext.Provider>
     )
 }
 
-export const useRiemContext = () => {
+export const useExpanded = () => {
     const context = useContext(RiemContext)
     if (context === undefined) {
         throw new Error('useRiemContext must be used within a SideBarProvider')
     }
-    return context.riemContextValue
+    return context.expanded
+}
+
+export const useItemState = (index:number) => {
+    const context = useContext(RiemContext)
+    if (context === undefined) {
+        throw new Error('useRiemContext must be used within a SideBarProvider')
+    }
+    return context.itemStates[index]
 }

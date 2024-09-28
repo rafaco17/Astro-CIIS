@@ -1,10 +1,11 @@
-import { useRiemContext } from "../context/SideBarProvider";
+import { useExpanded, useItemState } from "../context/SideBarProvider";
 
 interface Props {
   description: string;
   icon: React.ReactNode;
-  active?: boolean;
   alert?: boolean;
+  index: number;
+  onClick: any
 }
 
 const activeStyle =
@@ -14,17 +15,20 @@ const hoverStyle = "hover:bg-indigo-50 text-gray-600";
 const ItemSideBar = ({
   description,
   icon,
-  active = false,
+  index,
   alert = false,
+  onClick
 }: Props) => {
-  const expanded = useRiemContext();
+  
+  const expanded = useExpanded()
+  const active = useItemState(index)
   return (
     <li
       className={`
         relative flex items-center justify-center py-2 px-3 
-        my-1 text-lg cursor-pointer group
-        transition-colors rounded-md
+        my-1 text-lg cursor-pointer group rounded-md
         ${active ? activeStyle : hoverStyle}`}
+        onClick={onClick}
     >
       {icon}
       <span
