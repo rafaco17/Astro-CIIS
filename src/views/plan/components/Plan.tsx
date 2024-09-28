@@ -1,12 +1,7 @@
-interface Props {
-    name: string;
-    description: string;
-    price: number;
-    src: string;
-}
-
+import type { Props } from "../adapters/adapter";
 
 export const Plan = ({ name, src, description, price }: Props) => {
+
     return (
         <div
             className={`w-[350px] h-[450px] rounded-xl hover:scale-105 transition-transform overflow-hidden`}
@@ -40,7 +35,7 @@ export const Plan = ({ name, src, description, price }: Props) => {
                         <li>Certificado de 120 horas</li>
                         <li>Kit de herramientas útiles en tu asistencia al evento</li>
                     </ul>
-                    <button className="w-1/2 bg-[#3e5ba380] py-2 text-white rounded-md font-bold">
+                    <button className={`w-1/2 bg-[#3e5ba380] py-2 text-white rounded-md font-bold`}>
                         !Lo quiero!
                     </button>
                 </div>
