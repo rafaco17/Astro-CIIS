@@ -1,32 +1,33 @@
 ---
-import Plan from "./components/Plan.astro";
-import { plans } from "./services/plan";
 import Step from "./components/Step.astro";
+const urlPath = Astro.url.pathname;
+const active1 = urlPath.endsWith("/planes") ? "active" : "";
+const active2 = urlPath.endsWith("/registro/user") ? "active" : "";
 ---
 
-<section class="w-dvw h-dvh flex flex-col justify-star items-center p-12">
+<section class="w-dvw h-dvh flex flex-col justify-star items-center p-6">
     <div class="w-full flex justify-center py-8">
         <div class="flex items-center justify-center flex-row ">
             <div
-                class="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center font-bold"
+                class={`${active1} text-black rounded-full w-12 h-12 flex items-center justify-center font-bold`}
             >
-                <span>1</span>
+                <span class="text-lg">1</span>
             </div>
             <Step />
             <div
-                class="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center font-bold"
+                class={`${active1} text-black rounded-full w-12 h-12 flex items-center justify-center font-bold`}
             >
                 <span>2</span>
             </div>
             <Step />
             <div
-                class="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center font-bold"
+                class={`${active1} text-black rounded-full w-12 h-12 flex items-center justify-center font-bold`}
             >
                 <span>3</span>
             </div>
             <Step />
             <div
-                class="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center font-bold"
+                class={`${active1} text-black rounded-full w-12 h-12 flex items-center justify-center font-bold`}
             >
                 <span>4</span>
             </div>
@@ -35,18 +36,11 @@ import Step from "./components/Step.astro";
     <div class="text-center text-primary-600 text-4xl font-bold py-6">
         Elige el plan perfecto para ti
     </div>
-    <div
-        class="flex flex-row justify-center items-center flex-wrap py-5 gap-16"
-    >
-        {
-            plans.map((item) => (
-                <Plan
-                    name={item.title}
-                    description={item.description}
-                    price={item.cost}
-                    src={item.src}
-                />
-            ))
-        }
-    </div>
+    <slot />
 </section>
+
+<style>
+    .active {
+        background: white;
+    }
+</style>

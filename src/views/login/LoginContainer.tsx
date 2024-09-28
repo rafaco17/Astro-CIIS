@@ -24,10 +24,9 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                             <div className="flex items-center mb-6 text-2xl font-semibold justify-between">
                                 <h2>Iniciar sesión</h2>
                                 <button onClick={handleLogin} className="text-gray-400 hover:text-white focus:outline-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.5" stroke="currentColor" className="size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3.5" stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
-
                                 </button>
                             </div>
                             <form className="space-y-4 md:space-y-6" >
@@ -61,12 +60,12 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                                     <a href="#" className="text-sm font-medium text-primary-600 hover:underline text-primary-500">
                                         ¿Olvidaste tu contraseña?
                                     </a>
-                                    <button
-                                        type="submit"
+                                    <a
+                                        href="/registro"
                                         className="mt-8 w-2/3 text-white bg-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center duration-300 hover:bg-green-800 md:text-md sm:w-1/2"
                                     >
                                         Crear cuenta nueva
-                                    </button>
+                                    </a>
                                 </div>
 
                             </form>
