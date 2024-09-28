@@ -1,13 +1,11 @@
 ---
-import Plan from "./components/Plan.astro";
-import { plans } from "./services/plan";
 import Step from "./components/Step.astro";
 const urlPath = Astro.url.pathname;
 const active1 = urlPath.endsWith("/planes") ? "active" : "";
 const active2 = urlPath.endsWith("/registro/user") ? "active" : "";
 ---
 
-<section class="w-dvw h-dvh flex flex-col justify-star items-center p-12">
+<section class="w-dvw h-dvh flex flex-col justify-star items-center p-6">
     <div class="w-full flex justify-center py-8">
         <div class="flex items-center justify-center flex-row ">
             <div
