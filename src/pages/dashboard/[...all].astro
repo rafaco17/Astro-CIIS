@@ -1,0 +1,18 @@
+---
+import LayoutRegister from "../../layouts/LayoutRegister.astro"
+import App from "../../views/panel/App"
+
+export function getStaticPaths() {
+  return [
+    { params: { all: "" } },
+    { params: { all: "postmaster" } },
+    { params: { all: "ciis" } },
+    { params: { all: "talleres" } },
+    { params: { all: "cuenta" } },
+    { params: { all: "asistencia" } },
+  ];
+}
+---
+<LayoutRegister title="Mi Espacio CIIS XXV">
+  <App client:only />
+</LayoutRegister>

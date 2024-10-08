@@ -1,0 +1,185 @@
+.navBar {
+    height: 72px;
+    width: 100%;
+    display: flex;
+    background-color: var(--color-bg-navbar);
+    outline: 1px solid var(--color-outline-navbar);
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 120px 10px 120px;
+}
+
+.navLink {
+    color: var(--color-link-off-navlink);
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    user-select: none;
+}
+
+.navLink:hover {
+    color: var(--color-hover-text-navlink); 
+    background-color: var(--color-hover-bg-navlink); 
+    border-radius: 3px;
+}
+
+.navLink:active {
+    color: var(--color-active-text-navlink);
+    background-color: var(--color-active-bg-navlink);
+}
+
+.navLinkActive {
+    color: var(--color-link-on-navlink);
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logoNavBar {
+    display: flex;
+    flex-direction: row;
+    margin-right: 30px;
+}
+
+.logoImage {
+    width: 26px;
+    height: 26px;
+    background-color: var(--color-logo-image-navbar);
+    opacity: 0.8;
+    border-radius: 4px;
+    margin-right: 6px;
+    display: flex;         
+    align-items: center;    
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logoImage img {
+    width: 100%;            
+    height: 100%;      
+    object-fit: cover;
+}
+
+.logoText {
+    font-size: 20px;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-logo-text-navbar);
+}
+
+.logoText:visited,
+.logoText:active,
+.logoText:hover {
+    color: var(--color-logo-text-navbar);
+    text-decoration: none;
+}
+
+.hamburguerContainer {
+    width: 26px;
+    height: 26px;
+    display: flex;         
+    align-items: center;    
+    justify-content: center;     
+}
+
+.hamburguerButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburguerButton svg {
+    width: 30px;
+}
+
+.actionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switchButton {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.switchButton svg {
+    width: 24px;
+    height: 24px;
+}
+
+.menuButton{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    fill: var(--color-fill-menubutton-navbar);
+    display: none;
+}
+
+.menuButton svg {
+    width: 32px;
+    height: 32px;
+}
+
+.moon{
+    fill: #FFFFFF;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+
+@media (max-width: 1200px) {
+    .navBar {
+        height: 64px;
+        padding: 5px 85px 5px 20px;
+    }
+    .logoImage {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .navBar {
+        height: 64px;
+        padding: 5px 60px 5px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navLink {
+        display: none;
+    }
+    .navBar {
+        height: 64px;
+        padding: 5px 20px 5px 20px;
+    }
+    .preInscription,.switchButton {
+        display: none;
+    }
+
+    .menuButton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

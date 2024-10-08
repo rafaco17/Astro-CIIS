@@ -1,0 +1,77 @@
+
+.statusInscription {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    border-radius: 15px;
+    background-color: var(--color-bg-dashboard);
+    outline: 1px solid var(--color-outline-dashboard);
+}
+
+.statusInscriptionHeader {
+    height: 90px;
+    padding: 15px;
+    border-bottom: 1px solid var(--color-border-dashboard);
+    text-align: center;
+}
+
+.statusInscriptionHeader span {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--color-text-dashboard-title);
+}
+
+.statusInscriptionHeader p {
+    font-size: 10px;
+    color: #BABABA;
+}
+
+.statusInscriptionBody {
+    padding: 10px 20px;
+}
+
+.statusInscriptionItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.statusInscriptionItem span {
+    font-size: 14px;
+    color: var(--color-text-dashboard-description);
+}
+
+.statusInscriptionTalleres {
+    font-size: 14px;
+    color: #BABABA;
+    padding: 10px 0px;
+}
+
+.statusInscriptionTalleres .statusInscriptionItem {
+    margin-left: 10px;
+}
+
+.containerChip {
+    display: flex;
+    width: 100px;
+    justify-content: center;
+}
+
+.submitButtonWrapper {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.submitButton {
+    padding: 15px 30px;
+    background-color: var(--color-bg-form-button-secondary);
+    color: var(--color-text-form-button);
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}

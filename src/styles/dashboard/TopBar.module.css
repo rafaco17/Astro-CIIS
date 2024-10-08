@@ -1,0 +1,49 @@
+.topBarContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 64px;
+}
+
+.menuContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.actionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.menuButton,
+.switchButton,
+.accountButton {
+    cursor: pointer;
+    display: flex;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.menuButton svg,
+.switchButton svg {
+    width: 24px;
+    height: 24px;
+}
+
+.accountButton svg {
+    width: 36px;
+    height: 36px;
+}
+
+.menu, .moon, .account {
+    fill: var(--color-icon);
+}
+
+@media (max-width: 576px) {
+    .accountButton {
+        margin-right: 0;
+    }
+}

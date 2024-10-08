@@ -1,0 +1,42 @@
+.contadorContainer {
+    display: flex;
+    gap: 20px;
+    background-color: var(--color-bg-counter);
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    height: 84px;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.contadorSegment {
+    text-align: center;
+}
+
+.contadorNumber {
+    color: var(--color-text-counter);
+    font-size: 2.5em; 
+    display: block; 
+}
+
+.contadorLabel {
+    font-size: 1em;
+    color: var(--color-text-label-counter);
+}
+
+@media (max-width: 992px) {
+    .contadorNumber {
+        font-size: 2em; 
+    }
+    .contadorLabel {
+        font-size: .8em;
+    }
+}
+
+@media (max-width: 768px) {
+    .contadorNumber {
+        font-size: 1.5em; 
+    }
+}

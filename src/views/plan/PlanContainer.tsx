@@ -9,6 +9,7 @@ export const PlanContainer = () => {
             {
                 plans.map((item) => (
                     <Plan 
+                        plan={item.plan}
                         name={item.title}
                         description={item.description}
                         price={item.cost}

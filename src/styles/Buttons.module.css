@@ -1,0 +1,35 @@
+.actionButton {
+    background-color: var(--color-bg-actionbutton);
+    color: var(--color-text-actionbutton);
+    padding: 15px 30px;
+    width: 125px;
+    height: 42px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+.actionButton:hover {
+    background-color: var(--color-hover-bg-actionbutton);
+}
+
+.actionButton:active {
+    background-color: var(--color-active-bg-actionbutton);
+    transform: translateY(2px);
+}
+
+.actionButton:focus {
+    outline: 2px solid var(--color-focus-outline-actionbutton);
+    outline-offset: 4px;
+}
+
+@media (max-width: 500px) {
+    .actionButton{
+        padding: 10px 15px 10px 15px;
+    }
+}

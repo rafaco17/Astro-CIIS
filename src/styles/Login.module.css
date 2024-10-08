@@ -1,0 +1,164 @@
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-bg-overlay);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+}
+
+.containerModal {
+    width: 500px;
+    min-height: 461px;
+    background: var(--color-bg-login);
+    position: relative;
+    border-radius: 16px;
+    padding: 20px;
+    outline: 1px solid var(--color-outline-login);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1200;
+}
+
+.overlay.show .containerModal {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.headerModal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px; 
+}
+
+.footerModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 4px;
+}
+
+.headerModal a,
+.footerModal a {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: var(--color-default-login);
+    font-size: 16px;
+    text-decoration: underline;
+    font-weight: 300;
+    user-select: none;
+}
+
+.closeModal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    /* outline: 1px solid var(--color-outline-closemodal-login);  */
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeModal svg {
+    fill: var(--color-default-login);
+    width: 25px;
+    height: 25px;
+}
+
+.closeModal:hover svg {
+    fill: var(--color-hover-bg-closemodal-login);
+}
+
+.title{
+    color:var(--color-default-login);
+    text-align: center;
+    font-size: 44px;
+}
+
+.form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    background-color: var(--color-bg-input-login);
+    border-radius: 999999px;
+    outline: 1px solid var(--color-outline-input-login);
+    height: 50px;
+    width: 80%;
+    margin-top: 20px;
+    border: none;  
+    color: var(--color-text-input-login);
+    padding: 0px 20px;
+    font-size: 16px;
+}
+
+.input::placeholder{
+    font-size: 16px;
+}
+
+.submitButton{
+    width: 80%;
+    height: 50px;
+    background-color: var(--color-bg-submit-login);
+    border-radius: 999999px;
+    margin-top: 50px;
+    color: var(--color-text-submit-login);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover{
+    background-color: var(--color-hover-bg-submit-login);
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 30px;
+    }
+
+    .containerModal {
+        padding: 20px 0px;
+    }
+
+    .overlay {
+        padding: 20px;
+    }
+}

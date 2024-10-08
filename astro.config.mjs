@@ -9,6 +9,6 @@ dotenv.config();
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react()],
-  output: 'hybrid'
+  output: 'static'
   // https://docs.astro.build/en/guides/integrations-guide/react/ Es necesario un adaptador
 });

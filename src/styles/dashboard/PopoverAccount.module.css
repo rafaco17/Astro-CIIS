@@ -1,0 +1,77 @@
+.popoverAccount {
+    background-color: var(--color-bg-dashboard);
+    outline: 1px solid var(--color-outline-dashboard);
+    border-radius: 4px;
+    z-index: 10;
+    width: 200px;
+    position: absolute;
+    top: 64px;
+    right: 30px;
+}
+
+.popoverBody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.popoverSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.popoverSection:nth-last-child(n) {
+    align-items: center;
+}
+
+.subtitle {
+    font-size: 12px;
+    text-align: center;
+    color: #BABABA;
+}
+
+.description {
+    font-size: 12px;
+    text-align: center;
+    color: var(--color-text-dashboard-description);
+}
+
+.btnLogout {
+    display: block;
+    margin: 0px auto;
+}
+
+.btnLogout a {
+    font-size: 12px;
+}
+
+.actionButton {
+    background-color: var(--color-bg-actionbutton);
+    color: var(--color-text-actionbutton);
+    padding: 0px 20px;
+    width: auto;
+    height: 42px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+.actionButton:hover {
+    background-color: var(--color-hover-bg-actionbutton);
+}
+
+.actionButton:active {
+    background-color: var(--color-active-bg-actionbutton);
+    transform: translateY(2px);
+}
+
+.actionButton:focus {
+    outline: 2px solid var(--color-focus-outline-actionbutton);
+    outline-offset: 4px;
+}

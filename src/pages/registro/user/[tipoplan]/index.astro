@@ -1,0 +1,23 @@
+---
+import LayoutRegister from "../../../../layouts/LayoutRegister.astro";
+import InscriptionContainer from "../../../../views/inscription/InscriptionContainer.astro";
+import InformationRegister from "../../../../views/inscription/components/InformationRegister";
+
+export function getStaticPaths() {
+  return [
+    { params: { tipoplan: "publicogeneral" } },
+    { params: { tipoplan: "delegaciones" } },
+    { params: { tipoplan: "docentesunjbg" } },
+    { params: { tipoplan: "estudiantesunjbg" } },
+    { params: { tipoplan: "estudiantesesis" } },
+  ];
+}
+
+const { tipoplan } = Astro.params;
+---
+
+<LayoutRegister title="CIIS XXV">
+  <InscriptionContainer>
+    <InformationRegister client:load evento="ciis" plan={tipoplan} />
+  </InscriptionContainer>
+</LayoutRegister>

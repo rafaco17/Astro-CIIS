@@ -1,35 +1,41 @@
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import SideBarPanel from "./components/sidebar/sidebar-panel";
+import { useAuth } from "../../hooks/use-auth";
+
+const routes = [
+  { path: "/", element: <>Inicio</>  },
+  { path: "/postmaster", element: <>PostMaster</>  },
+  { path: "/ciis", element: <>Congreso</>  },
+  { path: "/talleres", element: <>Talleres</>  },
+  { path: "/cuenta", element: <>Cuenta</>  },
+  { path: "/asistencia", element: <>Asistencia</>  },
+]
 
 const PanelContainer = () => {
-  const [itemStates, setItemStates] = useState([
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const { user } = useAuth();
 
   return (
-    <div className="flex h-dvh">
-      <aside className="">
-        <SideBarPanel
-          nameUser="Rafhael Echevarria"
-          emailUser="riechevarriam@unjbg.edu.pe"
-          itemStates={itemStates}
-          setItemStates={setItemStates}
-        />
-      </aside>
-      <main className="flex-1 ">
-        {itemStates[0] && <p>Elemento 1 activado</p>}
-        {itemStates[1] && <p>Elemento 2 activado</p>}
-        {itemStates[2] && <p>Elemento 3 activado</p>}
-        {itemStates[3] && <p>Elemento 4 activado</p>}
-        {itemStates[4] && <p>Elemento 5 activado</p>}
-        {itemStates[5] && <p>Elemento 6 activado</p>}
-      </main>
-    </div>
+      <div className="flex h-dvh">
+        <aside className="">
+          <SideBarPanel
+            nameUser={`${user.name} ${user.lastname}`}
+            emailUser={user.email}
+          />
+        </aside>
+        <main className="flex-1">
+          <Routes>
+          {routes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                element={
+                  route.element
+                }
+              />
+            ))}
+          </Routes>
+        </main>
+      </div>
   );
 };
 

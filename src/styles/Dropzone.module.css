@@ -1,0 +1,50 @@
+.dropzone {
+    display: block;
+    width: 100%;
+    min-height: 230px;
+    border: 2px dashed #55555B;
+    background: var(--color-bg-dropzone);
+    border-radius: 6px;
+}
+
+.borderIsNoDrag {
+    border: 2px dashed #55555B;
+}
+
+.borderIsDrag {
+    border: 2px dashed white;
+}
+
+.borderSelected {
+    border: none;
+}
+
+.dzMessage {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    width: 100%;
+    align-items: center;
+}
+
+.dzImageOrIcon {
+    display: flex;
+    min-height: 160px;
+    align-items: center;
+}
+
+.buttonUpload {
+    background-color: rgba(217, 217, 217, 0.1);
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #BABABA;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.textDrag {
+    font-size: 24px;
+    color: #BABABA;
+}
