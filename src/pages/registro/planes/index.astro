@@ -1,0 +1,11 @@
+---
+import LayoutRegister from "../../../layouts/LayoutRegister.astro";
+import InscriptionContainer from "../../../views/inscription/InscriptionContainer.astro";
+import { PlanContainer } from "../../../views/plan/PlanContainer";
+---
+
+<LayoutRegister title="CIIS XXV">
+    <InscriptionContainer>
+        <PlanContainer client:load/>
+    </InscriptionContainer>
+</LayoutRegister>

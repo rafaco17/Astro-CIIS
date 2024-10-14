@@ -4,6 +4,13 @@ import { Image } from "astro:assets";
 import type Props from "../adapters/cardAdapter";
 import FlagArgentina from "../../../../public/icons/flags/FlagArgentina.astro";
 
+function truncateString(str: string, maxLength: number = 56): string {
+  if (str.length > maxLength) {
+    return str.slice(0, maxLength - 3) + '...';
+  }
+  return str;
+}
+
 const {
     nameSpeaker = "Ponente por confirmar",
     rolSpeaker = "Sin descripción",
@@ -13,17 +20,12 @@ const {
 ---
 
 <!-- https://nelkodev.com/blog/uso-avanzado-de-la-etiqueta-html-img-para-multimedia/ revisar --><!-- https://nucleoapp.com/svg-flag-icons -->
-<div class="m-auto animation-view">
+<div class="m-auto animation-view h-full">
     <article
-        class="text-color w-72 p-4 rounded-[28px] active:bg-[#0e0e20] hover:scale-105 transition-transform border border-default relative"
+        class="text-color w-72 p-4 rounded-[28px] active:bg-[#0e0e20] hover:scale-105 transition-transform border border-default relative h-full"
     >
-        <div class="w-full">
+        <div class="w-full h-full">
             <figure class="w-full mb-2 overflow">
-                <!-- <picture>
-                    <source srcset="/url en avif" type="image/avif">
-                    <source srcset="/url en webp" type="image/webp">
-                    <img src="/url en el formato cualquiera" alt="" decoding="async" loading="lazy">
-                </picture> -->
                 <Image
                     class="object-cover w-full aspect-square rounded-xl"
                     width={300}
@@ -40,15 +42,15 @@ const {
                 />
             </figure>
             <div class="relative">
-                <h4 class="font-bold tracking-wider text-lg">
-                    {nameSpeaker}
+                <h4 class="font-bold tracking-wider text-lg max-w-52">
+                    {truncateString(nameSpeaker,20)}
                 </h4>
                 <div class="flex-wrap max-w-52">
                     <p class="break-words text-sm text-color-secondary">
-                        {rolSpeaker}
+                        {truncateString(rolSpeaker)}
                     </p>
                 </div>
-                <div class="flex items-center absolute right-0 bottom-0 top-0">
+                <div class="absolute right-0 bottom-0 top-2">
                     <slot name="icon" />
                 </div>
             </div>
