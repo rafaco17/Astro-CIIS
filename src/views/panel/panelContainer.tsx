@@ -1,28 +1,35 @@
 import { Routes, Route } from "react-router-dom";
 import SideBarPanel from "./components/sidebar/sidebar-panel";
 import { useAuth } from "../../hooks/use-auth";
+import Home from "./components/home/home";
+import PostMaster from "./components/postmaster/postmaster";
+import Congress from "./components/congress/congress";
+import Workshops from "./components/workshops/workshops";
+import Account from "./components/account/account";
+import Attendance from "./components/attendance/attendance";
+import { useEffect, useState } from "react";
 
 const routes = [
-  { path: "/", element: <>Inicio</>  },
-  { path: "/postmaster", element: <>PostMaster</>  },
-  { path: "/ciis", element: <>Congreso</>  },
-  { path: "/talleres", element: <>Talleres</>  },
-  { path: "/cuenta", element: <>Cuenta</>  },
-  { path: "/asistencia", element: <>Asistencia</>  },
+  { path: "/", element: <Home />  },
+  { path: "/postmaster", element: <PostMaster />  },
+  { path: "/ciis", element: <Congress />  },
+  { path: "/talleres", element: <Workshops />  },
+  { path: "/cuenta", element: <Account />  },
+  { path: "/asistencia", element: <Attendance />  },
 ]
 
 const PanelContainer = () => {
   const { user } = useAuth();
 
   return (
-      <div className="flex h-dvh">
-        <aside className="">
+      <div className="flex h-dvh relative">
+        <aside className="h-full">
           <SideBarPanel
             nameUser={`${user.name} ${user.lastname}`}
             emailUser={user.email}
           />
         </aside>
-        <main className="flex-1">
+        <main className="flex-1"> 
           <Routes>
           {routes.map((route, index) => (
               <Route
