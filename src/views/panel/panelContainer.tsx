@@ -1,35 +1,48 @@
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import SideBarPanel from "./components/sidebar/sidebar-panel";
+import { useAuth } from "../../hooks/use-auth";
+import Home from "./components/home/home";
+import PostMaster from "./components/postmaster/postmaster";
+import Congress from "./components/congress/congress";
+import Workshops from "./components/workshops/workshops";
+import Account from "./components/account/account";
+import Attendance from "./components/attendance/attendance";
+import { useEffect, useState } from "react";
+
+const routes = [
+  { path: "/", element: <Home />  },
+  { path: "/postmaster", element: <PostMaster />  },
+  { path: "/ciis", element: <Congress />  },
+  { path: "/talleres", element: <Workshops />  },
+  { path: "/cuenta", element: <Account />  },
+  { path: "/asistencia", element: <Attendance />  },
+]
 
 const PanelContainer = () => {
-  const [itemStates, setItemStates] = useState([
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const { user } = useAuth();
 
   return (
-    <div className="flex h-dvh">
-      <aside className="">
-        <SideBarPanel
-          nameUser="Rafhael Echevarria"
-          emailUser="riechevarriam@unjbg.edu.pe"
-          itemStates={itemStates}
-          setItemStates={setItemStates}
-        />
-      </aside>
-      <main className="flex-1 ">
-        {itemStates[0] && <p>Elemento 1 activado</p>}
-        {itemStates[1] && <p>Elemento 2 activado</p>}
-        {itemStates[2] && <p>Elemento 3 activado</p>}
-        {itemStates[3] && <p>Elemento 4 activado</p>}
-        {itemStates[4] && <p>Elemento 5 activado</p>}
-        {itemStates[5] && <p>Elemento 6 activado</p>}
-      </main>
-    </div>
+      <div className="flex h-dvh relative">
+        <aside className="h-full">
+          <SideBarPanel
+            nameUser={`${user.name} ${user.lastname}`}
+            emailUser={user.email}
+          />
+        </aside>
+        <main className="flex-1"> 
+          <Routes>
+          {routes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                element={
+                  route.element
+                }
+              />
+            ))}
+          </Routes>
+        </main>
+      </div>
   );
 };
 

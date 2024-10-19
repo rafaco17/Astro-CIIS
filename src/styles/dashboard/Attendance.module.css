@@ -1,0 +1,160 @@
+.attendanceContainer {
+    display: block;
+}
+
+.attendanceSection {
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 36px;
+    color: var(--color-text-dashboard-title);
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--color-text-dashboard-title);
+}
+
+.description {
+    font-size: 14px;
+    color: var(--color-text-dashboard-description-secondary);
+    margin-bottom: 10px;
+}
+
+.labelDate {
+    display: block;
+    font-size: 14px;
+    color: var(--color-text-form-label);
+    margin-bottom: 10px;
+}
+
+.selectDate {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: var(--color-bg-form-input);
+    color: var(--color-text-form-input);
+    padding: 0px 20px;
+    font-size: 16px;
+    border: none;
+    outline: 1px solid var(--color-outline-form-input);
+}
+
+.selectDate {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.cardConferenceContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.conferenceAttendanceInfo {
+    display: grid;
+    grid-template-columns: 120px auto 120px;
+    width: 100%;
+    min-height: 130px;
+    height: auto;
+    border-radius: 16px;
+    background-color: var(--color-bg-dashboard);
+    outline: 1px solid var(--color-outline-dashboard);
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.conferenceDateTime {
+    display: block;
+    font-size: 36px;
+    padding: 0px 10px;
+    padding-left: 20px;
+    color: var(--color-text-dashboard-description);
+}
+
+.conferenceAttendanceMoreInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.conferenceNameSpeaker {
+    font-size: 16px;
+    color: var(--color-text-dashboard-description);
+}
+
+.conferenceTopic {
+    font-size: 14px;
+    color: var(--color-text-dashboard-description-secondary);
+}
+
+.conferenceAttendanceStatus {
+    margin-top: 20px;
+}
+
+.conferenceImgSpeaker {
+    height: 130px;
+    max-height: auto;
+    object-fit: cover;
+    overflow: hidden;
+    mask-image: linear-gradient(to left, black 50%, transparent 90%);
+}
+
+.conferenceImgSpeaker img {
+    width: 100%;
+    height: 100%;
+}
+
+.submitButton {
+    padding: 10px 20px;
+    background-color: var(--color-bg-form-button-secondary);
+    color: var(--color-text-form-button);
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.serverError {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.serverError .description {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+@media (max-width: 992px) {
+    .conferenceAttendanceInfo {
+        grid-template-columns: 80px auto;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-right: 10px;
+    }
+
+    .conferenceImgSpeaker {
+        display: none;
+    }
+
+    .conferenceDateTime {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .conferenceAttendanceInfo {
+        font-size: 14px;
+        gap: 10px;
+    }
+
+    .conferenceDateTime {
+        padding-left: 10px;
+    }
+    
+}

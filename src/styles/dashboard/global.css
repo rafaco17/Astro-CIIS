@@ -1,0 +1,137 @@
+:root {
+  /*LAYOUT*/
+  --color-icon: #FFFFFF;
+
+  /* SIDEBAR */
+  --color-outline-sidebar: #E4E4E7;
+  --color-bg-sidebar: #0E0E11;
+  --color-outline-sidebar: #27272A;
+  --color-link-sidebarnavlink: #FFFFFF;
+  --color-bg-off-sidebarnavlink: #0E0E11;
+  --color-bg-on-sidebarnavlink: #27272A;
+  --color-logo-image-sidebar: #0095CC;
+  --color-logo-text-sidebar: #FFFFFF;
+  --color-hover-text-sidebarnavlink: #046488;
+  --color-hover-bg-sidebarnavlink: #27272A;
+  --color-active-text-sidebarnavlink: #003d7a;
+  --color-active-bg-sidebarnavlink: #202026;
+
+  /* DASHBOARD */
+  --color-bg-dashboard: #27272A;
+  --color-text-dashboard-title: #FFFFFF;
+  --color-text-dashboard-description: #F0FAFF;
+  --color-text-dashboard-description-secondary: #BABABA;
+  --color-outline-dashboard: none;
+  --color-border-dashboard: #55555B;
+
+  /* FORM */
+  --color-bg-form-input: #181818;
+  --color-text-form-input: #F0FAFF;
+  --color-text-form-label: #FFFFFF;
+  --color-bg-form-button: #09B9EE;
+  --color-bg-form-button-secondary: #0095CC;
+  --color-hover-bg-form-button: #07a0d9;
+  --color-active-bg-form-button: #0599c9;
+  --color-focus-outline-form-button: #09B9EE;
+  --color-text-form-button: #FFFFFF;
+  --color-outline-form-input: none;
+
+  /*PHOTO*/
+  --color-bg-photo: #27272A;
+  --color-border-photo: #55555B;
+  --color-outline-photo: #27272A;
+  --color-text-photo-title: #F4F4F5;
+  --color-text-photo-description: #F0FAFF;
+}
+
+[data-theme="light"] {
+  /*LAYOUT*/
+  --color-icon: #0E0E11;
+
+  /* SIDEBAR */
+  --color-outline-sidebar: #E4E4E7;
+  --color-bg-sidebar: #FFFFFF;
+  --color-outline-sidebar: #C3C3C3;
+  --color-link-sidebarnavlink: #0E0E11;
+  --color-bg-off-sidebarnavlink: #FFFFFF;
+  --color-bg-on-sidebarnavlink: #0077A510;
+  --color-logo-image-sidebar: #0095CC;
+  --color-logo-text-sidebar: #27272A;
+  --color-hover-text-sidebarnavlink: #046488;
+  --color-hover-bg-sidebarnavlink: #0077A510;
+  --color-active-text-sidebarnavlink: #003d7a;
+  --color-active-bg-sidebarnavlink: #0056B320;
+
+  /* DASBOARD */
+  --color-bg-dashboard: #FFFFFF;
+  --color-text-dashboard-title: #0E0E11;
+  --color-text-dashboard-description: #08415C;
+  --color-text-dashboard-description-secondary: #27272A;
+  --color-outline-dashboard: #C3C3C3;
+  --color-border-dashboard: #C3C3C3;
+
+  /*PHOTO*/
+  --color-bg-photo: transparent;
+  --color-border-photo: #C3C3C3;
+  --color-outline-photo: #C3C3C3;
+  --color-text-photo-title: #27272A;
+  --color-text-photo-description: #08415C;
+
+  /* FORM */
+  --color-bg-form-input: #FFFFFF;
+  --color-text-form-input: #27272A;
+  --color-bg-form-button: #09B9EE;
+  --color-text-form-button: #FFFFFF;
+  --color-text-form-label: #27272A;
+  --color-outline-form-input: #C3C3C3;
+}
+
+.dashboardLayout {
+  display: flex;
+}
+
+.panelLayout {
+  width: calc(100% - 240px);
+}
+
+.container {
+  height: calc(100vh - 64px);
+  padding: 30px 100px 30px 100px;
+  overflow-y: scroll;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 30px 80px 30px 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    padding: 30px 60px 30px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .panelLayout {
+    width: 100%;
+  }
+
+  .container {
+    padding: 20px 40px 20px 40px;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 10px 20px 10px 20px;
+  }
+}

@@ -1,0 +1,314 @@
+.mainContainer {
+    padding: 85px 120px 85px 120px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mainDescriptionContainer {
+    height: 100%;
+    width: 50%;
+    padding: 20px;
+}
+
+.flags {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.shortText {
+    color: var(--color-text-short-main);
+    font-size: 24px;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.title {
+    line-height: 1.2; 
+    font-size: 60px;
+    margin-bottom: 25px;
+    user-select: none;
+}
+
+.date {
+    font-size: 24px;
+    color: var(--color-text-date);
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 20px;
+    margin-bottom: 30px;
+    user-select: none;
+    color: var(--color-text-description-main);
+}
+
+.title p:nth-of-type(1) {
+    color: var(--color-text-title-child1-main);  
+}
+
+.title p:nth-of-type(2) {
+    color: var(--color-text-title-child2-main);  
+}
+
+.mainButtonsContainer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 30px;
+    flex-direction: row;
+}
+
+.buttonEdiciones, .buttonInscribirse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 20px 40px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+}
+
+.buttonEdiciones {
+    background-color: var(--color-bg-button-editions-main);
+    color: var(--color-text-button-editions-main);
+    outline: 1px solid var(--color-border-button-editions-main);
+}
+
+.buttonEdiciones:hover {
+    background-color: var(--color-hover-bg-button-editions-main);
+    outline: 3px solid var(--color-hover-border-button-editions-main);
+    color: var(--color-hover-text-button-editions-main);
+}
+
+.buttonEdiciones:active {
+    background-color: var(--color-active-bg-button-editions-main);
+    color: var(--color-active-text-button-editions-main);
+    transform: translateY(2px);
+}
+
+.buttonInscribirse {
+    background-color: var(--color-bg-button-inscription-main);
+    color: var(--color-text-button-inscription-main);
+    border: none;
+}
+
+.buttonInscribirse:hover {
+    background-color: var(--color-hover-bg-button-inscription-main);
+}
+
+.buttonInscribirse:active {
+    background-color: var(--color-active-bg-button-inscription-main);
+    transform: translateY(2px);
+}
+
+.buttonInscribirse:focus {
+    outline: 2px solid var(--color-focus-outline-button-inscription-main);
+    outline-offset: 4px;
+}
+
+.socialMedia {
+    margin-top: 30px;
+}
+
+.socialMedia p {
+    color: var(--color-text-socialmedia-main);
+    font-size: 14px;
+    margin-bottom: 15px;
+    user-select: none;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 8px;
+}
+.socialIcons svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--color-fill-socialicons-main);
+    opacity: 0.6;
+    transition: fill 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.socialIcons svg:hover {
+    fill: var(--color-hover-fill-socialicons-main);
+    opacity: 1;
+}
+
+.mainImage {
+    max-width: 45%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.congressImage {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 160px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 130px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.containerCounter{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1200px) {
+    .mainContainer {
+        padding: 60px 80px 60px 80px;
+    }
+    .title {
+        font-size: 50px;
+        line-height: 1.2;
+    }
+    .description, .shortText {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .buttonEdiciones, .buttonInscribirse {
+        font-size: 18px;
+        padding: 15px 30px;
+    }
+    .socialMedia p{
+        margin-bottom: 15px;
+    }
+    .socialIcons {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 992px) {
+    .mainContainer {
+        padding: 40px 60px 40px 60px;
+    }
+    .title {
+        font-size: 40px;
+        line-height: 1.2; /* Adjusted line height for better spacing */
+    }
+    .containerCounter{
+        margin-left: -25px;
+        margin-bottom: 25px;
+    }
+    .description, .shortText {
+        font-size: 16px;
+        margin-bottom: 15px; /* Adding margin to create space */
+    }
+    .buttonEdiciones, .buttonInscribirse {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+    .socialMedia p{
+        margin-bottom: 15px;
+    }
+    .socialIcons {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .flags {
+        justify-content: center;
+        gap: 16px;
+    }
+    .flags img {
+        width: 26px;
+        height: 26px;
+    }
+    .mainContainer {
+        padding: 20px 40px 20px 40px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mainDescriptionContainer {
+        width: 100%;
+        text-align: center;
+        padding: 20px; /* Adding padding for inner spacing */
+    }
+    .title {
+        font-size: 30px;
+        line-height: 1.2; /* Adjusted line height for better spacing */
+        margin-bottom: 20px; /* Adding margin to create space */
+    }
+    .date {
+        font-size: 20px;
+    }
+    .containerCounter{
+        justify-content: center;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    .description, .shortText {
+        font-size: 14px;
+        margin-bottom: 10px; /* Adding margin to create space */
+    }
+    .buttonEdiciones, .buttonInscribirse {
+        font-size: 14px;
+        padding: 10px 20px;
+        width: 80%;
+    }
+    .mainButtonsContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .socialMedia p{
+        margin-bottom: 15px;
+    }
+    .socialIcons {
+        gap: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .mainImage{
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .mainContainer {
+        padding: 10px 20px 10px 20px;
+
+    }
+    .title {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    .shortText {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .description{
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .buttonEdiciones, .buttonInscribirse {
+        font-size: 12px;
+        padding: 8px 16px;
+        width: 80%;
+    }
+    .socialMedia p{
+        margin-bottom: 15px;
+    }
+    .socialIcons {
+        gap: 8px;
+    }
+}
