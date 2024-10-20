@@ -19,7 +19,7 @@ const Account = () => {
           <div className="flex flex-col items-center space-y-4 w-full ">
             <InputWithButton
               inputName="document_number"
-              defaultValue="74421572"
+              defaultValue="71821292"
               label="Documento de identidad"
               placeholder="Ingrese su N° documento identidad"
             />
@@ -86,7 +86,7 @@ const Account = () => {
         <div className="mt-4 flex justify-evenly items-start flex-col sm:flex-row gap-y-4 sm:gap-y-0">
           <InputWithButton
             inputName="email"
-            defaultValue="riechevarram@unjbgu.edu.pe"
+            defaultValue="correoPrueba@unjbg.edu.pe"
             label="Correo electrónico"
             placeholder="Ingrese su email"
           />
