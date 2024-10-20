@@ -4,7 +4,6 @@ import dataPonents from "./services/data";
 import type DayPonent from "./adapters/dayPonent"
 
 const Schedules = () => {
-  const styleButton = "px-6 py-2 rounded-lg cursor-pointer card-custom";
   const carouselRef = useRef<HTMLDivElement>(null);
   const [data, setData] = useState<DayPonent[]>([]);
 
@@ -41,17 +40,17 @@ const Schedules = () => {
   };
 
   return (
-    <section className="carrucel-custom flex flex-col justify-center items-center mb-24 max-md mt-40">
+    <section className="w-full flex flex-col items-center mb-24 mt-40 max-w-screen-md mx-auto">
       <h2 className="text-4xl font-bold text-center text-secondary sm:text-6xl slide-top">
         Cronograma
       </h2>
       <p className="text-center text-base mb-8 mt-8">
-        Todas las charlas estan en directo gracias a JohnArDev
+        Todas las charlas estan en directo por <a href="https://www.facebook.com/61556532988025/live_videos/" className="font-mono text-xl text-blue-400">Facebook</a>
       </p>
-      <div className="w-full flex justify-around mb-5">
+      <div className="w-full flex gap-5 justify-center flex-wrap mb-5">
         {data?.map((element) => (
           <button
-            className={styleButton}
+            className="px-6 py-2 rounded-lg cursor-pointer text-slate-200 bg-blue-600 font-semibold hover:bg-slate-900 active:bg-slate-900"
             key={element.day}
             onClick={() => handleScrollToDay(element.day)}
           >
@@ -61,15 +60,14 @@ const Schedules = () => {
       </div>
       <div
         ref={carouselRef}
-        className="w-full overflow-hidden scroll-smooth scroll-mx-12 flex justify-around gap-12 rounded-2xl"
+        className="w-full relative overflow-hidden scroll-smooth scroll-mx-12 flex justify-evenly gap-10 rounded-2xl"
       >
         {data?.map((element, index) => {
           return (
-            <div id={`day-${element.day}`} key={element.day}>
+            <div id={`day-${element.day}`} key={element.day} className="w-full flex-shrink-0">
               <DaySchedules
                 day={element.day || ""}
                 ponentes={element}
-                idItem={`item-${index + 1}`}
               />
             </div>
           );

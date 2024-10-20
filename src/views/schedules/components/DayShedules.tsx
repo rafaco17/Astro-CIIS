@@ -4,40 +4,144 @@ import { CardPonent } from "./CardPonent";
 interface props {
   ponentes: any,
   day: string
-  idItem: string
 }
 
-export const DaySchedules = ({ponentes, day, idItem}: props) => {
-  const dayTitle = "text-center text-xl font-bold mb-4 text-blue-500"
+export const DaySchedules = ({ponentes, day}: props) => {
+  function capitalizeFirstLetter(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   // const ponentsEarly = ponentes.early
   // const ponentsLate = ponentes['late']
   return (
-    <div id={idItem} className="w-full relative flex flex-col items-center justify-center rounded-2xl">
-      <h3 className={dayTitle}>{day}</h3>
+    <div className="w-full flex flex-col rounded-2xl gap-5">
+      <h3 className="text-center text-4xl font-bold mb-4 text-blue-500">{capitalizeFirstLetter(day)}</h3>
+      {
+        capitalizeFirstLetter(day) != "Lunes" ? 
+        <CardAlmuerzo
+          classname="bg-yellow-600"
+          time="8:30 - 9:00"
+          text="CONTROL Y REGISTRO DE ASISTENCIA"
+        />
+        : ""
+      }
+      {
+        capitalizeFirstLetter(day) == "Lunes" ? 
+        <CardAlmuerzo
+          classname="bg-yellow-600"
+          time="8:30 - 12:30"
+          text="INFORMES, INSCRIPCIONES"
+        />
+        : ""
+      }
       {ponentes.early.map((ponente:Ponent) => {
         return (
           <CardPonent
             key={ponente.id}
             time={ponente.start}
+            lastTime={ponente.end}
             name={ponente.speaker}
-            profession={ponente.topic /** Cambiar */}
+            profession={ponente.description /** Cambiar */}
             theme={ponente.topic}
             img={ponente.avatar}
           />
         );
       })}
+      <CardAlmuerzo
+        classname="bg-blue-600"
+        time="12:30 - 14:00"
+        text="RECESO / ALMUERZO"
+      />
+      {
+        capitalizeFirstLetter(day) == "Martes" ? 
+        <CardAlmuerzo 
+          classname="bg-yellow-600"
+          time="14:00 - 16:00"
+          text="CONCURSO DE ROBOTICA"
+        />
+        : ""
+      }
+      {
+        capitalizeFirstLetter(day) == "Miércoles" ? 
+        <CardAlmuerzo 
+          classname="bg-yellow-600"
+          time="14:00 - 16:00"
+          text="CONCURSO DE CONOCIMIENTO"
+        />
+        : ""
+      }
+      {
+        capitalizeFirstLetter(day) == "Viernes" ? 
+        <CardAlmuerzo 
+          classname="bg-yellow-600"
+          time="14:00 - 16:00"
+          text="CONCURSO DE PROGRAMACIÓN"
+        />
+        : ""
+      }
+      {
+        capitalizeFirstLetter(day) == "Lunes" ? 
+        <CardAlmuerzo 
+          classname="bg-yellow-600"
+          time="14:00 - 16:00"
+          text="INFORMES, INSCRIPCIONES"
+        />
+        : ""
+      }
       {ponentes.late.map((ponente:Ponent) => {
         return (
           <CardPonent
             key={ponente.id}
             time={ponente.start}
+            lastTime={ponente.end}
             name={ponente.speaker}
-            profession={ponente.topic}
+            profession={ponente.description}
             theme={ponente.topic}
             img={ponente.avatar}
           />
         );
       })}
+      {
+        capitalizeFirstLetter(day) == "Lunes" ? 
+        <CardAlmuerzo
+          classname="bg-blue-600"
+          time="18:00 - 19:30"
+          text="INAGURACIÓN"
+        />
+        : ""
+      }
+      {
+        capitalizeFirstLetter(day) == "Viernes" ? 
+        <CardAlmuerzo
+          classname="bg-blue-600"
+          time="18:00 - 19:30"
+          text="CLAUSURA"
+        />
+        : ""
+      }
+      
     </div>
   );
 };
+
+interface propsCard {
+  time?:string, text:string, classname:string
+}
+
+const CardAlmuerzo = ({time, text, classname}:propsCard) => {
+  return (
+    <div className={`${time ? "grid grid-cols-7 sm:grid-cols-9" : "flex items-center justify-center"} rounded-2xl px-2 sm:px-2 py-2 gap-1 sm:gap-5 mx-2 border-2 border-slate-800 ${classname}`}>
+        {
+          time ? 
+          <span className="font-bold text-2xl sm:text-lg col-span-7 sm:col-span-2 text-center">
+            {time}
+          </span>
+          : ""
+        }
+        <div className={`${time ? "flex justify-center sm:justify-start sm:items-start col-span-7":  ""}`}>
+          <h2 className="text-lg sm:text-2xl text-white font-semibold tracking-widest text-center">
+            {text}
+          </h2>
+        </div>
+    </div>
+  )
+}
