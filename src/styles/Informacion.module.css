@@ -19,7 +19,7 @@
 
 .formGroup label {
     display: block;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--color-text-formGroup-label-informacion);
     margin-bottom: 8px;
     padding-left: 10px;
@@ -38,14 +38,13 @@
     outline: 1px solid var(--color-border-input-informacion);
     border: none;
     border-radius: 999999px;
-    background-color: var(--color-bg-input-informacion);
+    background-color:#3E5BA330;
     color: var(--color-text-input-informacion);
-    /* margin-bottom: 30px; */
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .inputWrapper input::placeholder {
-    color: var(--color-placeholder-input-informacion);
+    color: gray;
     font-size: 14px;
 }
 
@@ -62,14 +61,19 @@
 
 .submitButton {
     padding: 15px;
-    background-color: var(--color-bg-submitButton-informacion);
-    color: var(--color-text-submitButton-informacion);
-    border: none;
-    border-radius: 30px;
+    background-color:#3e5ba380;
+    color: white;
+    border-radius: 0.375rem;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     text-align: center;
-    width: 30%;
+    width: 20%;
+    margin-top: 30px;
+}
+
+.submitButton:hover{
+    background-color:#3e5ba370;
 }
 
 .searchButton {
@@ -78,10 +82,10 @@
     top: 0;
     width: 50px;
     height: 50px;
-    background-color: var(--color-bg-searchButton-informacion);
+    background-color: #3e5ba350;
     border: none;
     border-radius: 999999px;
-    color: var(--color-text-searchButton-informacion);
+    fill: white;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -121,9 +125,5 @@
 
     .submitButton {
         width: 100%;
-    }
-
-    .inputWrapper input {
-        /*margin-bottom: 15px;*/
     }
 }

@@ -1,7 +1,10 @@
 export interface Props {
     plan: string;
-    name: string;
     description: string;
-    price: number;
     src: string;
+    title: string;
+    isDiscount: boolean;
+    cost: number;
+    costOriginal: number;
+    benefits: any;
 }

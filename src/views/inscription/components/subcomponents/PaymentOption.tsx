@@ -18,7 +18,7 @@ export const PaymentOption = ({ name, onClick, checked }: Props) => {
       />
       <label 
         htmlFor={name} 
-        className={styles.radioLabel}
+        className={`${styles.radioLabel}`}
       >
         {name}
       </label>
