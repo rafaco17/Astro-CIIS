@@ -5,6 +5,7 @@ import {
   FlagBolivia,
   FlagBrazil,
   FlagChile,
+  FlagCuba,
   FlagPeru,
   FlagSouthKorea,
 } from "../../../public/icons/flags/index.astro";
@@ -40,16 +41,10 @@ const speakers: Speakers[] | undefined = await useSpeakers();
           {speaker.nationality === "Bolivia" && <FlagBolivia slot="icon" />}
           {speaker.nationality === "Argentina" && <FlagArgentina slot="icon" />}
           {speaker.nationality === "Brasil" && <FlagBrazil slot="icon" />}
+          {speaker.nationality === "Cuba" && <FlagCuba slot="icon" />}
         </CardSpeakers>
       ))
     }
-    <CardSpeakers />
-    <CardSpeakers />
-    <CardSpeakers />
-    <CardSpeakers />
-    <CardSpeakers />
-    <CardSpeakers />
-    <CardSpeakers />
   </div>
 </section>
 

@@ -15,10 +15,10 @@ const Congress = () => {
   return (
     <div className="p-2 sm:p-4 h-dvh w-full bg-slate-950">
       <div className="font-bold tracking-tighter mt-8 text-center select-none">
-        <p className="uppercase text-3xl sm:text-4xl opacity-80">congreso internacional</p>
-        <p className="uppercase text-3xl sm:text-4xl opacity-75">
+        <p className="uppercase text-3xl sm:text-4xl opacity-95">congreso internacional</p>
+        <p className="uppercase text-3xl sm:text-4xl opacity-85">
           de informática y sistemas{" "}
-          <strong className="text-4xl sm:text-5xl opacity-95">XXV</strong>
+          <strong className="text-4xl sm:text-5xl opacity-100">XXV</strong>
         </p>
       </div>
       <div className="flex mt-6 w-full justify-center flex-col items-center xl:justify-evenly xl:flex-row">
@@ -97,3 +97,4 @@ const Congress = () => {
 };
 
 export default Congress;
+ 
