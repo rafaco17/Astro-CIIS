@@ -1,16 +1,13 @@
 ---
 import EditionGalleryLeft from "./components/EditionGalleryLeft.astro";
 import EditionMainContainer from "./components/EditionMainContainer.astro";
+import { imagenesGaleria } from "./helpers/history";
+
+console.log(imagenesGaleria[1].items[0].image)
 ---
 <section class="space-y-24 mb-24">    
     <EditionMainContainer />
-    <EditionGalleryLeft titleSpan="Edicion" titleStrong="Ciis XXIV"/>
-    <EditionGalleryLeft titleSpan="Edicion" titleStrong="Ciis XXIV"/>
-    <EditionGalleryLeft titleSpan="Edicion" titleStrong="Ciis XXIV"/>
-    <EditionGalleryLeft titleSpan="Edicion" titleStrong="Ciis XXIV"/>
-    <EditionGalleryLeft titleSpan="Edicion" titleStrong="Ciis XXIV"/>
-    <EditionGalleryLeft titleSpan="Edicion" titleStrong="Ciis XXIV"/>
-    <EditionGalleryLeft titleSpan="Edicion" titleStrong="Ciis XXIV"/>
-    <EditionGalleryLeft titleSpan="Edicion" titleStrong="Ciis XXIV"/>
-    <EditionGalleryLeft titleSpan="Edicion" titleStrong="Ciis XXIV"/>
+    {imagenesGaleria.map(galeria => (
+        <EditionGalleryLeft titleStrong={galeria.title} items={galeria.items} />
+    ))}
 </section>
