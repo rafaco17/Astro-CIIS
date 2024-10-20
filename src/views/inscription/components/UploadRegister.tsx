@@ -86,9 +86,7 @@ function UploadRegister({ tipoplan, idEvent, typeEvent }: Props) {
         className={`p-5 rounded-lg w-[96%] max-w-[1200px] mx-auto bg-[var(--color-bg-uploadFormContainer)] ${!showFichaMatricula && "max-w-[576px]"
           }`}
       >
-        <div
-          className={`grid ${showFichaMatricula ? "grid-cols-2 gap-[80px]" : "grid-cols-1"} mb-5`}
-        >
+        <div className={`grid ${showFichaMatricula ? "grid-cols-1 md:grid-cols-2 gap-8" : "grid-cols-1"} mb-5`}>
           <div>
             <span className="block text-2xl text-[#BABABA] mb-5 text-center">Voucher de pago</span>
             <CustomDropzone
@@ -134,7 +132,7 @@ function UploadRegister({ tipoplan, idEvent, typeEvent }: Props) {
           {tipoplan === "delegaciones" ? (
             <div className="flex flex-col gap-5 items-center">
               <div className="bg-[#d9d9d91a] rounded-md w-full">
-                <div className="flex flex-row items-center gap-4 p-2">
+                <div className="flex flex-col items-center gap-4 p-2 md:flex-row">
                   <span className="block text-lg text-gray-300">Código de delegación</span>
                   <input
                     type="text"
@@ -143,7 +141,7 @@ function UploadRegister({ tipoplan, idEvent, typeEvent }: Props) {
                     onChange={(e) => {
                       setScholarCode(e.target.value);
                     }}
-                    className="w-1/2 h-[40px] px-5 outline outline-2 outline-gray-700 border-none rounded-xl bg-[var(--color-bg-input-informacion)] text-[var(--color-text-input-informacion)] text-sm"
+                    className="w-full h-[40px] px-5 outline outline-2 outline-gray-700 border-none rounded-xl bg-[var(--color-bg-input-informacion)] text-[var(--color-text-input-informacion)] text-sm md:w-1/2"
                   />
                   <div className="flex items-center justify-center mt-2">
                     <svg
@@ -161,7 +159,7 @@ function UploadRegister({ tipoplan, idEvent, typeEvent }: Props) {
               </div>
               <button
                 type="button"
-                className="w-[20%] px-12 py-3 rounded-md bg-[#3e5ba380] text-white font-semibold cursor-pointer transition-colors hover:bg-[#3e5ba370]"
+                className="w-48 px-12 py-3 rounded-md bg-[#3e5ba380] text-white font-semibold cursor-pointer transition-colors hover:bg-[#3e5ba370]"
                 onClick={handleSubmit}
                 disabled={loading}
               >
