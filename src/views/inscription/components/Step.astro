@@ -1,9 +1,20 @@
 ---
 interface Props {
-    active: string;
+    active1: string;
+    active2: string;
+    active3: string;
 }
 
-const { active } = Astro.props;
+const { active1, active2, active3 } = Astro.props;
+let active = "";
+
+if (active1==="active") {
+    active = active1;
+} else if (active2==="active") { 
+    active = active2;
+} else if (active3==="active") {
+    active = active3;
+}
 ---
 
 <div class="flex">

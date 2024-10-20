@@ -27,9 +27,9 @@ const speakers: Speakers[] | undefined = await useSpeakers();
     {
       speakers?.map((speaker: Speaker) => (
         <CardSpeakers
-          nameSpeaker={`${speaker.grade} ${speaker.name} ${speaker.lastname}`}
+          nameSpeaker={`${speaker.degree} ${speaker.name} ${speaker.lastname}`}
           rolSpeaker={speaker.description}
-          alt={`Imagen del ponente ${speaker.grade} ${speaker.name} ${speaker.lastname}`}
+          alt={`Imagen del ponente ${speaker.degree} ${speaker.name} ${speaker.lastname}`}
           link_image={`${import.meta.env.DOMAIN_BASE}/${speaker.avatar}`}
         >
           {speaker.nationality === "Chile" && <FlagChile slot="icon" />}

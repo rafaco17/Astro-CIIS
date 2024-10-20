@@ -7,7 +7,7 @@ export const Plan = ({ plan, src, description, title, isDiscount, cost, costOrig
 
   return (
     <div
-      className={`w-[90%] h-[450px] rounded-3xl hover:scale-105 transition-transform overflow-hidden sm:w-[350px]`}
+      className={`w-[90%] h-[450px] rounded-3xl  overflow-hidden sm:w-[350px]`}
     >
       <div className="w-full h-full  overflow-hidden flex flex-col justify-center items-center pb-6 bg-[#0e0e20]">
         <div className="w-full h-1/2 relative">
@@ -45,7 +45,7 @@ export const Plan = ({ plan, src, description, title, isDiscount, cost, costOrig
             </li>
           </ul>
           <button
-            className={`w-1/2 border-[3px] border-[#3e5ba380] py-2 text-white rounded-md font-bold
+            className={`w-1/2 bg-[#3e5ba380] py-2 text-white rounded-md font-bold
             hover:bg-[#3e5ba370] transition-transform`}
             onClick={handleClick}
           >
