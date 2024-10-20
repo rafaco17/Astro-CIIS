@@ -1,62 +1,41 @@
 type ComponentProps = {
   time: string;
+  lastTime: string
   name: string;
   profession: string;
   theme: string;
   img: string;
 };
 
-const CardPonent = ({ time, name, profession, theme, img }:ComponentProps) => {
+const CardPonent = ({ time, lastTime, name, profession, theme, img }:ComponentProps) => {
   const convertTo12HourFormat = (dateString:string) => {
     const date = new Date(dateString)
     
     // Obtiene las horas y minutos
     let hours = date.getHours()
     const minutes = date.getMinutes().toString().padStart(2, '0')
-  
-    // Determina si es AM o PM
-    const ampm = hours >= 12 ? 'PM' : 'AM'
-  
-    // Convierte a formato de 12 horas
-    hours = hours % 12
-    hours = hours ? hours : 12 // El 0 se convierte en 12
-  
-    return `${hours}:${minutes} ${ampm}`
+    return `${hours}:${minutes}`
   }
 
   return (
-    <article className="w-full card-custom flex rounded-2xl px-10 py-7 gap-7 text-slate-400 mx-2">
-      <span className="font-bold text-5xl">{convertTo12HourFormat(time)}</span>
-      <div>
-        <p className="text-md">
+    <div className="card-custom grid grid-cols-4 sm:grid-cols-5 rounded-2xl px-4 sm:px-5 py-5 gap-1 sm:gap-5 text-slate-400 mx-2 border-2 border-slate-800">
+      <span className="sm:text-center font-bold text-3xl sm:text-5xl col-span-4 sm:col-span-1 sm:leading-6 my-auto">
+        {convertTo12HourFormat(time)} <span className="text-3xl">-</span> {convertTo12HourFormat(lastTime)}
+      </span>
+      <div className="col-span-4 sm:col-span-3 sm:pr-2 sm:pl-2">
+        <p className="text-sm">
           {name}
           <span className="text-gray-300"> - {profession}</span>
         </p>
         <h4 className="font-bold text-xl text-slate-100">{theme}</h4>
       </div>
-      <div>
-        <img src={img} alt="Foto perfil" />
+      <div className="hidden sm:flex justify-end col-span-4 sm:col-span-1">
+        <img className="w-[100px] h-[120px] object-cover rounded-xl" src={`https://ciistacna.com/${img}`} alt="Foto perfil" />
       </div>
-    </article>
+    </div>
   );
 };
 
-// Componente adicional, descomentado y convertido a React
-const CardPonentCompact = ({ time, name, theme, img }:ComponentProps) => {
-  return (
-    <article className="component2 hidden w-full text-slate-400 mx-2">
-      <header className="flex items-center gap-x-4">
-        <h4 className="text-sm text-midu-primary">{name}</h4>
-        <div className="flex-1 bg-white w-full h-[1px]"></div>
-        <span className="text-sm text-white/50">{time}</span>
-      </header>
-      <div className="flex items-center mt-3 gap-x-3">
-        <img className="object-cover object-center w-16 h-16 rounded-full" src={img} alt="Foto" />
-        <h5 className="flex-1 font-bold text-white">{theme}</h5>
-      </div>
-    </article>
-  );
-};
 
 // Exportando ambos componentes
-export { CardPonent, CardPonentCompact };
+export { CardPonent };
