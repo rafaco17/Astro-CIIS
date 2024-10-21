@@ -9,12 +9,9 @@ const Schedules = () => {
 
   const fetchData = async () => {
     try {
-      console.log("Fetching data...")
       const fetchedData = await dataPonents()
-      console.log("Fetched Data:", fetchedData)
       if (fetchedData) {
         setData(fetchedData)
-        console.log("dat:",data)
       } else {
         console.error("No data returned from the API")
       }
