@@ -1,4 +1,4 @@
-import { URI } from "../helpers/endpoints";
+import { URI } from "../helpers/endpoints.ts";
 import Cookie from "js-cookie";
 
 // Función para obtener el usuario desde la cookie

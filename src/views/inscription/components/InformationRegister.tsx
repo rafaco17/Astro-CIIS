@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "../../../styles/Informacion.module.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { URI } from "../../../helpers/endpoints";
+import { URI } from "../../../helpers/endpoints.ts";
 import { useDialog } from "../../../hooks/use-dialog";
 import Dialog from "../../../components/Dialog";
 import { useAuth } from "../../../hooks/use-auth";

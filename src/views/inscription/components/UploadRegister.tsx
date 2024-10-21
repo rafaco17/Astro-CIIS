@@ -1,6 +1,6 @@
 import CustomDropzone from "../../../components/CustomDropzone";
 import { useState } from "react";
-import { URI } from "../../../helpers/endpoints";
+import { URI } from "../../../helpers/endpoints.ts";
 import { useDialog } from "../../../hooks/use-dialog";
 import Dialog from "../../../components/Dialog";
 import { useAuth } from "../../../hooks/use-auth";

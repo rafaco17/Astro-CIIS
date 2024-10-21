@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import styles from "../../../styles/ResetPassword.module.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { URI } from "../../../helpers/endpoints.tsx";
-import { useDialog } from "../../../hooks/use-dialog.tsx";
-import Dialog from "../../../components/Dialog.tsx";
-import type UserRestore from "../adapters/userRestore.ts";
+import { URI } from "../../../helpers/endpoints.ts";
+import { useDialog } from "../../../hooks/use-dialog";
+import Dialog from "../../../components/Dialog";
+import type UserRestore from "../adapters/userRestore";
 
 export default function ResetPassword() {
   const [loading, setLoading] = useState(false);

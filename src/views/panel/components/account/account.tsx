@@ -5,7 +5,7 @@ import InputWithButton from "./components/input-with-button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDialog } from "../../../../hooks/use-dialog";
-import { URI } from "../../../../helpers/endpoints";
+import { URI } from "../../../../helpers/endpoints.ts";
 import { QRCodeCanvas, QRCodeSVG } from "qrcode.react";
 
 const Account = () => {
