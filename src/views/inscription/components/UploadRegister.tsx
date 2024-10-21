@@ -51,7 +51,6 @@ function UploadRegister({ tipoplan, idEvent, typeEvent }: Props) {
         successDialog.handleOpen();
       })
       .catch((err) => {
-        console.log(err);
         const {
           error = "Ha ocurrido un error",
           reason = "En este momento el servidor no está disponible, inténtelo más tarde",

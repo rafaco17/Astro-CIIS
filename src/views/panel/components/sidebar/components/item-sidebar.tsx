@@ -8,6 +8,7 @@ interface Props {
   icon: React.ReactNode;
   alert?: boolean;
   index: number;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
@@ -21,13 +22,14 @@ const ItemSideBar = ({
   icon,
   index,
   alert = false,
+  disabled = false,
   onClick
 }: Props) => {
   const expanded = useExpanded();
   const active = useItemState(to);
 
   return (
-    <Link to={to} onClick={onClick}>
+    <Link to={to} onClick={onClick} className={`${disabled ? "pointer-events-none" : ""}`}>
       <li
         className={`
           relative flex items-center justify-center py-2 px-3 

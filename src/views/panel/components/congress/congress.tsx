@@ -1,16 +1,38 @@
+import { useEffect, useState } from "react";
 import Flags from "./components/flags";
 import IconCertificate from "./components/icon-certificate";
 import IconClock from "./components/icon-clock";
 import IconLocation from "./components/icon-location";
 import TransparentsCards from "./components/transparents-cards";
 import style from "./styles/congress.module.css";
+import { useAuth } from "../../../../hooks/use-auth";
+import { status } from "../../services/status";
 
 const Congress = () => {
+  const [inscriptionCiis, setInscriptionCiis] = useState<any | null>(null);
+  const { user } = useAuth();
+
+  const handleClick = () => {
+    if (user.plan_ciis.length > 0) {
+      location.href = `/registro/pago/${encodeURIComponent(user.plan_ciis)}`;
+    } else {
+      location.href = `/registro/planes`;
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      setInscriptionCiis({
+        status: user.dataCiis,
+        ...status[user.dataCiis]
+      });
+    }
+  }, [user]);
+
   const noRegisterCongress = `bg-green-400 text-black hover:bg-green-200 active:bg-green-100 ${style.heartbeat}`;
   const RegisterCongress = "bg-slate-600/60 text-slate-400";
 
-  const registerInCongress =
-    false; /* CON ESTA VARIABLE VAMOS MANEJAR EL ESTADO DEL BOTON*/
+  const registerInCongress = (inscriptionCiis?.status < 3); /* CON ESTA VARIABLE VAMOS MANEJAR EL ESTADO DEL BOTON*/
 
   return (
     <div className="p-2 sm:p-4 h-dvh w-full bg-slate-950">
@@ -52,17 +74,25 @@ const Congress = () => {
         <div className="flex-1 flex flex-col justify-center items-center gap-y-4 relative z-0">
           <button
             className={`uppercase text-base sm:text-2xl rounded-full font-bold px-8 py-4 select-none transition-colors relative ${registerInCongress ? RegisterCongress : noRegisterCongress}`}
+            onClick={handleClick}
+            disabled={registerInCongress}
           >
             {registerInCongress
-              ? "Ya estas participando"
-              : "Completar inscripción"}
+              ? (<>{inscriptionCiis.label}</>)
+              : (user.plan_ciis ? "Completar inscripción" : "Inscribirse")}
           </button>
-          {registerInCongress ? (
-            <span className="text-green-400">
-              Completaste con éxito la inscripción
-            </span>
-          ) : (
-            ""
+          {registerInCongress && (
+            <>
+              {inscriptionCiis.status === 0 && (<span className="text-blue-400">
+                Los organizadores estarán validando la inscripción
+              </span>)}
+              {inscriptionCiis.status === 1 && (<span className="text-green-400">
+                Completaste con éxito la inscripción
+              </span>)}
+              {inscriptionCiis.status === 2 && (<span className="text-red-400">
+                Hubo una observación con la inscripción
+              </span>)}
+            </>
           )}
         </div>
       </div>

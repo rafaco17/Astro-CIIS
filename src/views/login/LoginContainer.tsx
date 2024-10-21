@@ -16,7 +16,6 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
   const colorOverlay = Color.COLOR_BG_SURFACE_PRIMARY_CURRENT;
   const bg_overlay = useColorWithOpacity(colorOverlay, 0.7);
   const disabledStyle = disabled ? "hidden" : "";
-  console.log(disabledStyle);
 
   const errorDialog = useDialog();
   const [messageErr, setMessageErr] = useState(null);

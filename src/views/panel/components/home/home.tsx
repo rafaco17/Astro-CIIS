@@ -1,8 +1,21 @@
+import { useEffect, useState } from "react";
 import CardHome from "./components/CardHome";
 import ItemStateSubscription from "./components/item-state-subscription";
+import { useAuth } from "../../../../hooks/use-auth";
+import { status } from "../../services/status";
 
 const Home = () => {
   const revisionDate = "19/10/2024";
+  const [inscriptionPostmaster, setInscriptionPostmaster] = useState<any | null>(null);
+  const [inscriptionCiis, setInscriptionCiis] = useState<any | null>(null);
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (user) {
+      setInscriptionPostmaster(status[user?.dataPostmaster]);
+      setInscriptionCiis(status[user?.dataCiis]);
+    }
+  }, [user]);
 
   return (
     <div className="flex justify-center pt-12 flex-col lg:flex-row lg:justify-evenly items-center lg:items-start">
@@ -26,11 +39,11 @@ const Home = () => {
       <CardHome
         title="Estado de Inscripciones"
         cardTitle="Verifica el estado de tu inscripción realizada"
-        dateEvent={`Ultima revisión el ${revisionDate}`}
+        //dateEvent={`Ultima revisión el ${revisionDate}`}
       >
         <ul className="space-y-6">
-          <ItemStateSubscription description="Estado de inscripción Postmaster" state={false}/>
-          <ItemStateSubscription description="Estado de inscripción Congreso" state={true}/>
+          {inscriptionPostmaster && user.dataPostmaster < 4 && <ItemStateSubscription description="Estado de inscripción Postmaster" color={inscriptionPostmaster?.color} label={inscriptionPostmaster?.label} />}
+          {inscriptionCiis && <ItemStateSubscription description="Estado de inscripción Congreso" color={inscriptionCiis?.color} label={inscriptionCiis?.label} />}
         </ul>
       </CardHome>
     </div>

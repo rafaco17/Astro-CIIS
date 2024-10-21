@@ -14,6 +14,8 @@ import ItemSideBar from "./components/item-sidebar";
 import { SideBarProvider } from "./context/SideBarProvider";
 import generateSkin from "../../services/generateSkin";
 import AbreviationNameUser from "./helpers/abreviation-name-user";
+import IconLogout from "../../../../assets/private/IconLogout";
+import { logout } from "../../../../middlewares/auth";
 
 interface SideBarProps {
   nameUser: string;
@@ -132,6 +134,7 @@ const SideBarPanel = ({ nameUser, emailUser }: SideBarProps) => {
                     onClick={() => {
                       if (transparent) setExpanded(!expanded);
                     }} 
+                    disabled={true}
                   />
                   <ItemSideBar
                     to="/cuenta"
@@ -150,6 +153,7 @@ const SideBarPanel = ({ nameUser, emailUser }: SideBarProps) => {
                     onClick={() => {
                       if (transparent) setExpanded(!expanded);
                     }} 
+                    disabled={true}
                   />
                 </ul>
               </SideBarProvider>
@@ -183,8 +187,11 @@ const SideBarPanel = ({ nameUser, emailUser }: SideBarProps) => {
               </div>
               <div
                 className={`cursor-pointer hover:bg-gray-700 rounded-lg ${!expanded ? "invisible w-0 p-0" : "visible p-1.5"}`}
+                onClick={() => {
+                  logout();
+                }}
               >
-                <IconOptions size={6} />
+                <IconLogout size={6} />
               </div>
             </div>
           )}
