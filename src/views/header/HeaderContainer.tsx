@@ -24,10 +24,10 @@ export const Header = () => {
     setLogin(!login);
   };
 
-  const searchParams = new URLSearchParams();
+  const searchParams = new URLSearchParams(location.search);
 
   useEffect(() => {
-    if (!Boolean(searchParams.get("next"))) {
+    if (Boolean(searchParams.get("next"))) {
         handleLogin();
     }
   }, []);

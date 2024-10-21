@@ -3,8 +3,8 @@
     min-width: auto;
     height: auto;
     min-width: 40px;
-    background-color: var(--color-bg-dialog);
-    color: var(--color-text-dialog);
+    background-color: #3E5BA330;
+    color: #FFFFFF;
     position: absolute;
     top: 40px;
     left: 0;
