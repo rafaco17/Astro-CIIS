@@ -3,6 +3,11 @@ export const domain = "https://ciistacna.com";
 //export const domain = "http://127.0.0.1:4000"
 
 export const URI = {
+  reports: {
+    speakers: `${domain}/reports/15/speakers`,
+    cronograma: `${domain}/reports/15/cronograma`,
+    sponsors: `${domain}/reports/15/sponsors`
+  },
   session: {
     src: `${domain}/api/v2/session`,
   },

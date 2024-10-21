@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AuthContext } from '../views/panel/context/AuthContext.tsx';
+import { AuthContext } from '../views/panel/context/AuthContext';
 
 // Hook personalizado
 export const useAuth = () => {
