@@ -1,5 +1,5 @@
 ---
-import LayoutRegister from "../../../../layouts/LayoutRegister.astro";
+import Layout from "../../../../layouts/Layout.astro";
 import InscriptionContainer from "../../../../views/inscription/InscriptionContainer.astro";
 import InformationRegister from "../../../../views/inscription/components/InformationRegister";
 
@@ -16,8 +16,8 @@ export function getStaticPaths() {
 const { tipoplan } = Astro.params;
 ---
 
-<LayoutRegister title="CIIS XXV">
+<Layout title="Registro | Congreso Internacional XXV de Informática y Sistemas">
   <InscriptionContainer>
     <InformationRegister client:load evento="ciis" plan={tipoplan} />
   </InscriptionContainer>
-</LayoutRegister>
+</Layout>

@@ -1,8 +1,8 @@
-import { URI } from "../../../helpers/endpoints";
+import { URI } from "../../../helpers/endpoints.ts";
 
-const useSpeakers = async () => {
+const useSponsors = async () => {
     try {
-        const response = await fetch(URI.reports.speakers);
+        const response = await fetch(URI.reports.sponsors);
         if (!response.ok) {
             throw new Error("Error en la respuesta de la API");
         }
@@ -13,4 +13,4 @@ const useSpeakers = async () => {
     }
 }
 
-export default useSpeakers
+export default useSponsors

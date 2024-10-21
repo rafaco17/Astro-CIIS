@@ -138,7 +138,7 @@ const CardAlmuerzo = ({time, text, classname}:propsCard) => {
           : ""
         }
         <div className={`${time ? "flex justify-center sm:justify-start sm:items-start col-span-7":  ""}`}>
-          <h2 className="text-lg sm:text-2xl text-white font-semibold tracking-widest text-center">
+          <h2 className="text-lg text-white font-semibold tracking-widest text-center">
             {text}
           </h2>
         </div>

@@ -1,6 +1,6 @@
 export default interface Props {
   name: string;
   description: string;
-  image: ImageMetadata;
+  img: string;
   link: string;
 }

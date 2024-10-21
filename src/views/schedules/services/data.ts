@@ -1,10 +1,9 @@
+import { URI } from "../../../helpers/endpoints";
 import type DayPonent from "../adapters/dayPonent";
-
-const DOMAIN_CIIS = "https://ciistacna.com/reports/15/cronograma.json";
 
 const dataPonents = async () => {
   try {
-    const response = await fetch(`${DOMAIN_CIIS}`);
+    const response = await fetch(URI.reports.cronograma);
     if (!response.ok) {
         throw new Error("Error en la respuesta de la API");
     }

@@ -1,6 +1,11 @@
 ---
 import Card from "../sponsors/components/Card.astro";
-import sponsors from "../sponsors/services/sponsors";
+import useSponsors from "./services/useSponsors";
+import type Sponsors from "./adapters/sponsorAdapter";
+//import sponsors from "../sponsors/services/sponsors";
+
+const sponsors: Sponsors[] | undefined = await useSponsors();
+console.log(sponsors);
 ---
 
 <section
@@ -12,11 +17,11 @@ import sponsors from "../sponsors/services/sponsors";
     </h2>
     <div class="grid gap-4 md:flex md:flex-wrap md:justify-center md:grid-cols-2 lg:grid-cols-2">
         {
-            sponsors.map((sponsor) => (
+            sponsors?.map((sponsor) => (
                 <Card
                     name={sponsor.name}
-                    description={sponsor.description}
-                    image={sponsor.image}
+                    description={sponsor.name}
+                    img={`${import.meta.env.DOMAIN_BASE}/${sponsor.img}`}
                     link={sponsor.link}
                 />
             ))

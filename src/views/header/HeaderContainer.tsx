@@ -59,7 +59,7 @@ export const Header = () => {
       >
         <div
           className="max-w-5xl grid items-center justify-center min-[1040px]:justify-normal 
-                    w-full grid-cols-[auto_1fr] mx-auto text-white gap-x-10 min-[1040px]:flex 
+                    w-full grid-cols-[auto_1fr] mx-auto text-white gap-x-4 min-[1040px]:flex 
                     max-w-screen-base"
         >
           <a

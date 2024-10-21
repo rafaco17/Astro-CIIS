@@ -80,7 +80,7 @@ export default function ForgotPassword() {
         />
       )}
       
-      <div className={styles.resetPasswordContainer}>
+      <div className="p-5 px-8 md:px-12 pt-32 rounded-lg w-[96%] max-w-[768px] mx-auto my-5">
         <h2 className="text-center text-primary-600 text-4xl font-bold py-6">Restauración de contraseña</h2>
         <p className={styles.description}>
           Ingresa tu correo electrónico donde se enviara un enlace para restaurar tu contraseña

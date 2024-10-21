@@ -40,7 +40,7 @@ const Schedules = () => {
   };
 
   return (
-    <section className="w-full flex flex-col items-center mb-24 mt-40 max-w-screen-md mx-auto">
+    <section id="schedules" className="w-full flex flex-col items-center mb-24 max-w-screen-md mx-auto pt-40 sm:pt-48">
       <h2 className="text-4xl font-bold text-center text-secondary sm:text-6xl slide-top">
         Cronograma
       </h2>
@@ -60,7 +60,7 @@ const Schedules = () => {
       </div>
       <div
         ref={carouselRef}
-        className="w-full relative overflow-hidden scroll-smooth scroll-mx-12 flex justify-evenly gap-10 rounded-2xl"
+        className="w-full relative overflow-hidden scroll-smooth scroll-mx-12 flex justify-start gap-10 rounded-2xl"
       >
         {data?.map((element, index) => {
           return (

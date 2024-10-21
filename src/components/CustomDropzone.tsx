@@ -64,7 +64,8 @@ export default function CustomDropzone({ selectedFile, setselectedFile } : Custo
                     </svg>
                   ) : (
                     <img
-                      height="120"
+                      width={120}
+                      height={120}
                       alt={selectedFile.name}
                       src={selectedFile.preview}
                     />
