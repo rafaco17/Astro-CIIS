@@ -1,8 +1,8 @@
 .option {
     display: flex;
     align-items: center;
-    background-color: var(--color-bg-option-paymentoptions);
-    outline: 1px solid var(--color-outline-option-paymentoptions);
+    background-color: #27272A;
+    outline: 1px solid #55555B;
     padding: 10px 20px;
     border-radius: 4px;
     width: 50%;
@@ -10,13 +10,13 @@
 
 .radioButton {
     margin-right: 15px;
-    accent-color: var(--color-accent-radioButton-paymentoptions);
+    accent-color: #34CFFC;
     transform: scale(1.5);
 }
 
 .radioLabel {
     font-size: 18px;
-    color: var(--color-text-radioLabel-paymentoptions);
+    color: #FFFFFF;
 }
 
 @media (max-width: 992px) {

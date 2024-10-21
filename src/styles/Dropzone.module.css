@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 230px;
     border: 2px dashed #55555B;
-    background: var(--color-bg-dropzone);
+    background: #27272A;
     border-radius: 6px;
 }
 

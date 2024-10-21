@@ -133,7 +133,7 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                 </button>
                 <div className="flex items-center justify-center flex-col">
                   <a
-                    href="#"
+                    href="/recuperacion"
                     className="text-sm font-medium text-primary-600 hover:underline text-primary-500"
                   >
                     ¿Olvidaste tu contraseña?
