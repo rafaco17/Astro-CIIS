@@ -1,78 +1,86 @@
 ---
-import IconStar from "../../../../public/icons/IconStar.astro"
-import Button from "../../../components/Button.astro"
-import Counter from "./Counter/Counter"
-import TitleMain from "./Counter/TitleMain.astro"
-import FlagsContainer from "./FlagsContainer.astro"
-import Label from "./Label.astro"
+import IconStar from "../../../../public/icons/IconStar.astro";
+import Button from "../../../components/Button.astro";
+import Counter from "./Counter/Counter";
+import TitleMain from "./Counter/TitleMain.astro";
+import FlagsContainer from "./FlagsContainer.astro";
+import Label from "./Label.astro";
 ---
 
-
 <div class="m-auto h-auto w-full pt-36 z-50 relative sm:h-dvh">
-    <video autoplay muted loop id="myVideo" class="opacity-30 absolute inset-0 w-full h-full object-cover backdrop-blur-sm -z-30">
-        <source src="video1.mp4" type="video/mp4">
-    </video>
-    <dir class="mb-5">
-        <Label description="Del 11 al 15 de noviembre del 2024">
-            <IconStar size={5} fill="#7AAEF1" slot="icon"/>
-        </Label>
-    </dir>
-    
-    <TitleMain description="Explora los avances más recientes en informática y sistemas en este evento internacional.Cancel anytimelora los avances más recientes enlora los avances más recientes en" />
-    <div class="mb-4 text-focus-in">
-        <Counter eventDate="2024-11-11T13:30:00Z" client:load/>
-    </div>
-    <FlagsContainer/>
+  <video
+    id="myVideo"
+    class="opacity-30 absolute inset-0 w-full h-full object-cover backdrop-blur-sm -z-30"
+    controls={false}
+    controlslist="nodownload nofullscreen noremoteplayback"
+    disablepictureinpicture
+  >
+    <source src="video1.mp4" type="video/mp4" />
+  </video>
+  <dir class="mb-5">
+    <Label description="Del 11 al 15 de noviembre del 2024">
+      <IconStar size={5} fill="#7AAEF1" slot="icon" />
+    </Label>
+  </dir>
+
+  <TitleMain
+    description="Explora los avances más recientes en informática y sistemas en este evento internacional.Cancel anytimelora los avances más recientes enlora los avances más recientes en"
+  />
+  <div class="mb-4 text-focus-in">
+    <Counter eventDate="2024-11-11T13:30:00Z" client:load />
+  </div>
+  <FlagsContainer />
 </div>
 
 <style>
-    .calculate-height {
-        height: calc(100dvh - 224px);
-    }
+  .calculate-height {
+    height: calc(100dvh - 224px);
+  }
 
-    .text-primary {
-        background-image: var(--accent-gradient-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0%;
-    }
+  .text-primary {
+    background-image: var(--accent-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
 
-    .text-secondary {
-        background-image: var(--accent-gradient-secondary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0%;
-    }
+  .text-secondary {
+    background-image: var(--accent-gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
 
-    .text-focus-in {
-	    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-    }
+  .text-focus-in {
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+      both;
+    animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
 
-    @-webkit-keyframes text-focus-in {
-        0% {
-            -webkit-filter: blur(12px);
-                    filter: blur(12px);
-            opacity: 0;
-        }
-        100% {
-            -webkit-filter: blur(0px);
-                    filter: blur(0px);
-            opacity: 1;
-        }
+  @-webkit-keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
     }
-    @keyframes text-focus-in {
-        0% {
-        -webkit-filter: blur(12px);
-                filter: blur(12px);
-        opacity: 0;
-        }
-        100% {
-        -webkit-filter: blur(0px);
-                filter: blur(0px);
-        opacity: 1;
-        }
+    100% {
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
     }
+  }
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
 </style>

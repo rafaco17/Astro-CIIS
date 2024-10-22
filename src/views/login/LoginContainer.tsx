@@ -133,12 +133,16 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                 <div className="flex items-center justify-center flex-col">
                   <a
                     href="/recuperacion"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm font-medium text-primary-600 hover:underline text-primary-500"
                   >
                     ¿Olvidaste tu contraseña?
                   </a>
                   <a
                     href="/registro/planes"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-8 w-2/3 text-white bg-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center duration-300 hover:bg-green-800 md:text-md sm:w-1/2"
                   >
                     Registrarse

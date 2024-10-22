@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { DaySchedules } from "./components/DayShedules";
 import dataPonents from "./services/data";
-import type DayPonent from "./adapters/dayPonent"
+import type DayPonent from "./adapters/dayPonent";
 
 const Schedules = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -9,24 +9,24 @@ const Schedules = () => {
 
   const fetchData = async () => {
     try {
-      const fetchedData = await dataPonents()
+      const fetchedData = await dataPonents();
       if (fetchedData) {
-        setData(fetchedData)
+        setData(fetchedData);
       } else {
-        console.error("No data returned from the API")
+        console.error("No data returned from the API");
       }
     } catch (error) {
-      console.error("Error fetching data:", error)
+      console.error("Error fetching data:", error);
     }
-  }
+  };
 
-  useEffect(()=> {
-    fetchData()
-  }, [])
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleScrollToDay = (day: string) => {
     if (carouselRef.current) {
-      const target = document.getElementById(`day-${day}`)
+      const target = document.getElementById(`day-${day}`);
       if (target) {
         carouselRef.current.scrollTo({
           left: target.offsetLeft,
@@ -37,12 +37,23 @@ const Schedules = () => {
   };
 
   return (
-    <section id="schedules" className="w-full flex flex-col items-center mb-24 max-w-screen-md mx-auto pt-40 sm:pt-48">
+    <section
+      id="schedules"
+      className="w-full flex flex-col items-center mb-24 max-w-screen-md mx-auto pt-40 sm:pt-48"
+    >
       <h2 className="text-4xl font-bold text-center text-secondary sm:text-6xl slide-top">
         Cronograma
       </h2>
       <p className="text-center text-base mb-8 mt-8">
-        Todas las charlas estan en directo por <a href="https://www.facebook.com/61556532988025/live_videos/" className="font-mono text-xl text-blue-400">Facebook</a>
+        Todas las charlas estan en directo por{" "}
+        <a
+          href="https://www.facebook.com/61556532988025/live_videos/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-xl text-blue-400"
+        >
+          Facebook
+        </a>
       </p>
       <div className="w-full flex gap-5 justify-center flex-wrap mb-5">
         {data?.map((element) => (
@@ -61,17 +72,18 @@ const Schedules = () => {
       >
         {data?.map((element, index) => {
           return (
-            <div id={`day-${element.day}`} key={element.day} className="w-full flex-shrink-0">
-              <DaySchedules
-                day={element.day || ""}
-                ponentes={element}
-              />
+            <div
+              id={`day-${element.day}`}
+              key={element.day}
+              className="w-full flex-shrink-0"
+            >
+              <DaySchedules day={element.day || ""} ponentes={element} />
             </div>
           );
         })}
       </div>
     </section>
   );
-}
+};
 
-export default Schedules
+export default Schedules;

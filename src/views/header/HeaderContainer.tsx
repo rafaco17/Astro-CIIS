@@ -28,7 +28,7 @@ export const Header = () => {
 
   useEffect(() => {
     if (Boolean(searchParams.get("next"))) {
-        handleLogin();
+      handleLogin();
     }
   }, []);
 
@@ -67,6 +67,8 @@ export const Header = () => {
             className="ml-4 transition-transform duration-300 hover:scale-125"
             title="Ir a la página principal"
             aria-label="Ir a la página principal"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img
               src="/LOGOCIIS.svg"
