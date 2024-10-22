@@ -6,8 +6,6 @@ export const NavItem = ({ name, icon, href }: NavItemProps) => {
       <li className="flex justify-center w-full first:mt-5 min-[1040px]:first:mt-0 min-[1040px]:block min-[1040px]:w-auto">
         <a
           href={href}
-          target="_blank"
-          rel="noopener noreferrer"
           className={`flex items-center justify-center w-full gap-1 px-5 py-4 text-xl duration-300 min-[1040px]:w-auto min-[1040px]:py-2 min-[1040px]:text-base  hover:text-COLOR_TEXT_PRIMARY_HOVER min-[1040px]:hover:scale-110`}
         >
           <svg
