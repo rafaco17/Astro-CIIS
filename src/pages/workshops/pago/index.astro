@@ -1,0 +1,11 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import InscriptionContainer from "../../../views/inscription/InscriptionContainer.astro";
+import PagoOptions from "../../../views/workshops/components/PagoOptions";
+---
+
+<Layout title="Registro | Congreso Internacional XXV de Informática y Sistemas">
+  <InscriptionContainer>
+    <PagoOptions client:only />
+  </InscriptionContainer>
+</Layout>
