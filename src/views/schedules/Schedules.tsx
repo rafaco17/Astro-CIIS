@@ -77,7 +77,7 @@ const Schedules = () => {
               key={element.day}
               className="w-full flex-shrink-0"
             >
-              <DaySchedules day={element.day || ""} ponentes={element} />
+              <DaySchedules day={element.day || ""} ponentes={element} date={element.date} />
             </div>
           );
         })}

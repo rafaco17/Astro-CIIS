@@ -1,7 +1,9 @@
 import type Props from "../adapters/sponsorAdapter";
 import { Logo1 } from "../../../assets/sponsors/index.astro";
 
-const sponsors : Props[] = [
+const sponsors : Props[] = [];
+
+/*const sponsors : Props[] = [
   {
     name: "Platzi",
     description: "Platzi es una plataforma de aprendizaje profesional online",
@@ -38,6 +40,6 @@ const sponsors : Props[] = [
     image: Logo1,
     link: "#",
   },
-];
+];*/
 
 export default sponsors;

@@ -1,12 +1,14 @@
 import type Ponent from "../adapters/ponent";
 import { CardPonent } from "./CardPonent";
+import { format } from "date-fns";
 
 interface props {
   ponentes: any,
-  day: string
+  day: string,
+  date: string
 }
 
-export const DaySchedules = ({ponentes, day}: props) => {
+export const DaySchedules = ({ponentes, day, date}: props) => {
   function capitalizeFirstLetter(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
@@ -14,7 +16,7 @@ export const DaySchedules = ({ponentes, day}: props) => {
   // const ponentsLate = ponentes['late']
   return (
     <div className="w-full flex flex-col rounded-2xl gap-5">
-      <h3 className="text-center text-4xl font-bold mb-4 text-blue-500">{capitalizeFirstLetter(day)}</h3>
+      <h3 className="text-center text-4xl font-bold mb-4 text-blue-500">{capitalizeFirstLetter(day)} {format(new Date(date), "dd/MM/yyyy")}</h3>
       {
         capitalizeFirstLetter(day) != "Lunes" ? 
         <CardAlmuerzo
@@ -46,6 +48,15 @@ export const DaySchedules = ({ponentes, day}: props) => {
           />
         );
       })}
+      {
+        capitalizeFirstLetter(day) == "Jueves" ? 
+        <CardAlmuerzo
+          classname="bg-yellow-600"
+          time="11:00 - 11:40"
+          text="FERIA TECNOLÓGICA"
+        />
+        : ""
+      }
       <CardAlmuerzo
         classname="bg-blue-600"
         time="12:30 - 14:00"
