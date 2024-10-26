@@ -63,7 +63,7 @@ const HeaderContainer = () => {
                 `}
       >
         <div
-          className="max-w-5xl grid items-center justify-center min-[1040px]:justify-normal 
+          className="max-w-[70rem] grid items-center justify-center min-[1040px]:justify-normal 
                     w-full grid-cols-[auto_1fr] mx-auto text-white gap-x-4 min-[1040px]:flex 
                     max-w-screen-base"
         >
