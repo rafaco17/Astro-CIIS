@@ -2,8 +2,10 @@ import { NavItem } from "./components/NavItem";
 import navItems from "./services/header";
 import { useEffect, useState } from "react";
 import LoginContainer from "../login/LoginContainer";
+import { useAuth } from "../../hooks/use-auth";
+import { AuthProvider } from "../panel/context/AuthContext";
 
-export const Header = () => {
+const HeaderContainer = () => {
   const styleHeader =
     "top-0 left-0 right-0 animate-[reduce-header_linear_both] [animation-timeline:scroll()] [animation-range:0_150px]";
   const bgButton = "bg-gradient-to-b from-[#3152df95] to-[#1e254595]";
@@ -11,6 +13,9 @@ export const Header = () => {
     "shadow-[inset_0_6px_12px_#4c64d2,0_0_17px_rgba(110,137,255,0.77),inset_0_1px_10px_hsla(0,0%,100%,0.55)]";
   const shadowButtonHover =
     "hover:shadow-[inset_0_6px_12px_#4c64d2,_0_0_34px_rgba(110,137,255,0.77),_inset_0_1px_10px_hsla(0,0%,100%,0.55)]";
+
+  
+  const { user } = useAuth();
 
   const [menu, setMenu] = useState(true);
 
@@ -94,14 +99,27 @@ export const Header = () => {
             </ul>
           </nav>
           <div className="flex items-center gap-4 mr-4 min-[1040px]:ml-auto">
-            <button
-              onClick={handleLogin}
-              className={`flex items-center cursor-pointer gap-2 rounded-lg px-4 py-[10px] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${bgButton} text-white ${shadowButton} ${shadowButtonHover} hover:scale-110 ml-auto font-medium`}
-              title="Únete al CIIS XXV"
-              aria-label="Inscripción Congreso Internacional de Informática y Sistemas"
-            >
-              Iniciar Sesión
-            </button>
+            {!user ? (
+              <button
+                onClick={handleLogin}
+                className={`flex items-center cursor-pointer gap-2 rounded-lg px-4 py-[10px] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${bgButton} text-white ${shadowButton} ${shadowButtonHover} hover:scale-110 ml-auto font-medium`}
+                title="Únete al CIIS XXV"
+                aria-label="Inscripción Congreso Internacional de Informática y Sistemas"
+              >
+                Iniciar Sesión
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  location.href = "/dashboard";
+                }}
+                className={`flex items-center cursor-pointer gap-2 rounded-lg px-4 py-[10px] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${bgButton} text-white ${shadowButton} ${shadowButtonHover} hover:scale-110 ml-auto font-medium`}
+                title="Únete al CIIS XXV"
+                aria-label="Inscripción Congreso Internacional de Informática y Sistemas"
+              >
+                Panel
+              </button>
+            )}
             <button
               onClick={handleMenuToggle}
               className="flex items-center justify-center py-2 min-[1040px]:hidden"
@@ -131,3 +149,9 @@ export const Header = () => {
     </>
   );
 };
+
+export const Header = () => (
+    <AuthProvider>
+      <HeaderContainer />
+    </AuthProvider>
+)

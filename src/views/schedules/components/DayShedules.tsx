@@ -116,7 +116,7 @@ export const DaySchedules = ({ponentes, day, date}: props) => {
         <CardAlmuerzo
           classname="bg-blue-600"
           time="18:00 - 19:30"
-          text="INAGURACIÓN"
+          text="INAUGURACIÓN"
         />
         : ""
       }
