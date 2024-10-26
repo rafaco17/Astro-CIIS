@@ -20,7 +20,7 @@ export function setUser(user: any, hoursToExpire = 2) {
 // Función para manejar errores
 function handleError(error: any, defaultMsg: string) {
   console.error(error);
-  return { error: error?.message || defaultMsg };
+  return { error: error?.error || "Ha ocurrido un error", reason: error?.reason || defaultMsg };
 }
 
 // Función para crear la sesión, redirigiendo si es necesario
@@ -33,26 +33,29 @@ export function createSession(user: any, redirectPath = "/dashboard") {
 }
 
 // Login con async/await y manejo centralizado de errores
-export const login = async (email: string, password: string) => {
-  try {
-    const response = await fetch(URI.session.src, {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
+export const login = (email: string, password: string) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(URI.session.src, {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
 
-    if (!response.ok) {
-      const error = await response.json();
-      throw error;
+      if (!response.ok) {
+        const error = await response.json();
+        throw error;
+      }
+
+      const user = await response.json();
+      createSession(user);
+      
+      resolve(user);
+    } catch (error) {
+      reject(handleError(error, "En este momento el servidor no está disponible, inténtelo más tarde"));
     }
-
-    const user = await response.json();
-    createSession(user);
-    return user;
-  } catch (error) {
-    return handleError(error, "Error durante el inicio de sesión");
-  }
+  });
 };
 
 // Logout y redirección

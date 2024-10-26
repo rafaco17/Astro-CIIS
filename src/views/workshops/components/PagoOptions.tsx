@@ -8,6 +8,10 @@ interface PaymentOption {
   qr?: string;
 }
 
+interface Props {
+  idWorkshop: Number;
+}
+
 const paymentOptions: PaymentOption[] = [
   { name: "BCP", number: "540-99754411-0-54", cod: "002-540-199754411054-33", qr: "/logobcp.png", },
   {
@@ -18,11 +22,9 @@ const paymentOptions: PaymentOption[] = [
   },
 ];
 
-function PagoOptions() {
-  const [selectedPayment, setSelectedPayment] = useState(paymentOptions[0]);
-
+function PagoOptions({ idWorkshop }: Props) {
   const handleClick = () => {
-    location.href = `/workshops/registro/upload`;
+    location.href = `/workshops/upload/${encodeURIComponent(String(idWorkshop))}`;
   };
 
   return (
@@ -86,10 +88,10 @@ function PagoOptions() {
   );
 }
 
-export default () => (
+export default ({ idWorkshop } : Props) => (
   <AuthProvider>
     <AuthMiddleware>
-      <PagoOptions />
+      <PagoOptions idWorkshop={idWorkshop} />
     </AuthMiddleware>
   </AuthProvider>
 );

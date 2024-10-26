@@ -7,14 +7,13 @@ import Congress from "./components/congress/congress";
 import Workshops from "./components/workshops/workshops";
 import Account from "./components/account/account";
 import Attendance from "./components/attendance/attendance";
-import { useEffect, useState } from "react";
 
 const routes = [
   { path: "/", element: <Home />  },
   { path: "/postmaster", element: <PostMaster />  },
   { path: "/ciis", element: <Congress />  },
-  //{ path: "/talleres", element: <Workshops />  },
-  { path: "/cuenta", element: <Account />  },
+  { path: "/workshops", element: <Workshops />  },
+  { path: "/account", element: <Account />  },
   //{ path: "/asistencia", element: <Attendance />  },
 ]
 

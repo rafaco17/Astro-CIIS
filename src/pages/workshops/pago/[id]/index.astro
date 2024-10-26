@@ -1,0 +1,25 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import WorkshopInscriptionContainer from "../../../../views/workshops/WorkshopInscriptionContainer.astro";
+import PagoOptions from "../../../../views/workshops/components/PagoOptions";
+import useWorkshops from "../../../../views/workshops/services/useWorkshops";
+import type Workshop from "../../../../views/workshops/adapters/workshopAdapter";
+
+export async function getStaticPaths() {
+  const workshops: Workshop[] | undefined = await useWorkshops();
+
+  return workshops?.map((workshop) => {
+    return {
+      params: { id: workshop?.id}
+    }
+  });
+}
+
+const { id } = Astro.params;
+---
+
+<Layout title="Talleres | Congreso Internacional XXV de Informática y Sistemas">
+  <WorkshopInscriptionContainer>
+    <PagoOptions idWorkshop={Number(id)} client:only />
+  </WorkshopInscriptionContainer>
+</Layout>

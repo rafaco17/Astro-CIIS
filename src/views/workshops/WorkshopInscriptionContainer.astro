@@ -1,0 +1,47 @@
+---
+import Step from "./components/Step.astro";
+const urlPath = Astro.url.pathname;
+const active1 = urlPath.startsWith("/workshops/user/") ? "active" : "";
+const active2 = urlPath.startsWith("/workshops/pago/") ? "active" : "";
+const active3 = urlPath.startsWith("/workshops/upload/") ? "active" : "";
+---
+
+<section class="w-dvw min-h-dvh flex flex-col justify-star items-center p-6 pt-32">
+    <div class="w-full flex justify-center py-8">
+        <div class="flex items-center justify-center flex-row ">
+            <div
+                class={`${active1} ${active2} ${active3} bg-[#3e5ba330] text-[#000415] rounded-full w-10 h-10 flex items-center justify-center font-bold sm:w-12 sm:h-12`}
+            >
+                <span class="text-lg">1</span>
+            </div>
+            <Step active1={active2} active2={active3} />
+            <div
+                class={`${active2} ${active3} bg-[#3e5ba330]  text-[#000415] rounded-full w-10 h-10  flex items-center justify-center font-bold`}
+            >
+                <span>2</span>
+            </div>
+            <Step active1={active3} active2="" />
+            <div
+                class={`${active3} bg-[#3e5ba330] text-[#000415] rounded-full w-10 h-10  flex items-center justify-center font-bold`}
+            >
+                <span>3</span>
+            </div>
+        </div>
+    </div>
+    <div class="text-center text-primary-600 text-4xl font-bold py-6">
+        {
+            active1 ? "Ingresa la información respectiva" :
+            active2 ? "Métodos de pago" :
+            active3 ? "Documentos necesarios" :
+            "Proceso de registro para el CIISXXV"
+        }
+    </div>
+    <slot />
+</section>
+
+<style>
+    .active {
+        background: white;
+        color: black;
+    }
+</style>

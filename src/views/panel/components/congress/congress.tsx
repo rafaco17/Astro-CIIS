@@ -65,7 +65,7 @@ const Congress = () => {
           <div className="w-56 sm:w-64 overflow-hidden rounded-sm transition-transform hover:scale-110 active:scale-125 sm:active:scale-150 z-10">
             <img
               className="w-full object-cover select-none"
-              src="https://scontent.ftcq3-1.fna.fbcdn.net/v/t39.30808-6/462773478_1065990592198921_7237956819216671983_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=vjr15Tf3qOAQ7kNvgF6YJhu&_nc_zt=23&_nc_ht=scontent.ftcq3-1.fna&_nc_gid=A9pSfPBrLoJLPKSP91gtaED&oh=00_AYAU376xBCO67DxnEzzviE6lMXIH17meXE2gaYTOc4ZFUQ&oe=6718F040"
+              src="/BrouchureCIISXXV.jpg"
               alt="Ficha del CIIS XXV"
               loading="lazy"
             />

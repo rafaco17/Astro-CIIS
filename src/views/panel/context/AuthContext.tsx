@@ -24,6 +24,7 @@ export function AuthMiddleware({ children }: { children: any }) {
   const auth = useAuthProvider();
   if (!auth.getUser()) {
     location.href = `/?next=${location.pathname}`;
+    return;
   }
   return <>{children}</>;
 }

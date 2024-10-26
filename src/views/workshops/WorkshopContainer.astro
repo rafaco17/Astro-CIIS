@@ -1,11 +1,7 @@
 ---
-import CardWorkshop from "./components/CardWorkshop";
+import ListWorkshop from "./components/ListWorkshop";
 import WorkshopMainContainer from "./components/WorkshopMainContainer.astro";
-import useWorkshops from "./services/useWorkshops";
-import type Workshop from "./adapters/workshopAdapter";
-import { format } from "date-fns";
 
-const workshops: Workshop[] | undefined = await useWorkshops();
 ---
 
 <section class="space-y-24 mb-24">
@@ -17,19 +13,7 @@ const workshops: Workshop[] | undefined = await useWorkshops();
       </p>
     </div>
     <div class="mt-8 flex flex-col gap-y-8 items-center">
-      {
-        workshops &&
-          workshops.map((workshop) => (
-            <CardWorkshop
-              title={workshop.name}
-              date={`${format(new Date(workshop.start), "dd/MM/yyyy hh:mm")} - ${format(new Date(workshop.end), "dd/MM/yyyy hh:mm")}`}
-              location={workshop.place}
-              price={workshop.price}
-              src_speaker={`https://ciistacna.com/${workshop.speaker.dir_img_speaker}`}
-              src_workshop="https://i.imgur.com/89Wsfpc.jpeg"
-            />
-          ))
-      }
+      <ListWorkshop client:only />
     </div>
   </div>
 </section>

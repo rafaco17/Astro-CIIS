@@ -7,15 +7,13 @@ import { useAuth } from "../../../hooks/use-auth";
 import { AuthMiddleware, AuthProvider } from "../../panel/context/AuthContext";
 
 interface Props {
-  idEvent: Number;
+  idWorkshop: Number;
 }
 
-function UploadRegister({ idEvent }: Props) {
-  const { user, updateStatusUser } = useAuth();
+function UploadRegister({ idWorkshop }: Props) {
+  const { user, updateUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [selectFileComprobante, setSelectedFileComprobante] = useState(null);
-  const [selectedFileFichaMatricula, setSelectedFileFichaMatricula] =
-    useState(null);
   const [messageErr, setMessageErr] = useState(null);
   const successDialog = useDialog();
   const errorDialog = useDialog();
@@ -26,9 +24,8 @@ function UploadRegister({ idEvent }: Props) {
 
     const formData = new FormData();
     if (selectFileComprobante) formData.append("payment_doc", selectFileComprobante);
-    if (selectedFileFichaMatricula) formData.append("scholar_doc", selectedFileFichaMatricula);
 
-    fetch(URI.events.one(idEvent).reservation.ciis("1", "1"), {
+    fetch(URI.workshop.one(idWorkshop).participant, {
       method: "POST",
       body: formData,
       credentials: "include",
@@ -41,10 +38,15 @@ function UploadRegister({ idEvent }: Props) {
         }
       })
       .then((res) => {
-        updateStatusUser(user);
+        user.talleres.push({
+          id: idWorkshop,
+          state: 0
+        })
+        updateUser(user);
         successDialog.handleOpen();
       })
       .catch((err) => {
+        console.log(err);
         const {
           error = "Ha ocurrido un error",
           reason = "En este momento el servidor no está disponible, inténtelo más tarde",
@@ -60,10 +62,10 @@ function UploadRegister({ idEvent }: Props) {
       <Dialog
         style={{ top: 20, position: "fixed" }}
         icon="success"
-        message="Registro exitoso. Estás a un solo paso de ser parte de este evento."
+        message="Registro exitoso. Estás a un solo paso de ser parte de este taller."
         open={successDialog.open}
         onClose={() => {
-          location.href = "/dashboard";
+          location.href = "/dashboard/workshops";
         }}
       />
       {messageErr && (
@@ -112,10 +114,10 @@ function UploadRegister({ idEvent }: Props) {
   );
 }
 
-export default ({ idEvent }: Props) => (
+export default ({ idWorkshop }: Props) => (
   <AuthProvider>
     <AuthMiddleware>
-      <UploadRegister idEvent={idEvent} />
+      <UploadRegister idWorkshop={idWorkshop} />
     </AuthMiddleware>
   </AuthProvider>
 );

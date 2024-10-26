@@ -2,7 +2,7 @@ import { URI } from "../../../helpers/endpoints.ts";
 
 const useWorkshops = async () => {
     try {
-        const response = await fetch(URI.reports.workshops);
+        const response = await fetch(URI.workshop.src);
         if (!response.ok) {
             throw new Error("Error en la respuesta de la API");
         }
