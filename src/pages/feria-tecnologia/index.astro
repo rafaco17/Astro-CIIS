@@ -1,0 +1,30 @@
+---
+import RoboticaIcon from "../../../public/icons/contest/RoboticaIcon.astro";
+import Layout from "../../layouts/Layout.astro";
+import Contest from "../../views/contest/components/Contest.astro";
+import EditionMainContainer from "../../views/gallery/components/EditionMainContainer.astro";
+---
+
+<Layout
+  title="Feria Tecnológica | Congreso Internacional XXV de Informática y Sistemas"
+>
+  <section class="space-y-24 mb-24">
+    <EditionMainContainer
+      title="Feria Tecnológica"
+      description="Descubre las innovaciones más recientes donde empresas y startups presentan tecnología avanzada, desde IA hasta ciberseguridad, en un espacio diseñado para conectar y experimentar el futuro"
+      image="/FeriaTecnologia.webp"
+    />
+    <Contest
+      title="EMPRESA 10X"
+      description="Desarrolladora de tecnología en punta, conoce el futuro con el ERP para los negocios personales y de larga escala."
+      image="robot.png"
+      date="Martes 12 de noviembre"
+      time="2:00 pm"
+      place="Laboratorio de Computación Aplicada de la E.P. de Ingeniería en Informática y Sistemas de la UNJBG (3er piso)"
+      base_rules="https://docs.google.com/document/d/1toRWq2UkoY4hw-gMiYJqt8hYhkUwixNDhceF_lE00Is/edit?usp=sharing"
+      link_form="https://forms.gle/4wdqG8TZsqfidb9w5"
+    >
+      <RoboticaIcon slot="iconContest" />
+    </Contest>
+  </section>
+</Layout>

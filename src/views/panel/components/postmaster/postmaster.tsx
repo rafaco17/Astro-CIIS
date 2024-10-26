@@ -45,9 +45,13 @@ const PostMaster = () => {
           <div className="w-56 sm:w-64 overflow-hidden rounded-sm transition-transform hover:scale-110 active:scale-125 sm:active:scale-150 z-10">
             <img
               className="w-full object-cover select-none"
-              src="/BrouchurePostmasterXXI.jpg"
+              src="/FichaPostmaster.webp"
               alt="Ficha del CIIS XXV"
               loading="lazy"
+              decoding="async"
+              width={1600}
+              height={900}
+              draggable="false"
             />
           </div>
         </div>

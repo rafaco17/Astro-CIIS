@@ -2,14 +2,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 20px;
+    padding: 40px;
     border-radius: 8px;
     max-width: 1200px;
     margin: auto;
     margin-top: 20px;
-    background-color: red;
     margin-bottom: 20px;
-    background-color: #121212;
 }
 
 .formGroup {
@@ -38,7 +36,8 @@
     outline: 1px solid #27272A;
     border: none;
     border-radius: 999999px;
-    background-color: #3E5BA330;
+    background-color: #ffffff;
+    opacity: 75%;
     color: #FFFFFF;
     font-size: 16px;
 }
@@ -73,7 +72,7 @@
 }
 
 .submitButton:hover{
-    background-color:#3e5ba370;
+    background-color:#1e40af;
 }
 
 .searchButton {
@@ -82,7 +81,7 @@
     top: 0;
     width: 50px;
     height: 50px;
-    background-color: #3e5ba350;
+    background-color: #3e5ba3;
     border: none;
     border-radius: 999999px;
     fill: white;

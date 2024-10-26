@@ -5,7 +5,7 @@ import { imagenesGaleria } from "./helpers/history";
 
 ---
 <section class="space-y-24 mb-24">    
-    <EditionMainContainer />
+    <EditionMainContainer title="Ediciones" description="Revive las ediciones pasadas del Congreso Internacional de Informática y Sistemas a través de esta galería. Un recorrido visual por los momentos y recuerdos que han marcado la historia de nuestro evento." image="/logos/logo-edition-optimiced.webp"/>
     {imagenesGaleria.map(galeria => (
         <EditionGalleryLeft titleStrong={galeria.title} items={galeria.items} />
     ))}

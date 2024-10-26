@@ -134,8 +134,6 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                 <div className="flex items-center justify-center flex-col">
                   <a
                     href="/recuperacion"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="text-sm font-medium text-primary-600 hover:underline text-primary-500"
                   >
                     ¿Olvidaste tu contraseña?

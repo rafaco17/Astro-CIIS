@@ -171,6 +171,9 @@ const SideBarPanel = ({ nameUser, emailUser }: SideBarProps) => {
                     src={avatarUrl}
                     alt="Avatar del usuario"
                     className="rounded-md"
+                    loading="lazy"
+                    decoding="async"
+                    draggable="false"
                   />
                 )}
                 <div

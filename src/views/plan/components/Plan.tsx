@@ -1,6 +1,15 @@
 import type { Props } from "../adapters/adapter";
 
-export const Plan = ({ plan, src, description, title, isDiscount, cost, costOriginal, benefits }: Props) => {
+export const Plan = ({
+  plan,
+  src,
+  description,
+  title,
+  isDiscount,
+  cost,
+  costOriginal,
+  benefits,
+}: Props) => {
   const handleClick = () => {
     location.href = `/registro/user/${encodeURIComponent(plan)}`;
   };
@@ -15,6 +24,11 @@ export const Plan = ({ plan, src, description, title, isDiscount, cost, costOrig
             src={src}
             className="object-cover h-full w-full opacity-35 blur-sm"
             alt="Background"
+            loading="lazy"
+            decoding="async"
+            width={1600}
+            height={900}
+            draggable="false"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center z-50 text-center">
             <div className={`text-3xl font-bold p-1 mb-3 `}>{title}</div>
@@ -22,17 +36,18 @@ export const Plan = ({ plan, src, description, title, isDiscount, cost, costOrig
             <div className="font-normal text-[1rem] mb-5 text-[#b3b3b3] px-4">
               {description}
             </div>
-            {
-              (isDiscount) ? (
-                <div className="flex justify-center items-baseline mt-2">
-                  <p className="text-5xl font-bold mr-2">S/.{cost}</p>
-                  <p className="text-xl font-bold text-[#a0a0a0] line-through">S/.{costOriginal}</p>
-                </div>
-              ) : (
-                <div className="flex justify-center items-baseline mt-2">
-                  <p className="text-5xl font-bold mr-2">S/.{cost}</p>
-                </div>
-              )}
+            {isDiscount ? (
+              <div className="flex justify-center items-baseline mt-2">
+                <p className="text-5xl font-bold mr-2">S/.{cost}</p>
+                <p className="text-xl font-bold text-[#a0a0a0] line-through">
+                  S/.{costOriginal}
+                </p>
+              </div>
+            ) : (
+              <div className="flex justify-center items-baseline mt-2">
+                <p className="text-5xl font-bold mr-2">S/.{cost}</p>
+              </div>
+            )}
           </div>
         </div>
         <div className="w-full h-1/2 p-4 flex flex-col items-center justify-between">
@@ -46,13 +61,13 @@ export const Plan = ({ plan, src, description, title, isDiscount, cost, costOrig
           </ul>
           <button
             className={`w-1/2 bg-[#3e5ba380] py-2 text-white rounded-md font-bold
-            hover:bg-[#3e5ba370] transition-transform`}
+            hover:bg-blue-800 transition-transform`}
             onClick={handleClick}
           >
             !Lo quiero!
           </button>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
