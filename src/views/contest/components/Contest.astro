@@ -54,7 +54,13 @@ const {title, description, image, date, time, place, base_rules, link_form} = As
           </div>
         </div>
         <div class="w-1/3 p-2 flex justify-center items-center">
-          <img src=`${image}`/>
+          <img src=`${image}` 
+                alt="Este es un robot"
+                loading="lazy"
+                decoding="async"
+                width={1600}
+                height={900}
+                draggable="false"/>
         </div>
       </div>
     </div>

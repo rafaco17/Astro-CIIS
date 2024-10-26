@@ -49,7 +49,12 @@ export const Payment = ({ number, cod, qr } : Props) => {
         <div className="flex justify-between items-center bg-white p-4 rounded-md mb-4">
           <p className="text-lg font-semibold">Código QR:</p>
           <div className="flex items-center">
-            <img src={qr} alt="QR Code" className="w-24 h-24"/>
+            <img src={qr} alt="QR Code" className="w-24 h-24"
+                      loading="lazy"
+                      decoding="async"
+                      width={1600}
+                      height={900}
+                      draggable="false"/>
           </div>
         </div>
       )}

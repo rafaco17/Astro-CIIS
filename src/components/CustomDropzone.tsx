@@ -68,6 +68,9 @@ export default function CustomDropzone({ selectedFile, setselectedFile } : Custo
                       height={120}
                       alt={selectedFile.name}
                       src={selectedFile.preview}
+                      loading="lazy"
+                      decoding="async"
+                      draggable="false"
                     />
                   )}
                 </div>

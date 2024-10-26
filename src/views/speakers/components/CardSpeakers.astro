@@ -32,6 +32,7 @@ const {
                     height={300}
                     src={link_image}
                     alt={alt}
+                    draggable="false"
                 />
                 <Image
                     class="absolute blur-lg -z-10 block object-cover w-full aspect-square transition-all opacityImage bg-white rounded-[10px] top-0 lef-0 right-0"
@@ -39,15 +40,16 @@ const {
                     height={300}
                     src={link_image}
                     alt={alt}
+                    draggable="false"
                 />
             </figure>
             <div class="relative">
-                <h4 class="font-bold tracking-wider text-lg max-w-52">
-                    {truncateString(nameSpeaker,20)}
+                <h4 class="font-bold tracking-wider text-lg max-w-52 text-balance">
+                    {nameSpeaker}
                 </h4>
-                <div class="flex-wrap max-w-52">
-                    <p class="break-words text-sm text-color-secondary">
-                        {truncateString(rolSpeaker)}
+                <div class="flex-wrap max-w-52 mt-2">
+                    <p class="break-words text-sm text-color-secondary text-pretty">
+                        {rolSpeaker}
                     </p>
                 </div>
                 <div class="absolute right-0 bottom-0 top-2">
