@@ -174,8 +174,6 @@ const SideBarPanel = ({ nameUser, emailUser }: SideBarProps) => {
                     className="rounded-md"
                     loading="lazy"
                     decoding="async"
-                    width={1600}
-                    height={900}
                     draggable="false"
                   />
                 )}
