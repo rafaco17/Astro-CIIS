@@ -19,7 +19,7 @@ interface ContestProps{
 const {title, description, image, date, time, place, base_rules, link_form} = Astro.props;
 ---
 
-<div class="flex flex-col justify-center items-center">
+<div class="flex flex-col justify-center items-center slide-in-left">
     <div
       class=`w-2/3 rounded-3xl p-8 overflow-hidden ${bgButton} text-white group `
     >
@@ -59,3 +59,28 @@ const {title, description, image, date, time, place, base_rules, link_form} = As
       </div>
     </div>
   </div>
+
+
+  <style>
+
+    .slide-in-left {
+        animation: slide-in-left both;
+        animation-timeline: view();
+        animation-range-start: cover 10%;
+        animation-range-end: contain 20%;
+        animation-duration: 0.5s;
+        animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    }
+
+    @keyframes slide-in-left {
+        0% {
+            transform: translateX(-400px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+</style>
