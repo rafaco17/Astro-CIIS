@@ -3,11 +3,11 @@ import SectionAboutUs from "./components/SectionAboutUs.astro"
 import SectionAside from "./components/SectionAside.astro"
 import SectionImages from "./components/SectionImages.astro"
 import { ImageAlfredo } from "../../../public/speakers/index.astro"
-import { Companieros_One, Companieros_Two, Docentes, Robot } from "../../../public/memories/index.astro"
+import { Companieros_One, Companieros_Two, Docentes, Robot, Michi } from "../../../public/memories/index.astro"
 ---
 
 <footer class="w-full pt-6 footer-text-color footer-border-color animation-view">
-    <div class="m-auto flex justify-center items-start max-w-[1360px] space-x-0 lg:space-x-12 flex-col lg:flex-row ">
+    <div class="m-auto flex justify-center items-center lg:items-start max-w-[1360px] space-x-0 lg:space-x-12 flex-col lg:flex-row text-center lg:text-left">
         <SectionAboutUs 
             title="Sobre Nosotros" 
             description="El 25° Congreso Internacional de Informática y Sistemas (CIIS) reúne a expertos de todo el mundo para discutir los avances en Informática y Sistemas, con énfasis en IA, IoT, Ciencia de Datos, Ciberseguridad y Robótica. Ofrecerá conferencias, talleres y presentaciones de investigación, fomentando la colaboración interdisciplinaria en el sur del Perú."
@@ -23,7 +23,7 @@ import { Companieros_One, Companieros_Two, Docentes, Robot } from "../../../publ
         <SectionImages title="Galería" images={[
             Companieros_One,
             Companieros_Two,
-            Robot,
+            Michi,
             Docentes,
         ]}/>
     </div>

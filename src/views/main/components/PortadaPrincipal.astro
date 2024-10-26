@@ -11,12 +11,15 @@ import Label from "./Label.astro";
   <video
     id="myVideo"
     class="opacity-30 absolute inset-0 w-full h-full object-cover backdrop-blur-sm -z-30"
-    controls={false}
+    autoplay
+    muted
+    loop
     controlslist="nodownload nofullscreen noremoteplayback"
     disablepictureinpicture
   >
     <source src="video1.mp4" type="video/mp4" />
   </video>
+
   <dir class="mb-5">
     <Label description="Del 11 al 15 de noviembre del 2024">
       <IconStar size={5} fill="#7AAEF1" slot="icon" />
