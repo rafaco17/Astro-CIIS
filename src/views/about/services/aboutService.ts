@@ -15,9 +15,9 @@ const aboutCIIS = [
         description: "9 temas actuales que no querrás perderte. ¡Explora lo último en tecnología!"
     },
     {
-        title1: "5",
+        title1: "3",
         title2: "Talleres", 
-        description: "5 talleres clave confirmados. ¡Desarrolla nuevas habilidades!"
+        description: "3 talleres clave confirmados. ¡Desarrolla nuevas habilidades!"
     },
     {
         title1: "3",
