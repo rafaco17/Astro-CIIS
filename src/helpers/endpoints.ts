@@ -1,6 +1,6 @@
-//export const domain = "https://ciistacna.com";
+export const domain = "https://ciistacna.com";
 //export const domain = "https://test.ciistacna.com";
-export const domain = "http://127.0.0.1:4000"
+//export const domain = "http://127.0.0.1:4000"
 
 export const URI = {
   reports: {

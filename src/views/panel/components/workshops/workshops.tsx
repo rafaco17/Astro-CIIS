@@ -50,6 +50,9 @@ const Workshops = () => {
                 end={workshop.end}
                 location={workshop.place}
                 price={workshop.price}
+                degree_speaker={workshop.speaker.degree_speaker}
+                name_speaker={workshop.speaker.name_speaker}
+                lastname_speaker={workshop.speaker.lastname_speaker}
                 src_speaker={`https://ciistacna.com/${workshop.speaker.dir_img_speaker}`}
                 src_workshop="https://i.imgur.com/89Wsfpc.jpeg"
                 avaible={workshop.avaible}

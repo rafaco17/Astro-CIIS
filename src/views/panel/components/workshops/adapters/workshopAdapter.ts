@@ -1,9 +1,10 @@
 interface Speaker {
-    name_speaker: string;
-    lastname_speaker: string;
-    nationality_speaker: string;
-    dir_img_speaker: string;
-    about_profile_speaker: string;
+  degree_speaker: string;
+  name_speaker: string;
+  lastname_speaker: string;
+  nationality_speaker: string;
+  dir_img_speaker: string;
+  about_profile_speaker: string;
 }
 
 export default interface Props {
