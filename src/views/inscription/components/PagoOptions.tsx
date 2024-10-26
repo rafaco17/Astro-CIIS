@@ -59,6 +59,11 @@ function PagoOptions({ tipoplan, typeEvent }: Props) {
                 src={paymentOptions[0].qr}
                 alt="Logo BCP"
                 className="w-48 h-48 mt-2 rounded-lg md:mt-4"
+                loading="lazy"
+                decoding="async"
+                width={1600}
+                height={900}
+                draggable="false"
               />
             </div>
           </div>
@@ -80,6 +85,11 @@ function PagoOptions({ tipoplan, typeEvent }: Props) {
                 src={paymentOptions[1].qr}
                 alt="Yape QR"
                 className="w-48 h-48 mt-2 rounded-lg md:mt-4"
+                loading="lazy"
+                decoding="async"
+                width={1600}
+                height={900}
+                draggable="false"
               />
             </div>
           </div>

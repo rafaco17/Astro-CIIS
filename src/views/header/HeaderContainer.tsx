@@ -75,6 +75,9 @@ export const Header = () => {
               alt="Logo del CIIS XXV"
               width="112"
               height="112"
+              loading="lazy"
+              decoding="async"
+              draggable="false"
             />
           </a>
           <nav
