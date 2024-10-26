@@ -4,7 +4,7 @@ interface Props {
 }
 const { description } : Props = Astro.props
 ---
-<div class="flex gap-x-3 items-center">
+<div class="flex gap-x-1 sm:gap-x-3 items-center justify-center lg:justify-start">
     <slot name="icon" />
     <span class="text-white/90 tracking-tight">{description}</span>
 </div>
