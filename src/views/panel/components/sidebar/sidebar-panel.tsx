@@ -127,17 +127,16 @@ const SideBarPanel = ({ nameUser, emailUser }: SideBarProps) => {
                     }} 
                   />
                   <ItemSideBar
-                    to="/talleres"
+                    to="/workshops"
                     description="Talleres"
                     icon={<IconBriefcase size={5} />}
                     index={3}
                     onClick={() => {
                       if (transparent) setExpanded(!expanded);
-                    }} 
-                    disabled={true}
+                    }}
                   />
                   <ItemSideBar
-                    to="/cuenta"
+                    to="/account"
                     description="Cuenta"
                     icon={<IconUser size={5} />}
                     index={4}

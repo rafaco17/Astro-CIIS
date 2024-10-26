@@ -38,6 +38,10 @@ const InformationRegister = ({ evento, plan }: Props) => {
       setTimeout(() => {
         createSession(user, `/registro/pago/${plan}`);
       }, 2000);
+    } else if (evento === "ciis_workshop") {
+      setTimeout(() => {
+        createSession(user, `/workshops/pago/${plan}`);
+      }, 2000);
     }
   };
 

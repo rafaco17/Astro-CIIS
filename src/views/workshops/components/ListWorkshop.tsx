@@ -1,10 +1,11 @@
+import type Workshop from "../adapters/workshopAdapter";
 import { useEffect, useState } from "react";
-import CardWorkshop from "./components/card-workshop";
-import { URI } from "../../../../helpers/endpoints";
-import type Workshop from "./adapters/workshopAdapter";
-import { useAuth } from "../../../../hooks/use-auth";
+import { URI } from "../../../helpers/endpoints";
+import { useAuth } from "../../../hooks/use-auth";
+import CardWorkshop from "../../panel/components/workshops/components/card-workshop";
+import { AuthProvider } from "../../panel/context/AuthContext";
 
-const Workshops = () => {
+const ListWorkshop = () => {
   const { user } = useAuth();
   const [workshops, setWorkshops] = useState<Workshop[] | undefined>();
 
@@ -25,19 +26,8 @@ const Workshops = () => {
   }, []);
 
   return (
-    <div className="p-2 sm:p-4 h-dvh w-full bg-slate-950">
-      <div className="font-bold mt-8 text-left select-none flex flex-col gap-y-1">
-        <p className="text-4xl tracking-wider opacity-80">
-          ¡Únete a nuestros Talleres!
-        </p>
-        <span className="text-sm text-slate-400">
-          Explora una variedad de talleres diseñados para enriquecer tu
-          aprendizaje y potenciar tus habilidades. ¡Inscríbete hoy y no te
-          pierdas la oportunidad de crecer junto a nosotros!
-        </span>
-      </div>
-      <div className="mt-8 flex flex-col gap-y-8 items-center">
-        {workshops &&
+    <>
+      {workshops &&
           workshops.map((workshop, index) => {
             let cwk = user?.talleres.find((t: any) => t.id == workshop.id);
             return (
@@ -61,9 +51,13 @@ const Workshops = () => {
               />
             )
           })}
-      </div>
-    </div>
+    </>
   );
 };
-
-export default Workshops;
+export default () => {
+  return (
+    <AuthProvider>
+      <ListWorkshop />
+    </AuthProvider>
+  )
+};

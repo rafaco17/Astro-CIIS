@@ -82,7 +82,7 @@ const Account = () => {
   function failServer(err: any) {
     if (err.code) {
       if (err.code == 401) {
-        logout("/?next=/dashboard/cuenta");
+        logout("/?next=/dashboard/account");
       } else {
         const {
           error = "Ha ocurrido un error",

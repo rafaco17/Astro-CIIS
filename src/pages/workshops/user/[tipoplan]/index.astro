@@ -1,0 +1,25 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import InscriptionContainer from "../../../../views/inscription/InscriptionContainer.astro";
+import InformationRegister from "../../../../views/inscription/components/InformationRegister";
+import useWorkshops from "../../../../views/workshops/services/useWorkshops";
+import type Workshop from "../../../../views/workshops/adapters/workshopAdapter";
+
+export async function getStaticPaths() {
+  const workshops: Workshop[] | undefined = await useWorkshops();
+
+  return workshops?.map((workshop) => {
+    return {
+      params: { id: workshop?.id}
+    }
+  });
+}
+
+const { id } = Astro.params;
+---
+
+<Layout title="Registro | Congreso Internacional XXV de Informática y Sistemas">
+  <InscriptionContainer>
+    <InformationRegister client:load evento="ciis_workshop" plan={String(id)} />
+  </InscriptionContainer>
+</Layout>

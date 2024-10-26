@@ -1,0 +1,19 @@
+---
+import ListWorkshop from "./components/ListWorkshop";
+import WorkshopMainContainer from "./components/WorkshopMainContainer.astro";
+
+---
+
+<section class="space-y-24 mb-24">
+  <WorkshopMainContainer />
+  <div class="p-2 sm:p-4 min-h-dvh w-full bg-slate-950">
+    <div class="font-bold mt-8 text-left select-none flex flex-col gap-y-1">
+      <p class="text-4xl tracking-wider text-center opacity-80">
+        ¡Únete a nuestros Talleres!
+      </p>
+    </div>
+    <div class="mt-8 flex flex-col gap-y-8 items-center">
+      <ListWorkshop client:only />
+    </div>
+  </div>
+</section>

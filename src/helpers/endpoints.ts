@@ -6,7 +6,8 @@ export const URI = {
   reports: {
     speakers: `${domain}/reports/15/speakers.json`,
     cronograma: `${domain}/reports/15/cronograma.json`,
-    sponsors: `${domain}/reports/15/sponsors.json`
+    sponsors: `${domain}/reports/15/sponsors.json`,
+    workshops: `${domain}/reports/15/talleres.json`,
   },
   session: {
     src: `${domain}/api/v2/session`,
@@ -41,6 +42,13 @@ export const URI = {
     one: (id: Number) => ({
       src: `${domain}/api/v2/conference/${id}`,
       attendance: `${domain}/api/v2/conference/${id}/attendance`,
+    }),
+  },
+  workshop: {
+    src: `${domain}/api/v2/taller`,
+    one: (id: Number) => ({
+      src: `${domain}/api/v2/taller/${id}`,
+      participant: `${domain}/api/v2/taller/${id}/participant`,
     }),
   },
 };

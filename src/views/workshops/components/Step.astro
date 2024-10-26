@@ -1,0 +1,28 @@
+---
+interface Props {
+    active1: string;
+    active2: string;
+}
+
+const { active1, active2 } = Astro.props;
+let active = "";
+
+if (active1==="active") {
+    active = active1;
+} else if (active2==="active") { 
+    active = active2;
+}
+---
+
+<div class="flex">
+    <div class={`h-[10px] w-6 rounded-[4px] ${active} bg-[#3e5ba330] m-3 sm:w-10`}></div>
+    <div class={`hidden h-[10px] w-6 rounded-[4px] ${active} bg-[#3e5ba330] m-3 sm:w-10 sm:block`}></div>
+    <div class={`hidden h-[10px] w-6 rounded-[4px] ${active} bg-[#3e5ba330] m-3 sm:w-10 sm:block`}></div>
+</div>
+
+<style>
+    .active {
+        background: white;
+        color: black;
+    }
+</style>
