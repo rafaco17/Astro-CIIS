@@ -106,7 +106,7 @@ const InformationRegister = ({ evento, plan }: Props) => {
         />
       )}
 
-      <div className={`${styles.formContainer}`}>
+      <div className={`${styles.formContainer} bg-blue-950/50`}>
         <div className={`${styles.formGroup}`}>
           <label htmlFor="dni">Ingresa tu documento de identidad</label>
           <div className={`${styles.inputWrapper}`}>

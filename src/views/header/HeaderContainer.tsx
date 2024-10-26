@@ -67,8 +67,6 @@ export const Header = () => {
             className="ml-4 transition-transform duration-300 hover:scale-125"
             title="Ir a la página principal"
             aria-label="Ir a la página principal"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <img
               src="/LOGOCIIS.svg"
@@ -98,22 +96,11 @@ export const Header = () => {
           <div className="flex items-center gap-4 mr-4 min-[1040px]:ml-auto">
             <button
               onClick={handleLogin}
-              className={`flex items-center cursor-pointer gap-2 rounded-lg px-3 py-[10px] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${bgButton} text-white ${shadowButton} ${shadowButtonHover} hover:scale-110 ml-auto font-medium`}
+              className={`flex items-center cursor-pointer gap-2 rounded-lg px-4 py-[10px] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${bgButton} text-white ${shadowButton} ${shadowButtonHover} hover:scale-110 ml-auto font-medium`}
               title="Únete al CIIS XXV"
               aria-label="Inscripción Congreso Internacional de Informática y Sistemas"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="#ffffff"
-                  d="m11.645 20.91l-.007-.003l-.022-.012l-.082-.045q-.108-.06-.301-.173a25.2 25.2 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25C2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052A5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25c0 3.925-2.438 7.111-4.739 9.256a25 25 0 0 1-4.244 3.17a15 15 0 0 1-.383.219l-.022.012l-.007.004l-.003.001a.75.75 0 0 1-.704 0z"
-                />
-              </svg>
-              Inscribirse
+              Iniciar Sesión
             </button>
             <button
               onClick={handleMenuToggle}
