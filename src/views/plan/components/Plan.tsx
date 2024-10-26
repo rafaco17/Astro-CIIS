@@ -46,7 +46,7 @@ export const Plan = ({ plan, src, description, title, isDiscount, cost, costOrig
           </ul>
           <button
             className={`w-1/2 bg-[#3e5ba380] py-2 text-white rounded-md font-bold
-            hover:bg-[#3e5ba370] transition-transform`}
+            hover:bg-blue-800 transition-transform`}
             onClick={handleClick}
           >
             !Lo quiero!
