@@ -13,12 +13,12 @@ const { title, description, image }: Props = Astro.props
     style={`background-image: url('${image}');`}>
     <div class="absolute w-full h-full bg-[#000415]/90 top-0 z-30 grid place-content-center">
         <div class="m-auto max-w-[720px] flex flex-col gap-6 ">
-            <h2 class="text-5xl text-center text-secondary tracking-tighter tracking-in-contract-bck sm:text-6xl">  
+            <h2 class="text-4xl text-center text-secondary tracking-tighter tracking-in-contract-bck sm:text-5xl lg:text-6xl text-balance">  
                 <p class="text-yellow-200 font-extrabold uppercase tracking-wide">
                     {title}
                 </p>
             </h2>
-            <span class="text-center text-slate-100/75 text-sm sm:text-2xl text-focus-in">{description}</span>
+            <span class="text-pretty text-center text-slate-100/75 text-sm sm:text-2xl text-focus-in">{description}</span>
         </div>
     </div>
 </section>
