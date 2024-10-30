@@ -21,13 +21,13 @@ const {title, description, image, date, time, place, base_rules, link_form} = As
 
 <div class="flex flex-col justify-center items-center slide-in-left">
     <div
-      class=`w-[260px] sm:w-[600px] lg:w-2/3 rounded-3xl px-4 py-4 lg:px-8 lg-py-8 overflow-hidden ${bgButton} text-white group`
+      class=`w-[calc(100% - 48px)] sm:w-[600px] lg:w-2/3 rounded-3xl mx-6 px-4 py-4 lg:px-8 lg-py-8 overflow-hidden ${bgButton} text-white group`
     >
       <div class="flex flex-col lg:flex-row items-center lg:justify-start">
-        <div class="w-2/3 p-2">
+        <div class="w-full lg:w-2/3 p-2">
           <div class="flex flex-row items-center justify-center">
             <slot class="hidden sm:block" name="iconContest" />
-            <h4 class="text-balance text-2xl sm:text-3xl lg:text-4xl font-bold ml-4 group-hover:underline underline-offset-8 text-center lg:text-start">{title}</h4>
+            <h4 class="text-balance text-2xl sm:text-3xl lg:text-4xl font-bold group-hover:underline underline-offset-8 text-center lg:text-start">{title}</h4>
           </div>
           <div
             class="flex flex-col items-center justify-center text-lg mt-4 gap-4"

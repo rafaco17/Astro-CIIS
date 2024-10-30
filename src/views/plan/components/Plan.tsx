@@ -1,3 +1,5 @@
+import { URI } from "../../../helpers/endpoints";
+import { useAuth } from "../../../hooks/use-auth";
 import type { Props } from "../adapters/adapter";
 
 export const Plan = ({
@@ -10,9 +12,36 @@ export const Plan = ({
   costOriginal,
   benefits,
 }: Props) => {
+  const { user, updateUser } = useAuth();
+
   const handleClick = () => {
-    location.href = `/registro/user/${encodeURIComponent(plan)}`;
-  };
+    if (!user) {
+      location.href = `/registro/user/${encodeURIComponent(plan)}`;
+    } else {
+      fetch(URI.user.inscription, {
+        method: "PATCH",
+        body: JSON.stringify({ plan_ciis: plan }),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      })
+        .then(async (res) => {
+          if (res.ok) return res.json();
+          else {
+            let error = await res.json();
+            throw error;
+          }
+        })
+        .then(() => {
+          user.plan_ciis = plan;
+          user.dataCiis = 3;
+          updateUser(user);
+          location.href = `/dashboard/ciis`;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }
 
   return (
     <div
