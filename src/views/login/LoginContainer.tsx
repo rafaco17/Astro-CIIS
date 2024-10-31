@@ -5,7 +5,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Dialog from "../../components/Dialog";
 import { useDialog } from "../../hooks/use-dialog";
-import { login } from "../../middlewares/auth";
+import { googleoauth, login } from "../../middlewares/auth";
+import { GoogleAuthButton } from "./components/GoogleAuthButton";
 
 interface Props {
   disabled: boolean;
@@ -38,6 +39,15 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
       });
     },
   });
+
+  const handleGoogleOAuth = () => {
+    googleoauth().then((url) => {
+      location.href = `${url}`;
+    }).catch((err) => {
+      setMessageErr(err.reason);
+      errorDialog.handleOpen();
+    });
+  }
 
   return (
     <div
@@ -138,6 +148,9 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                   >
                     ¿Olvidaste tu contraseña?
                   </a>
+                  <div className="w-full flex justify-center mt-7">
+                    <GoogleAuthButton text="Continuar con Google" handleClick={handleGoogleOAuth} />
+                  </div>
                   <a
                     href={searchParams.get("next")?.includes("/workshops") ? searchParams.get("next")?.replace("pago", "user") : `/registro/planes`}
                     target="_blank"

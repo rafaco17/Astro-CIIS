@@ -6,8 +6,10 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDialog } from "../../../../hooks/use-dialog";
 import { URI } from "../../../../helpers/endpoints.ts";
-import { QRCodeCanvas, QRCodeSVG } from "qrcode.react";
+import { QRCodeCanvas } from "qrcode.react";
 import Dialog from "../../../../components/Dialog.tsx";
+import { GoogleAuthButton } from "../../../login/components/GoogleAuthButton.tsx";
+import { googleoauth } from "../../../../middlewares/auth.ts";
 
 const Account = () => {
   const { user, logout, updateUser } = useAuth();
@@ -18,17 +20,32 @@ const Account = () => {
 
   const qrRef = useRef<HTMLCanvasElement>(null);
 
+  const handleGoogleOAuth = () => {
+    googleoauth()
+      .then((url) => {
+        user.auth_provider = "both";
+        location.href = `${url}`;
+      })
+      .catch((err) => {
+        setMessageError(err.reason);
+        errorDialog.handleOpen();
+      });
+  };
+
   const handleDownload = () => {
     const canvas = qrRef.current;
     if (!canvas) return;
 
-    const image = canvas.toDataURL('image/png');
-    const link = document.createElement('a');
+    const image = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
     link.href = image;
-    link.download = 'qrcode.png';
+    link.download = "qrcode.png";
     link.click();
   };
 
+  const formikDNI = useFormik(
+    getValidationDNI({ onSubmit: handleUpdateDNI })
+  );
   const formikPhone = useFormik(
     getValidationPhoneEdit({ onSubmit: handleUpdatePhone })
   );
@@ -48,6 +65,12 @@ const Account = () => {
     getValidationCareer({ onSubmit: handleUpdateCareer })
   );
 
+  useEffect(() => {
+    formikDNI.setFieldValue(
+      "dni",
+      Boolean(user.dni) ? user.dni : ""
+    );
+  }, []);
   useEffect(() => {
     formikPhone.setFieldValue(
       "phone",
@@ -89,6 +112,7 @@ const Account = () => {
           reason = "En este momento el servidor no está disponible, inténtelo más tarde",
         } = err;
         setMessageError(reason);
+        errorDialog.handleOpen();
       }
     } else {
       const {
@@ -96,7 +120,34 @@ const Account = () => {
         reason = "En este momento el servidor no está disponible, inténtelo más tarde",
       } = err;
       setMessageError(reason);
+      errorDialog.handleOpen();
     }
+  }
+
+  function handleUpdateDNI(values: any) {
+    fetch(URI.user.dni, {
+      method: "PATCH",
+      body: JSON.stringify(values),
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+      .then(async (res) => {
+        if (res.ok) return res.json();
+        else {
+          let error = await res.json();
+          throw error;
+        }
+      })
+      .then(() => {
+        setMessageSuccess("DNI actualizado");
+        successDialog.handleOpen();
+        user.dni = values.dni;
+        updateUser(user);
+      })
+      .catch((err) => {
+        failServer(err);
+        formikDNI.setFieldValue("dni", "");
+      });
   }
 
   function handleUpdatePhone(values: any) {
@@ -273,14 +324,27 @@ const Account = () => {
           </span>
           <div className="mt-4 flex justify-center sm:justify-evenly flex-col sm:flex-row">
             <div className="flex flex-col items-center space-y-4 w-full ">
-              <InputWithButton
-                inputName="document_number"
-                type="text"
-                defaultValue={user?.dni}
-                label="Documento de identidad"
-                placeholder="Ingrese su N° documento identidad"
-                disabled={true}
-              />
+              {user.auth_provider !== "google" ? (
+                <InputWithButton
+                  inputName="document_number"
+                  type="text"
+                  defaultValue={user?.dni}
+                  label="Documento de identidad"
+                  placeholder="Ingrese su N° DNI"
+                  disabled={true}
+                />
+              ) : (
+                <InputWithButton
+                  inputName="document_number"
+                  type="text"
+                  label="DNI"
+                  placeholder="Ingrese su N° DNI"
+                  inputProps={formikDNI.getFieldProps("dni")}
+                  touched={formikDNI.touched.dni}
+                  error={formikDNI.errors.dni}
+                  onSave={formikDNI.handleSubmit}
+                />
+              )}
               <InputWithButton
                 inputName="name"
                 type="text"
@@ -333,7 +397,10 @@ const Account = () => {
                   <span className="text-center block text-xl text-green-400 font-bold">
                     Credencial QR para la asistencia
                   </span>
-                  <button className="w-full px-6 py-2 border border-stone-500 rounded-full hover:bg-slate-600 transition-colors" onClick={handleDownload}>
+                  <button
+                    className="w-full px-6 py-2 border border-stone-500 rounded-full hover:bg-slate-600 transition-colors"
+                    onClick={handleDownload}
+                  >
                     Descargar Credencial
                   </button>
                 </div>
@@ -393,6 +460,26 @@ const Account = () => {
               onSave={formikPass.handleSubmit}
             />
           </div>
+          <div className="mt-4">
+            <div className="flex flex-col min-w-[280px] max-w-[520px] w-full">
+              <label
+                htmlFor="google-account"
+                className="mb-1 text-gray-200 select-none"
+              >
+                Redes sociales
+              </label>
+              <div className="flex items-center">
+                {user.auth_provider === "password" ? (
+                  <GoogleAuthButton
+                    text="Conectar con Google"
+                    handleClick={handleGoogleOAuth}
+                  />
+                ) : (
+                  <GoogleAuthButton text="Conectado" disabled={true} />
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
@@ -402,6 +489,19 @@ const Account = () => {
 function capitalizeWords(text = "") {
   text = text.toLocaleLowerCase();
   return text.replace(/(?:^|\s)\S/g, (match) => match.toUpperCase());
+}
+
+function getValidationDNI({ onSubmit = console.log }) {
+  return {
+    initialValues: { dni: "" },
+    validationSchema: Yup.object().shape({
+      dni: Yup.string()
+        .matches(/^[0-9]+$/, "Debe contener solo números")
+        .length(8, "Deben ser 8 caracteres")
+        .required("Este campo es obligatorio"),
+    }),
+    onSubmit,
+  };
 }
 
 function getValidationName({ onSubmit = console.log }) {

@@ -97,3 +97,50 @@ export async function updateStatusUser(user: any) {
     console.error("Error actualizando el estado del usuario", error);
   }
 }
+
+export async function googleoauth() {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(URI.google.sign, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw error;
+      }
+
+      const { url } = await response.json();
+
+      resolve(url);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+}
+
+export async function getUserGoogleoauth(token: string | null) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${URI.google.user}?access_token=${token}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw error;
+      }
+
+      const data = await response.json();
+      createSession(data, (Boolean(data?.dni) ? "/dashboard" : "/dashboard/account"));
+
+      resolve(data);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+}

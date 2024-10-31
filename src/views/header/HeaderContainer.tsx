@@ -29,7 +29,7 @@ const HeaderContainer = () => {
     setLogin(!login);
   };
 
-  const searchParams = new URLSearchParams(location.search);
+  const searchParams = new URLSearchParams(window.location.search);
 
   useEffect(() => {
     if (Boolean(searchParams.get("next"))) {

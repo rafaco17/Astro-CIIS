@@ -9,11 +9,16 @@ export const URI = {
     sponsors: `${domain}/reports/15/sponsors.json`,
     workshops: `${domain}/reports/15/talleres.json`,
   },
+  google: {
+    sign: `${domain}/api/v2/google/sign`,
+    user: `${domain}/api/v2/google/user`
+  },
   session: {
     src: `${domain}/api/v2/session`,
   },
   user: {
     src: `${domain}/api/v2/user`,
+    dni: `${domain}/api/v2/user/dni`,
     inscription: `${domain}/api/v2/user/inscription`,
     name: `${domain}/api/v2/user/name`,
     lastname: `${domain}/api/v2/user/lastname`,
