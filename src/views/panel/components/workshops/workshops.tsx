@@ -25,7 +25,7 @@ const Workshops = () => {
   }, []);
 
   return (
-    <div className="p-2 sm:p-4 h-dvh w-full bg-slate-950">
+    <div className="p-2 sm:p-4 mx-6 h-dvh w-[calc(100% - 48px)] bg-slate-950">
       <div className="font-bold mt-8 text-left select-none flex flex-col gap-y-1">
         <p className="text-4xl tracking-wider opacity-80">
           ¡Únete a nuestros Talleres!

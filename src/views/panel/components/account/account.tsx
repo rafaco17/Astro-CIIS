@@ -1,15 +1,14 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../../../hooks/use-auth";
-import IconSave from "./components/icon-save";
 import InputWithButton from "./components/input-with-button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDialog } from "../../../../hooks/use-dialog";
 import { URI } from "../../../../helpers/endpoints.ts";
-import { QRCodeCanvas } from "qrcode.react";
-import Dialog from "../../../../components/Dialog.tsx";
-import { GoogleAuthButton } from "../../../login/components/GoogleAuthButton.tsx";
+import Dialog from "../../../../components/Dialog";
+import { GoogleAuthButton } from "../../../login/components/GoogleAuthButton";
 import { googleoauth } from "../../../../middlewares/auth.ts";
+import QRCodeUser from "./components/QRUser";
 
 const Account = () => {
   const { user, logout, updateUser } = useAuth();
@@ -18,9 +17,9 @@ const Account = () => {
   const successDialog = useDialog();
   const errorDialog = useDialog();
 
-  const qrRef = useRef<HTMLCanvasElement>(null);
+  const handleGoogleOAuth = (e: any) => {
+    e.preventDefault();
 
-  const handleGoogleOAuth = () => {
     googleoauth()
       .then((url) => {
         user.auth_provider = "both";
@@ -32,20 +31,7 @@ const Account = () => {
       });
   };
 
-  const handleDownload = () => {
-    const canvas = qrRef.current;
-    if (!canvas) return;
-
-    const image = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
-    link.href = image;
-    link.download = "qrcode.png";
-    link.click();
-  };
-
-  const formikDNI = useFormik(
-    getValidationDNI({ onSubmit: handleUpdateDNI })
-  );
+  const formikDNI = useFormik(getValidationDNI({ onSubmit: handleUpdateDNI }));
   const formikPhone = useFormik(
     getValidationPhoneEdit({ onSubmit: handleUpdatePhone })
   );
@@ -66,10 +52,7 @@ const Account = () => {
   );
 
   useEffect(() => {
-    formikDNI.setFieldValue(
-      "dni",
-      Boolean(user.dni) ? user.dni : ""
-    );
+    formikDNI.setFieldValue("dni", Boolean(user.dni) ? user.dni : "");
   }, []);
   useEffect(() => {
     formikPhone.setFieldValue(
@@ -307,7 +290,7 @@ const Account = () => {
           onClose={errorDialog.handleClose}
         />
       )}
-      <div className="p-2 mx-10 sm:p-4 h-dvh w-[calc(100% - 80px)] bg-slate-950">
+      <div className="p-2 mx-6 2xl:mx-auto sm:p-4 h-dvh w-[calc(100% - 48px)] md:max-w-[1200px] bg-slate-950">
         <div className="font-bold tracking-wider mt-8 text-left select-none">
           <p className="text-4xl opacity-80">
             ¡Hola, {user?.name} {user?.lastname}!
@@ -323,7 +306,7 @@ const Account = () => {
             emitir tu certificado.
           </span>
           <div className="mt-4 flex justify-center sm:justify-evenly flex-col sm:flex-row">
-            <div className="flex flex-col items-center space-y-4 w-full ">
+            <div className="flex flex-col items-start space-y-4 w-full ">
               {user.auth_provider !== "google" ? (
                 <InputWithButton
                   inputName="document_number"
@@ -376,40 +359,15 @@ const Account = () => {
                 onSave={formikPhone.handleSubmit}
               />
             </div>
-            <div className="w-full mt-8 sm:mt-0 flex items-center justify-center ">
-              <div className="space-y-4 flex flex-col items-center">
-                <div className="w-[200px] h-[200px] bg-white rounded-sm">
-                  <QRCodeCanvas
-                    ref={qrRef}
-                    size={200}
-                    id="QRcredencial"
-                    value={JSON.stringify(user, [
-                      "id",
-                      "dni",
-                      "role",
-                      "name",
-                      "lastname",
-                    ])}
-                    marginSize={2}
-                  />
-                </div>
-                <div className="space-y-1">
-                  <span className="text-center block text-xl text-green-400 font-bold">
-                    Credencial QR para la asistencia
-                  </span>
-                  <button
-                    className="w-full px-6 py-2 border border-stone-500 rounded-full hover:bg-slate-600 transition-colors"
-                    onClick={handleDownload}
-                  >
-                    Descargar Credencial
-                  </button>
-                </div>
+            <div className="hidden w-full 2xl:max-w-[520px] mt-8 sm:mt-0 sm:flex items-center justify-center 2xl:justify-start">
+              <div className="space-x-4 space-y-4 flex flex-col items-center">
+                <QRCodeUser user={user} />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-4 flex justify-evenly items-start flex-col sm:flex-row gap-x-4 gap-y-4 sm:gap-y-0">
+        <div className="mt-4 flex items-start flex-col sm:flex-row gap-x-4 gap-y-4 sm:gap-y-0">
           <InputWithButton
             inputName="study_center"
             type="text"
@@ -422,7 +380,7 @@ const Account = () => {
           />
           <InputWithButton
             inputName="career"
-            type="tel"
+            type="text"
             label="Carrera profesional"
             placeholder="Ingrese su carrera profesional"
             inputProps={formikCareer.getFieldProps("career")}
@@ -430,6 +388,12 @@ const Account = () => {
             error={formikCareer.errors.career}
             onSave={formikCareer.handleSubmit}
           />
+        </div>
+
+        <div className="sm:hidden w-full mt-8 sm:mt-0 flex items-center justify-center">
+          <div className="space-y-4 flex flex-col items-center">
+            <QRCodeUser user={user} />
+          </div>
         </div>
 
         <div className="mt-8 pb-8">
@@ -440,7 +404,7 @@ const Account = () => {
             Asegúrate de ingresar un correo válido, ya que tu certificado se
             enviará a esa dirección.
           </span>
-          <div className="mt-4 flex justify-evenly items-start flex-col sm:flex-row gap-x-4 gap-y-4 sm:gap-y-0">
+          <div className="mt-4 flex justify-start items-start flex-col sm:flex-row gap-x-4 gap-y-4 sm:gap-y-0">
             <InputWithButton
               inputName="email"
               type="email"
@@ -472,7 +436,7 @@ const Account = () => {
                 {user.auth_provider === "password" ? (
                   <GoogleAuthButton
                     text="Conectar con Google"
-                    handleClick={handleGoogleOAuth}
+                    handleClick={(e: any) => handleGoogleOAuth(e)}
                   />
                 ) : (
                   <GoogleAuthButton text="Conectado" disabled={true} />

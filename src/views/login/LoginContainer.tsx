@@ -40,14 +40,18 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
     },
   });
 
-  const handleGoogleOAuth = () => {
-    googleoauth().then((url) => {
-      location.href = `${url}`;
-    }).catch((err) => {
-      setMessageErr(err.reason);
-      errorDialog.handleOpen();
-    });
-  }
+  const handleGoogleOAuth = (e: any) => {
+    e.preventDefault();
+
+    googleoauth()
+      .then((url) => {
+        window.open(`${url}`, "_self");
+      })
+      .catch((err) => {
+        setMessageErr(err.reason);
+        errorDialog.handleOpen();
+      });
+  };
 
   return (
     <div
@@ -141,26 +145,33 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                 >
                   Iniciar sesión
                 </button>
-                <div className="flex items-center justify-center flex-col">
-                  <a
-                    href="/recuperacion"
-                    className="text-sm font-medium text-primary-600 hover:underline text-primary-500"
-                  >
-                    ¿Olvidaste tu contraseña?
-                  </a>
-                  <div className="w-full flex justify-center mt-7">
-                    <GoogleAuthButton text="Continuar con Google" handleClick={handleGoogleOAuth} />
-                  </div>
-                  <a
-                    href={searchParams.get("next")?.includes("/workshops") ? searchParams.get("next")?.replace("pago", "user") : `/registro/planes`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-8 w-2/3 text-white bg-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center duration-300 hover:bg-green-800 md:text-md sm:w-1/2"
-                  >
-                    Registrarse
-                  </a>
-                </div>
               </form>
+              <div className="flex items-center justify-center flex-col">
+                <a
+                  href="/recuperacion"
+                  className="text-sm font-medium text-primary-600 hover:underline text-primary-500"
+                >
+                  ¿Olvidaste tu contraseña?
+                </a>
+                <div className="w-full flex justify-center mt-7">
+                  <GoogleAuthButton
+                    text="Continuar con Google"
+                    handleClick={(e: any) => handleGoogleOAuth(e)}
+                  />
+                </div>
+                <a
+                  href={
+                    searchParams.get("next")?.includes("/workshops")
+                      ? searchParams.get("next")?.replace("pago", "user")
+                      : `/registro/planes`
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 w-2/3 text-white bg-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center duration-300 hover:bg-green-800 md:text-md sm:w-1/2"
+                >
+                  Registrarse
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -52,8 +52,17 @@ export const DaySchedules = ({ponentes, day, date}: props) => {
         capitalizeFirstLetter(day) == "Jueves" ? 
         <CardAlmuerzo
           classname="bg-yellow-600"
-          time="11:00 - 11:40"
+          time="11:00 - 11:30"
           text="FERIA TECNOLÓGICA"
+        />
+        : ""
+      }
+      {
+        capitalizeFirstLetter(day) == "Viernes" ? 
+        <CardAlmuerzo 
+          classname="bg-yellow-600"
+          time="11:00 - 13:00"
+          text="CONCURSO DE PROGRAMACIÓN"
         />
         : ""
       }
@@ -62,15 +71,6 @@ export const DaySchedules = ({ponentes, day, date}: props) => {
         time="12:30 - 14:00"
         text="RECESO / ALMUERZO"
       />
-      {
-        capitalizeFirstLetter(day) == "Martes" ? 
-        <CardAlmuerzo 
-          classname="bg-yellow-600"
-          time="14:00 - 16:00"
-          text="CONCURSO DE ROBÓTICA"
-        />
-        : ""
-      }
       {
         capitalizeFirstLetter(day) == "Miércoles" ? 
         <CardAlmuerzo 
@@ -81,11 +81,11 @@ export const DaySchedules = ({ponentes, day, date}: props) => {
         : ""
       }
       {
-        capitalizeFirstLetter(day) == "Viernes" ? 
+        capitalizeFirstLetter(day) == "Jueves" ? 
         <CardAlmuerzo 
           classname="bg-yellow-600"
           time="14:00 - 16:00"
-          text="CONCURSO DE PROGRAMACIÓN"
+          text="CONCURSO DE ROBÓTICA"
         />
         : ""
       }
