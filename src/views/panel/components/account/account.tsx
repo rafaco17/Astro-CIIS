@@ -9,6 +9,7 @@ import Dialog from "../../../../components/Dialog";
 import { GoogleAuthButton } from "../../../login/components/GoogleAuthButton";
 import { googleoauth } from "../../../../middlewares/auth.ts";
 import QRCodeUser from "./components/QRUser";
+import InputPasswordWithButton from "./components/input-password-with-button.tsx";
 
 const Account = () => {
   const { user, logout, updateUser } = useAuth();
@@ -413,8 +414,7 @@ const Account = () => {
               placeholder="Ingrese su email"
               disabled={true}
             />
-            <InputWithButton
-              type="password"
+            <InputPasswordWithButton
               inputName="password"
               label="Cambiar contraseña"
               placeholder="Ingrese su contraseña"

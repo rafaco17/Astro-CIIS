@@ -7,6 +7,8 @@ import Dialog from "../../components/Dialog";
 import { useDialog } from "../../hooks/use-dialog";
 import { googleoauth, login } from "../../middlewares/auth";
 import { GoogleAuthButton } from "./components/GoogleAuthButton";
+import IconEye from "../../assets/icons/IconEye";
+import IconEyeOff from "../../assets/icons/IconEyeOff";
 
 interface Props {
   disabled: boolean;
@@ -21,6 +23,11 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
 
   const errorDialog = useDialog();
   const [messageErr, setMessageErr] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
+  };
 
   const form = useFormik({
     initialValues: { email: "", password: "" },
@@ -129,15 +136,22 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                     required
                   />
                 </div>
-                <div>
+                <div className="relative">
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     id="password"
                     placeholder="Contraseña"
                     className="border rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white outline-none focus:outline-blue-600"
                     {...form.getFieldProps("password")}
                     required
                   />
+                  <button
+                    type="button"
+                    onClick={togglePasswordVisibility}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400"
+                  >
+                    {showPassword ? <IconEye size={24} color="white" /> : <IconEyeOff size={24} color="white" />}
+                  </button>
                 </div>
                 <button
                   type="submit"

@@ -6,12 +6,16 @@ import { URI } from "../../../helpers/endpoints.ts";
 import { useDialog } from "../../../hooks/use-dialog";
 import Dialog from "../../../components/Dialog";
 import type UserRestore from "../adapters/userRestore";
+import IconEye from "../../../assets/icons/IconEye";
+import IconEyeOff from "../../../assets/icons/IconEyeOff";
 
 export default function ResetPassword() {
   const [loading, setLoading] = useState(false);
   const [messageErr, setMessageErr] = useState<string | null>(null);
   const [messageSuccess, setMessageSuccess] = useState<string | null>(null);
   const [messageVerifyErr, setMessageVerifyErr] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   const successDialog = useDialog();
   const errorDialog = useDialog();
 
@@ -144,7 +148,7 @@ export default function ResetPassword() {
             <label>Nueva contraseña</label>
             <div className={styles.inputWrapper}>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Ingrese nueva contraseña"
                 {...formikAll.getFieldProps("password")}
                 className={`${
@@ -153,6 +157,13 @@ export default function ResetPassword() {
                     : ""
                 }`}
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prevState) => !prevState)}
+                className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400"
+              >
+                {showPassword ? <IconEye size={24} color="white" /> : <IconEyeOff size={24} color="white" />}
+              </button>
             </div>
             {formikAll.touched.password && formikAll.errors.password ? (
               <span className={`${styles.textInvalid}`}>
@@ -166,7 +177,7 @@ export default function ResetPassword() {
             </label>
             <div className={styles.inputWrapper}>
               <input
-                type="password"
+                type={showPasswordConfirm ? "text" : "password"}
                 placeholder="Repite nueva contraseña"
                 {...formikAll.getFieldProps("confPassword")}
                 className={`${
@@ -176,6 +187,13 @@ export default function ResetPassword() {
                     : ""
                 }`}
               />
+              <button
+                type="button"
+                onClick={() => setShowPasswordConfirm((prevState) => !prevState)}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400"
+                >
+                  {showPasswordConfirm ? <IconEye size={24} color="white" /> : <IconEyeOff size={24} color="white" />}
+              </button>
             </div>
             {formikAll.touched.confPassword && formikAll.errors.confPassword ? (
               <span className={`${styles.textInvalid}`}>

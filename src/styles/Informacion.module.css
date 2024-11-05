@@ -42,6 +42,14 @@
     font-size: 16px;
 }
 
+.inputWrapper input[type="password"]::-ms-reveal {
+    display: none;
+}
+      
+.inputWrapper input[type="password"]::-ms-clear {
+    display: none;
+}
+
 .inputWrapper input::placeholder {
     color: gray;
     font-size: 14px;

@@ -7,6 +7,8 @@ import { useDialog } from "../../../hooks/use-dialog";
 import Dialog from "../../../components/Dialog";
 import { useAuth } from "../../../hooks/use-auth";
 import { AuthProvider } from "../../panel/context/AuthContext";
+import IconEye from "../../../assets/icons/IconEye.tsx";
+import IconEyeOff from "../../../assets/icons/IconEyeOff.tsx";
 
 interface Props {
   evento: string;
@@ -24,6 +26,8 @@ const InformationRegister = ({ evento, plan }: Props) => {
   const { user, createSession, updateStatusUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [messageErr, setMessageErr] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   const successDialog = useDialog();
   const errorDialog = useDialog();
 
@@ -252,7 +256,7 @@ const InformationRegister = ({ evento, plan }: Props) => {
           <label htmlFor="password">Ingresa tu contraseña</label>
           <div className={`${styles.inputWrapper}`}>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Puede ser diferente a la de tu correo"
               {...form.getFieldProps("password")}
               className={`${
@@ -261,6 +265,13 @@ const InformationRegister = ({ evento, plan }: Props) => {
                   : ""
               }`}
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prevState) => !prevState)}
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400"
+            >
+              {showPassword ? <IconEye size={24} color="white" /> : <IconEyeOff size={24} color="white" />}
+            </button>
           </div>
           {form.touched.password && form.errors.password ? (
             <span className={`${styles.textInvalid}`}>
@@ -272,7 +283,7 @@ const InformationRegister = ({ evento, plan }: Props) => {
           <label htmlFor="confPassword">Ingresa nuevamente tu contraseña</label>
           <div className={`${styles.inputWrapper}`}>
             <input
-              type="password"
+              type={showPasswordConfirm ? "text" : "password"}
               placeholder="Repite la anterior contraseña"
               {...form.getFieldProps("confPassword")}
               className={`${
@@ -281,6 +292,13 @@ const InformationRegister = ({ evento, plan }: Props) => {
                   : ""
               }`}
             />
+            <button
+              type="button"
+              onClick={() => setShowPasswordConfirm((prevState) => !prevState)}
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400"
+            >
+              {showPasswordConfirm ? <IconEye size={24} color="white" /> : <IconEyeOff size={24} color="white" />}
+            </button>
           </div>
           {form.touched.confPassword && form.errors.confPassword ? (
             <span className={`${styles.textInvalid}`}>
