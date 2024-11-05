@@ -1,8 +1,8 @@
 const aboutCIIS = [
     {
-        title1: "18*",
+        title1: "19",
         title2: "Ponencias", 
-        description: "18* ponencias con destacados expertos internacionales. ¡No te las pierdas!"
+        description: "19 ponencias con destacados expertos internacionales. ¡No te las pierdas!"
     },
     {
         title1: "25va",
@@ -15,9 +15,9 @@ const aboutCIIS = [
         description: "9 temas actuales que no querrás perderte. ¡Explora lo último en tecnología!"
     },
     {
-        title1: "3",
+        title1: "4",
         title2: "Talleres", 
-        description: "3 talleres clave confirmados. ¡Desarrolla nuevas habilidades!"
+        description: "4 talleres clave confirmados. ¡Desarrolla nuevas habilidades!"
     },
     {
         title1: "3",
