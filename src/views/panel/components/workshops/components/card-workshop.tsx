@@ -17,6 +17,8 @@ interface Props {
   date: string;
   start: string;
   end: string;
+  start_2: string;
+  end_2: string;
   location: string;
   price: string;
   avaible: number;
@@ -52,6 +54,8 @@ const CardWorkshop = ({
   date,
   start,
   end,
+  start_2,
+  end_2,
   location,
   price,
   src_speaker,
@@ -103,6 +107,11 @@ const CardWorkshop = ({
               <span>
                 {format(new Date(start), "HH:mm")} - {format(new Date(end), "HH:mm")}
               </span>
+              {(Boolean(start_2) && Boolean(end_2)) && (
+                <span>
+                  & {format(new Date(start_2), "HH:mm")} - {format(new Date(end_2), "HH:mm")}
+                </span>
+              )}
             </div>
             <div className="flex gap-x-2 text-white/80 text-xs md:text-sm lg:text-base">
               <IconLocation size={24} color="#7AAEF1" />

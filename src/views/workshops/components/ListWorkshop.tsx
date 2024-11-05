@@ -38,6 +38,8 @@ const ListWorkshop = () => {
                 date={workshop.date}
                 start={workshop.start}
                 end={workshop.end}
+                start_2={workshop.start_2}
+                end_2={workshop.end_2}
                 location={workshop.place}
                 price={workshop.price}
                 degree_speaker={workshop.speaker.degree_speaker}
