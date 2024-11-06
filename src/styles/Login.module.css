@@ -1,0 +1,14 @@
+@keyframes scaleUp {
+    0%,
+    100% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+  
+  .scaleUp {
+    animation: scaleUp 1s ease-in-out infinite;
+  }
+  
