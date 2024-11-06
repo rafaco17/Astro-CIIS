@@ -1,0 +1,65 @@
+---
+import Image from "astro/components/Image.astro";
+
+interface Props {
+  title: string;
+  bg?: string;
+  color_title?: string;
+  color_description?: string;
+  description: string;
+  alt: string
+  url_image: string
+}
+
+const { title, bg, color_description, color_title, description, url_image, alt }: Props =
+  Astro.props;
+---
+
+<div class="flex gap-y-6 xl:gap-y-0 gap-x-0 xl:gap-x-24 slide-in-left flex-col xl:flex-row">
+  <article
+    class="flex flex-col justify-center items-center lg:min-w-[720px] min-w-[300px] w-auto lg:w-[720px] h-[360px] rounded-2xl px-2 lg:px-6 space-y-4 "
+    style={`background-color: ${bg};`}
+  >
+    <h4
+      class="text-balance text-2xl sm:text-3xl lg:text-4xl font-bold group-hover:underline underline-offset-8 text-center lg:text-start uppercase tracking-wider"
+      style={`color: ${color_title};`}
+    >
+      {title}
+    </h4>
+    <span
+      class="text-base text-pretty text-center"
+      style={`color: ${color_description}`}>{description}</span
+    >
+  </article>
+  <div class="relative w-full scale-75 lg:scale-100 xl:w-[420px] overflow-hidden p-4 border rounded-2xl border-white/10" style="aspect-ratio: 16 / 9;">
+    <Image
+      class="absolute w-full top-0 bottom-0 left-0 right-0 m-auto object-cover object-center"
+      src={url_image}
+      width={500}
+      height={500}
+      alt={alt}
+    />
+  </div>
+</div>
+
+<style>
+  .slide-in-left {
+    animation: slide-in-left both;
+    animation-timeline: view();
+    animation-range-start: cover -10%;
+    animation-range-end: contain 10%;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-400px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+</style>
