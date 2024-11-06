@@ -5,6 +5,7 @@ import IconLocation from "../../../../../assets/workshops/IconLocation";
 import IconPrice from "../../../../../assets/workshops/IconPrice";
 import IconTime from "../../../../../assets/workshops/IconTime";
 import { status } from "../../../services/status";
+import IconRequirements from "../../../../../assets/workshops/IconRequirements";
 
 interface Props {
   id: number;
@@ -21,6 +22,7 @@ interface Props {
   end_2: string;
   location: string;
   price: string;
+  requirements: string;
   avaible: number;
   registered: Boolean;
   state: number;
@@ -57,6 +59,7 @@ const CardWorkshop = ({
   start_2,
   end_2,
   location,
+  requirements,
   price,
   src_speaker,
   degree_speaker,
@@ -74,7 +77,7 @@ const CardWorkshop = ({
   };
 
   return (
-    <div className="flex min-h-48 lg:h-[300px] overflow-hidden border border-white/30 rounded-sm max-w-4xl hover:scale-105 group flex-col lg:flex-row px-2 py-4 sm:pl-6 sm:py-2 sm:px-1 lg:px-0 lg:py-0 lg:pl-8">
+    <div className="flex min-h-48 lg:h-[320px] overflow-hidden border border-white/30 rounded-sm max-w-4xl hover:scale-105 group flex-col lg:flex-row px-2 py-4 sm:pl-6 sm:py-2 sm:px-1 lg:px-0 lg:py-0 lg:pl-8">
       <div className="flex w-full items-center gap-x-8">
         <div className="flex flex-col items-center gap-y-4">
           <div className="w-24 h-min rounded-full overflow-hidden">
@@ -121,6 +124,12 @@ const CardWorkshop = ({
               <IconPrice size={24} color="#7AAEF1" />
               <span>S/.{price}</span>
             </div>
+            {(Boolean(requirements)) && (
+              <div className="flex gap-x-2 text-white/80 text-xs md:text-sm lg:text-base">
+                <IconRequirements size={24} color="#7AAEF1" />
+                <span>Requerimientos: {requirements}</span>
+              </div>
+            )}
           </div>
           <div className="w-full sm:w-min">
             {!registered ? (
@@ -162,8 +171,8 @@ const CardWorkshop = ({
           alt="Imagen de algo relacionado al taller"
           loading="lazy"
           decoding="async"
-          width={900}
-          height={900}
+          width={500}
+          height={500}
           draggable="false"
         />
         <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/70"></div>

@@ -22,6 +22,7 @@ export default interface Props {
   start_2: string;
   end_2: string;
   place: string;
+  requirements: string;
   is_morning: boolean;
   relatedSpeaker: number;
   relatedEvent: number;
