@@ -9,6 +9,8 @@ import { googleoauth, login } from "../../middlewares/auth";
 import { GoogleAuthButton } from "./components/GoogleAuthButton";
 import IconEye from "../../assets/icons/IconEye";
 import IconEyeOff from "../../assets/icons/IconEyeOff";
+import { set } from "date-fns";
+import styles from "../../styles/Login.module.css"
 
 interface Props {
   disabled: boolean;
@@ -59,6 +61,8 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
         errorDialog.handleOpen();
       });
   };
+
+  const [loading, setLoading] = useState(false);
 
   return (
     <div
@@ -119,6 +123,7 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
               <form
                 className="space-y-4 md:space-y-6"
                 onSubmit={(e) => {
+                  setLoading(true);
                   e.preventDefault();
                   if (Object.keys(form.errors).length <= 0) {
                     form.handleSubmit(e);
@@ -155,9 +160,8 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full text-white bg-blue-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-md px-5 py-2.5 text-center hover:bg-blue-800 duration-300"
-                >
-                  Iniciar sesión
+                  className={`w-full text-white bg-blue-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-md px-5 py-2.5 text-center hover:bg-blue-800 duration-300 ${loading ? styles.scaleUp : ""}`}>
+                  {loading ? "Cargando..." : "Iniciar sesión"}
                 </button>
               </form>
               <div className="flex items-center justify-center flex-col">
@@ -179,7 +183,6 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
                       ? searchParams.get("next")?.replace("pago", "user")
                       : `/registro/planes`
                   }
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="mt-8 w-2/3 text-white bg-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center duration-300 hover:bg-green-800 md:text-md sm:w-1/2"
                 >
