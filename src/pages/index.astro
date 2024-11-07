@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import MainContainer from '../views/main/MainContainer.astro';
 import TopicsContainer from '../views/topics/TopicsContainer.astro';
 import Speakers from '../views/speakers/Speakers.astro';
+import FeriaTecnologicaContainer from '../views/feria-tecnologica/FeriaTecnologicaContainer.astro'
 import SponsorsContainer from '../views/sponsors/SponsorsContainer.astro'
 import AboutContainer from '../views/about/AboutContainer.astro';
 import Schedules from '../views/schedules/Schedules';
@@ -17,5 +17,6 @@ import Schedules from '../views/schedules/Schedules';
     <TopicsContainer />
     <Speakers />
     <Schedules client:load/>
+    <FeriaTecnologicaContainer />
     <SponsorsContainer />
 </Layout>
