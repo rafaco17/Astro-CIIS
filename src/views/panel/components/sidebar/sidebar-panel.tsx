@@ -152,7 +152,6 @@ const SideBarPanel = ({ nameUser, emailUser }: SideBarProps) => {
                     onClick={() => {
                       if (transparent) setExpanded(!expanded);
                     }} 
-                    disabled={true}
                   />
                 </ul>
               </SideBarProvider>
