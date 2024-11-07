@@ -1,0 +1,51 @@
+---
+import Image from "astro/components/Image.astro";
+
+interface Props {
+  urlLogo: string;
+  title: string;
+  description: string;
+  spanTitle: string;
+  urlBackground: string;
+}
+
+const { title, urlLogo, description, spanTitle, urlBackground }: Props =
+  Astro.props;
+---
+
+<div
+  class="group min-w-[280px] max-w-[390px] w-full h-52 bg-black relative overflow-hidden rounded-sm"
+>
+  <div
+    class="absolute bottom-2 left-0 right-0 mx-auto w-[90%] py-1.5 px-4 bg-blue-100/70 rounded-md z-20 overflow-hidden"
+  >
+    <div class="flex flex-row gap-x-4">
+      <div class="w-12 h-full bg-red-500 rounded-md overflow-hidden">
+        <Image
+          class="w-full object-cover aspect-square"
+          src={urlLogo}
+          width={500}
+          height={500}
+          alt={`Logo de ${title}`}
+        />
+      </div>
+      <div class="flex flex-col">
+        <strong class="text-black">{title}</strong>
+        <span class="text-blue-900 font-semibold">{spanTitle}</span>
+      </div>
+    </div>
+    <p class="text-black mt-4 hidden group-hover:block">
+      {description}
+    </p>
+  </div>
+  <div class="absolute w-full h-full top-0 z-10">
+    <Image
+      class="w-full object-cover aspect-video"
+      src={urlBackground}
+      width={1000}
+      height={1000}
+      alt={`Fondo de ${title}`}
+    />
+    <div class="absolute w-full h-full top-0 left-0 bg-white/10"></div>
+  </div>
+</div>
