@@ -18,6 +18,7 @@ export const URI = {
   },
   user: {
     src: `${domain}/api/v2/user`,
+    nationality: `${domain}/api/v2/user/nationality`,
     dni: `${domain}/api/v2/user/dni`,
     inscription: `${domain}/api/v2/user/inscription`,
     name: `${domain}/api/v2/user/name`,

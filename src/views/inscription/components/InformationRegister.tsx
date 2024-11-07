@@ -9,6 +9,7 @@ import { useAuth } from "../../../hooks/use-auth";
 import { AuthProvider } from "../../panel/context/AuthContext";
 import IconEye from "../../../assets/icons/IconEye.tsx";
 import IconEyeOff from "../../../assets/icons/IconEyeOff.tsx";
+import { nationalities, nationalitiesForSelect } from "../services/nationalities.ts";
 
 interface Props {
   evento: string;
@@ -68,6 +69,7 @@ const InformationRegister = ({ evento, plan }: Props) => {
       const response = await fetch(
         `https://api.perudevs.com/api/v1/dni/simple?document=${dni}&key=cGVydWRldnMucHJvZHVjdGlvbi5maXRjb2RlcnMuNjUxZWM4ZmViMzEyMDcwMDhlODA5MmM2`
       );
+
       const data = await response.json();
 
       if (data.estado && data.resultado) {
@@ -78,10 +80,12 @@ const InformationRegister = ({ evento, plan }: Props) => {
           `${apellido_paterno} ${apellido_materno}`
         );
       } else {
-        console.log("No se encontró el DNI");
+        setMessageErr("No se encontró el DNI");
+        errorDialog.handleOpen();
       }
-    } catch (error) {
-      console.error("Error al buscar DNI:", error);
+    } catch (err) {
+      setMessageErr("Error al buscar DNI");
+      errorDialog.handleOpen();
     }
   };
 
@@ -116,6 +120,25 @@ const InformationRegister = ({ evento, plan }: Props) => {
 
       <div className={`${styles.formContainer} bg-blue-950/50`}>
         <div className={`${styles.formGroup}`}>
+          <label htmlFor="dni">Selecciona tu nacionalidad</label>
+          <div className={`${styles.inputWrapper}`}>
+            <select
+              {...form.getFieldProps("nationality")}
+              className={`${
+                form.touched.nationality && form.errors.nationality ? styles.inputInvalid : ""
+              }`}
+            >
+              <option value="">Seleccione</option>
+              {nationalitiesForSelect.map((n, index) => (
+                <option key={index} value={n.key}>{n.value}</option>
+              ))}
+            </select>
+          </div>
+          {form.touched.nationality && form.errors.nationality ? (
+            <span className={`${styles.textInvalid}`}>{form.errors.nationality}</span>
+          ) : null}
+        </div>
+        <div className={`${styles.formGroup}`}>
           <label htmlFor="dni">Ingresa tu documento de identidad</label>
           <div className={`${styles.inputWrapper}`}>
             <input
@@ -126,11 +149,12 @@ const InformationRegister = ({ evento, plan }: Props) => {
                 form.touched.dni && form.errors.dni ? styles.inputInvalid : ""
               }`}
             />
+            {form.values.nationality === "Perú" && (
             <button className={`${styles.searchButton}`} onClick={handleSearch}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
               </svg>
-            </button>
+            </button>)}
           </div>
           {form.touched.dni && form.errors.dni ? (
             <span className={`${styles.textInvalid}`}>{form.errors.dni}</span>
@@ -324,6 +348,7 @@ const InformationRegister = ({ evento, plan }: Props) => {
 function getSchemaForm({ plan, success, abort, setLoading }: FormikProps) {
   return {
     initialValues: {
+      nationality: "",
       dni: "",
       name: "",
       lastname: "",
@@ -337,10 +362,23 @@ function getSchemaForm({ plan, success, abort, setLoading }: FormikProps) {
       plan_postmaster: "",
     },
     validationSchema: Yup.object().shape({
+      nationality: Yup.string().required("Este campo es obligatorio"),
       dni: Yup.string()
         .matches(/^[0-9]+$/, "Debe contener solo números")
-        .length(8, "Deben ser 8 caracteres")
-        .required("Este campo es obligatorio"),
+        .required("Este campo es obligatorio")
+        .test({
+          name: "dni",
+          skipAbsent: true,
+          test(value, ctx) {
+            let nationality = ctx.parent.nationality;
+            if (value.length !== nationalities[nationality]) {
+              return ctx.createError({
+                message: `Deben ser ${nationalities[nationality]} caracteres`,
+              });
+            }
+            return true;
+          }
+        }),
       name: Yup.string().required("Este campo es obligatorio"),
       lastname: Yup.string().required("Este campo es obligatorio"),
       email: Yup.string()
