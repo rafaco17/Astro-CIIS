@@ -10,6 +10,8 @@ import { GoogleAuthButton } from "../../../login/components/GoogleAuthButton";
 import { googleoauth } from "../../../../middlewares/auth.ts";
 import QRCodeUser from "./components/QRUser";
 import InputPasswordWithButton from "./components/input-password-with-button.tsx";
+import SelectWithButton from "./components/select-with-button.tsx";
+import { nationalities, nationalitiesForSelect } from "../../../inscription/services/nationalities.ts";
 
 const Account = () => {
   const { user, logout, updateUser } = useAuth();
@@ -32,7 +34,11 @@ const Account = () => {
       });
   };
 
-  const formikDNI = useFormik(getValidationDNI({ onSubmit: handleUpdateDNI }));
+  
+  const formikNationality = useFormik(getValidationNationality({ onSubmit: handleUpdateNationality }));
+  const formikDNI = useFormik(
+    getValidationDNI({ onSubmit: handleUpdateDNI }, formikNationality),
+  );
   const formikPhone = useFormik(
     getValidationPhoneEdit({ onSubmit: handleUpdatePhone })
   );
@@ -53,12 +59,15 @@ const Account = () => {
   );
 
   useEffect(() => {
-    formikDNI.setFieldValue("dni", Boolean(user.dni) ? user.dni : "");
+    formikNationality.setFieldValue("nationality", Boolean(user?.nationality) ? user.nationality : "No especificado");
+  }, []);
+  useEffect(() => {
+    formikDNI.setFieldValue("dni", Boolean(user?.dni) ? user.dni : "");
   }, []);
   useEffect(() => {
     formikPhone.setFieldValue(
       "phone",
-      Boolean(user.phone) ? user.phone : "No especificado"
+      Boolean(user?.phone) ? user.phone : "No especificado"
     );
   }, []);
   useEffect(() => {
@@ -106,6 +115,31 @@ const Account = () => {
       setMessageError(reason);
       errorDialog.handleOpen();
     }
+  }
+
+  function handleUpdateNationality(values: any) {
+    fetch(URI.user.nationality, {
+      method: "PATCH",
+      body: JSON.stringify(values),
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+      .then(async (res) => {
+        if (res.ok) return res.json();
+        else {
+          let error = await res.json();
+          throw error;
+        }
+      })
+      .then(() => {
+        setMessageSuccess("Nacionalidad actualizado");
+        successDialog.handleOpen();
+        user.nationality = values.nationality;
+        updateUser(user);
+      })
+      .catch((err) => {
+        failServer(err);
+      });
   }
 
   function handleUpdateDNI(values: any) {
@@ -304,31 +338,32 @@ const Account = () => {
           </h4>
           <span className="text-sm text-slate-400">
             Es importante que uses los datos correctos, ya que se usarán para
-            emitir tu certificado.
+            emitir tu certificado. No se olvide de hacer click en el boton guardar cada dato modificado.
           </span>
           <div className="mt-4 flex justify-center sm:justify-evenly flex-col sm:flex-row">
             <div className="flex flex-col items-start space-y-4 w-full ">
-              {user.auth_provider !== "google" ? (
-                <InputWithButton
-                  inputName="document_number"
-                  type="text"
-                  defaultValue={user?.dni}
-                  label="Documento de identidad"
-                  placeholder="Ingrese su N° DNI"
-                  disabled={true}
-                />
-              ) : (
-                <InputWithButton
-                  inputName="document_number"
-                  type="text"
-                  label="DNI"
-                  placeholder="Ingrese su N° DNI"
-                  inputProps={formikDNI.getFieldProps("dni")}
-                  touched={formikDNI.touched.dni}
-                  error={formikDNI.errors.dni}
-                  onSave={formikDNI.handleSubmit}
-                />
-              )}
+              <SelectWithButton
+                selectName="nationality"
+                label="Nacionalidad"
+                placeholder="Ingrese su Nacionalidad"
+                selectProps={formikNationality.getFieldProps("nationality")}
+                touched={formikNationality.touched.nationality}
+                error={formikNationality.errors.nationality}
+                onSave={formikNationality.handleSubmit}
+                options={nationalitiesForSelect}
+                disabled={user.auth_provider === "google" ? false : true}
+              />
+              <InputWithButton
+                inputName="document_number"
+                type="text"
+                label="DNI"
+                placeholder="Ingrese su N° DNI"
+                inputProps={formikDNI.getFieldProps("dni")}
+                touched={formikDNI.touched.dni}
+                error={formikDNI.errors.dni}
+                onSave={formikDNI.handleSubmit}
+                disabled={user.auth_provider === "google" ? false : true}
+              />
               <InputWithButton
                 inputName="name"
                 type="text"
@@ -401,10 +436,10 @@ const Account = () => {
           <h4 className="text-xl font-semibold text-[#7AAEF1]">
             Datos para el acceso de la Cuenta:
           </h4>
-          <span className="text-sm text-slate-400">
+          {/*<span className="text-sm text-slate-400">
             Asegúrate de ingresar un correo válido, ya que tu certificado se
             enviará a esa dirección.
-          </span>
+          </span>*/}
           <div className="mt-4 flex justify-start items-start flex-col sm:flex-row gap-x-4 gap-y-4 sm:gap-y-0">
             <InputWithButton
               inputName="email"
@@ -414,15 +449,17 @@ const Account = () => {
               placeholder="Ingrese su email"
               disabled={true}
             />
-            <InputPasswordWithButton
-              inputName="password"
-              label="Cambiar contraseña"
-              placeholder="Ingrese su contraseña"
-              inputProps={formikPass.getFieldProps("password")}
-              touched={formikPass.touched.password}
-              error={formikPass.errors.password}
-              onSave={formikPass.handleSubmit}
-            />
+            {user.auth_provider !== "google" && (
+              <InputPasswordWithButton
+                inputName="password"
+                label="Cambiar contraseña"
+                placeholder="Ingrese su contraseña"
+                inputProps={formikPass.getFieldProps("password")}
+                touched={formikPass.touched.password}
+                error={formikPass.errors.password}
+                onSave={formikPass.handleSubmit}
+              />
+            )}
           </div>
           <div className="mt-4">
             <div className="flex flex-col min-w-[280px] max-w-[520px] w-full">
@@ -455,14 +492,36 @@ function capitalizeWords(text = "") {
   return text.replace(/(?:^|\s)\S/g, (match) => match.toUpperCase());
 }
 
-function getValidationDNI({ onSubmit = console.log }) {
+function getValidationNationality({ onSubmit = console.log }) {
+  return {
+    initialValues: { nationality: "" },
+    validationSchema: Yup.object().shape({
+      nationality: Yup.string().required("Este campo es obligatorio"),
+    }),
+    onSubmit,
+  };
+}
+
+function getValidationDNI({ onSubmit = console.log }, formikNationality: any) {
   return {
     initialValues: { dni: "" },
     validationSchema: Yup.object().shape({
       dni: Yup.string()
         .matches(/^[0-9]+$/, "Debe contener solo números")
-        .length(8, "Deben ser 8 caracteres")
-        .required("Este campo es obligatorio"),
+        .required("Este campo es obligatorio")
+        .test({
+          name: "dni",
+          skipAbsent: true,
+          test(value, ctx) {
+            let nationality = formikNationality.values.nationality;
+            if (value.length !== nationalities[nationality]) {
+              return ctx.createError({
+                message: `Deben ser ${nationalities[nationality]} caracteres`,
+              });
+            }
+            return true;
+          }
+        })
     }),
     onSubmit,
   };

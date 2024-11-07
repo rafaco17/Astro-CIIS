@@ -51,6 +51,7 @@ const Workshops = () => {
                 start_2={workshop.start_2}
                 end_2={workshop.end_2}
                 location={workshop.place}
+                requirements={workshop.requirements}
                 price={workshop.price}
                 degree_speaker={workshop.speaker.degree_speaker}
                 name_speaker={workshop.speaker.name_speaker}

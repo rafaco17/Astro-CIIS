@@ -1,58 +1,55 @@
 import React, { useState } from "react";
 import type { FieldInputProps } from "formik";
-import IconEye from "../../../../../assets/icons/IconEye";
-import IconEyeOff from "../../../../../assets/icons/IconEyeOff";
 
 interface Props {
   label: string;
   placeholder: string;
   defaultValue?: string;
-  inputName: string;
-  inputProps?: FieldInputProps<any>;
+  selectName: string;
+  selectProps?: FieldInputProps<any>;
   disabled?: boolean;
   touched?: any | null;
   error?: any | null;
   onSave?: () => void;
-  props?: React.InputHTMLAttributes<HTMLInputElement>;
+  options?: any | null;
+  props?: React.InputHTMLAttributes<HTMLSelectElement>;
 }
 
-const InputPasswordWithButton: React.FC<Props> = ({
+const SelectWithButton: React.FC<Props> = ({
   label,
   placeholder,
-  defaultValue,
-  inputName,
-  inputProps,
+  selectName,
+  selectProps,
   disabled = false,
   touched,
   error,
   onSave,
+  options,
   props,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevState) => !prevState);
-  };
 
   return (
     <div className="flex flex-col min-w-[280px] max-w-[520px] w-full">
-      <label htmlFor={inputName} className="mb-1 text-gray-200 select-none">
+      <label htmlFor={selectName} className="mb-1 text-gray-200 select-none">
         {label}
       </label>
-      <div className="flex items-center relative">
-        <input
-          id={inputName}
-          type={showPassword ? "text" : "password"}
+      <div className="flex items-center">
+        <select
+          id={selectName}
           placeholder={placeholder}
-          defaultValue={defaultValue}
-          className={`border border-gray-300/20 bg-transparent p-2 rounded-l w-full focus:outline-none focus:ring-2 focus:ring-[#7AAEF1] text-gray-200 px-4 py-2 text-base ${touched && error ? "border-red-600 focus:ring-0" : ""}`}
+          className={`border border-gray-300/20 outline-none bg-transparent p-2 rounded-l w-full focus:outline-none focus:ring-2 focus:ring-[#7AAEF1] text-gray-200 px-4 py-2 text-base ${touched && error ? "border-red-600 focus:ring-0" : ""}`}
+          disabled={disabled}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          disabled={disabled}
-          {...inputProps}
+          {...selectProps}
           {...props}
-        />
+        >
+          <option className="bg-slate-950 text-gray-200" value="">Seleccione</option>
+          {options.map((option: any, index: number) => (
+            <option className="bg-slate-950 text-gray-200" key={index} value={option.key}>{option.value}</option>
+          ))}
+        </select>
         {!disabled && (
           <button
             onClick={onSave}
@@ -75,21 +72,10 @@ const InputPasswordWithButton: React.FC<Props> = ({
             </div>
           </button>
         )}
-        <button
-          type="button"
-          onClick={togglePasswordVisibility}
-          className="absolute inset-y-0 right-10 pr-3 flex items-center text-gray-400"
-        >
-          {showPassword ? (
-            <IconEye size={24} color="white" />
-          ) : (
-            <IconEyeOff size={24} color="white" />
-          )}
-        </button>
       </div>
       {touched && error ? <span className="text-red-600">{error}</span> : null}
     </div>
   );
 };
 
-export default InputPasswordWithButton;
+export default SelectWithButton;
