@@ -138,7 +138,7 @@ const Attendance = () => {
         />
       )}
       
-      <div className="p-2 mx-6 2xl:mx-auto sm:p-4 h-dvh w-[calc(100% - 48px)] md:max-w-[1200px] bg-slate-950">
+      <div className="p-2 mx-0 sm:mx-6 2xl:mx-auto sm:p-4 h-dvh w-[calc(100% - 48px)] md:max-w-[1200px] bg-slate-950">
         {serverError ? (
           <div className="flex flex-col items-center mt-20">
             <div>

@@ -35,7 +35,7 @@ const CardPonent = ({
           {name}
           <span className="text-gray-300"> - {profession}</span>
         </p>
-        <h4 className="font-bold text-xl text-slate-100">{theme}</h4>
+        <h4 className="font-bold text-xl text-slate-100/90">{theme}</h4>
       </div>
       <div className="hidden sm:flex justify-end col-span-4 sm:col-span-1">
         <img

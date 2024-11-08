@@ -36,6 +36,9 @@ const Schedules = () => {
     }
   };
 
+
+  const [height, setHeight] = useState('auto')
+
   return (
     <section
       id="schedules"
@@ -50,7 +53,7 @@ const Schedules = () => {
           href="https://www.facebook.com/61556532988025/live_videos/"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-xl text-blue-400"
+          className="font-mono text-xl text-blue-300"
         >
           Facebook
         </a>
@@ -60,7 +63,25 @@ const Schedules = () => {
           <button
             className="px-6 py-2 rounded-lg cursor-pointer text-slate-200 bg-blue-600 font-semibold hover:bg-slate-900 active:bg-slate-900"
             key={element.day}
-            onClick={() => handleScrollToDay(element.day)}
+            onClick={() => {
+              handleScrollToDay(element.day);
+              setHeight(() => {
+                switch (element.day) {
+                  case 'lunes':
+                    return '720px';
+                  case 'martes':
+                    return '1520px';
+                  case 'miércoles':
+                    return '1200px';
+                  case 'jueves':
+                    return '1200px';
+                  case 'viernes':
+                    return '1520px';
+                  default:
+                    return 'auto';
+                }
+              });
+            }}
           >
             {element.day.charAt(0).toUpperCase() + element.day.slice(1)}
           </button>
@@ -75,9 +96,13 @@ const Schedules = () => {
             <div
               id={`day-${element.day}`}
               key={element.day}
-              className="w-full flex-shrink-0"
+              className={`w-full flex-shrink-0 h-[${height}]`}
             >
-              <DaySchedules day={element.day || ""} ponentes={element} date={element.date} />
+              <DaySchedules
+                day={element.day || ""}
+                ponentes={element}
+                date={element.date}
+              />
             </div>
           );
         })}

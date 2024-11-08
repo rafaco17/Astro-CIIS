@@ -29,7 +29,7 @@ const BtnWorkshop = ({
   }) => {
     return (
       <button
-        className={`px-6 py-1 sm:px-6 sm:py-2 w-full lg:w-60 text-sm sm:text-base ${className} font-semibold hover:font-bold transition-colors rounded-full uppercase tracking-wider text-[#333333]`}
+        className={`px-6 py-1 sm:px-6 sm:py-2 w-full lg:w-60 text-sm sm:text-base ${className} font-semibold transition-colors rounded-full uppercase tracking-wider text-[#333333]`}
         onClick={handleClick}
         disabled={disabled}
       >
@@ -57,8 +57,8 @@ const CardAttendance = ({
   return (
     <div className="flex min-h-48 lg:h-[300px] overflow-hidden border border-white/30 rounded-sm w-full sm:max-w-4xl group flex-col lg:flex-row px-2 py-4 sm:pl-6 sm:py-2 sm:px-1 lg:px-0 lg:py-0 lg:pl-8">
       <div className="flex w-full items-center gap-x-8">
-        <div className="flex flex-col items-center gap-y-4">
-          <div className="w-24 h-min rounded-full overflow-hidden">
+        <div className="flex flex-col items-center gap-y-4 w-full max-w-16 sm:max-w-32">
+          <div className="w-16 sm:w-24 h-min rounded-full overflow-hidden">
             <img
               className="w-full object-cover"
               src={src_speaker}
@@ -70,13 +70,13 @@ const CardAttendance = ({
               draggable="false"
             />
           </div>
-          <span className="text-white/80 text-xs md:text-sm lg:text-base text-center">
+          <span className="text-white/80 text-xs md:text-sm lg:text-base text-center text-balances">
             {degree_speaker} {name_speaker} {lastname_speaker}
           </span>
         </div>
         <div className="flex flex-col sm:flex-row lg:flex-col gap-y-4 items-center lg:items-start gap-x-4">
           <div className="flex flex-col gap-y-1">
-            <h4 className="uppercase font-bold text-sm sm:text-base md:text-lg lg:text-xl text-white/95 group-hover:underline">
+            <h4 className="uppercase font-bold text-sm sm:text-base md:text-lg lg:text-xl text-white/85 group-hover:underline">
               {title}
             </h4>
             <div className="flex gap-x-2 text-white/80 text-xs md:text-sm lg:text-base">
@@ -100,19 +100,19 @@ const CardAttendance = ({
               endDate
             ) && !attendance ? (
               <BtnWorkshop
-                className="bg-[#FAAEF1] hover:bg-[#AAAEF1]"
+                className="bg-[#FAAEF1] hover:bg-[#AAAEF1] cursor-pointer hover:font-bold"
                 label="Marcar Asistencia"
                 handleClick={handleSubmitAttendance}
               />
             ) : attendance ? (
               <BtnWorkshop
-                className="bg-green-500 hover:bg-[#AAAEF1]"
+                className="bg-green-500"
                 label="Registrado"
                 disabled={true}
               />
             ) : (
               <BtnWorkshop
-                className="bg-gray-400 hover:bg-[#AAAEF1]"
+                className="bg-gray-400"
                 label="No disponible"
                 disabled={true}
               />
