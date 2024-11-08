@@ -1,21 +1,74 @@
+---
+import CardDynamic from "./CardDynamic.astro";
+---
+
 <section
   id="feria-tecnologica"
-  class="pt-40 sm:pt-48 relative flex flex-col items-center justify-center w-full h-full gap-4 py-20 rounded-lg"
+  class="pt-40 sm:pt-48 relative flex flex-col items-center justify-center w-full h-full gap-4 py-20 rounded-lg space-y-8"
 >
   <h2
-    class="pb-16 text-4xl font-bold text-center text-secondary sm:text-6xl slide-top"
+    class="text-4xl font-bold text-center text-secondary sm:text-6xl slide-top text-balance"
   >
-    <span class="text-primary"> Feria Tecnológica</span>
+  ¡Anímate y visita nuestra <span class="text-primary"
+      >Feria Tecnológica</span
+    >!
   </h2>
-  <div
+  <p class="text-base sm:text-xl text-white/70 block max-w-6xl text-pretty text-center px-4">
+    ¡No te pierdas nuestra Feria Tecnológica! <time class="font-bold text-white/80" datetime="2024-11-14T11:00">14 de noviembre de 2024 a las 11:00 AM</time>. Un evento único para explorar las últimas innovaciones, conocer a empresas y startups, y conectarte con el futuro de la tecnología. ¡Te esperamos!
+  </p>
+
+  <div class="flex flex-wrap justify-center items-center w-full gap-10 max-w-[1280px]">
+    <CardDynamic
+      title="Bitel Perú"
+      spanTitle="Muchas ofertas"
+      description="Bitel es la operadora líder en telefonía e internet móvil en Perú"
+      urlLogo="/LogosFeria/Bitel.png"
+      urlBackground="/LogosFeria/Background/Image1.jpeg"
+    />
+    <CardDynamic
+      title="Next-COM"
+      spanTitle="Muchas ofertas"
+      description="Especializados en la instalación de redes de fibra óptica, especialmente en áreas con alta demanda de cobertura."
+      urlLogo="/LogosFeria/LogoNext.jpg"
+      urlBackground="/LogosFeria/Background/Image2.jpeg"
+    />
+    <CardDynamic
+      title="Takana"
+      spanTitle="Muchas ofertas"
+      description="Takana GS es tu tienda en Tacna especializada en equipos gaming y productos informáticos."
+      urlLogo="/LogosFeria/LogoTaka.png"
+      urlBackground="/LogosFeria/Background/Image3.jpg"
+    />
+    <CardDynamic
+      title="Lacume"
+      spanTitle="Muchas ofertas"
+      description="En Grupo Lacume, brindamos lo mejor en tecnología y electrónica: laptops, accesorios, sistemas de vigilancia y audio de calidad."
+      urlLogo="/LogosFeria/LogoLaCume.webp"
+      urlBackground="/LogosFeria/Background/Image4.jpg"
+    />
+    <CardDynamic
+      title="Deyve"
+      spanTitle="Muchas ofertas"
+      description="Deyve se especializa en productos tecnológicos, destacando su rápido crecimiento y compromiso con la innovación"
+      urlLogo="/LogosFeria/LogoDeyve.png"
+      urlBackground="/LogosFeria/Background/Image5.jpg"
+    />
+
+    <!--  <CardDynamic title="Asus" spanTitle="10 ofertas" description="" urlLogo="" urlBackground="" /> 
+     <CardDynamic title="Escuadron Tecnologico" spanTitle="10 ofertas" description="" urlLogo="" urlBackground="" /> 
+    <CardDynamic title="Verticall Gamer Store" spanTitle="10 ofertas" description="" urlLogo="" urlBackground="" /> -->
+  </div>
+
+  <!-- <div
     class="grid gap-4 md:flex md:flex-wrap md:justify-center md:grid-cols-2 lg:grid-cols-2"
   >
     <a
       class="animation-view py-5 transition-all duration-500 border-1 rounded-2xl group px-7 bg-[#3e5ba3] border-blue-400 cursor-pointer"
-      href="/feria-tecnologica">
+      href="/feria-tecnologica"
+    >
       Explora la Feria Tecnológica
     </a>
-  </div>
+  </div> -->
 </section>
 
 <style>
@@ -38,7 +91,7 @@
     animation: slide-top both;
     animation-timeline: view();
     animation-range-start: cover 0%;
-    animation-range-end: contain 40%;
+    animation-range-end: contain 20%;
     animation-duration: 0.5s;
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
