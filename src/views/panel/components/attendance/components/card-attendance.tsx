@@ -1,4 +1,7 @@
+import { format, parseISO } from "date-fns";
+import { es } from "date-fns/locale/es";
 import IconTime from "../../../../../assets/workshops/IconTime";
+import IconDate from "../../../../../assets/workshops/IconDate";
 
 interface Props {
   src_speaker: string;
@@ -9,6 +12,8 @@ interface Props {
   title: string;
   startDate: string;
   endDate: string;
+  attendance: boolean;
+  handleSubmitAttendance: () => void;
 }
 
 const BtnWorkshop = ({
@@ -41,10 +46,16 @@ const CardAttendance = ({
   lastname_speaker,
   src_workshop,
   startDate,
-  endDate
+  endDate,
+  attendance,
+  handleSubmitAttendance
 }: Props) => {
+  const isActive = (start: string, end: string) => {
+    return new Date() >= new Date(start) && new Date() <= new Date(end);
+  };
+
   return (
-    <div className="flex min-h-48 lg:h-[300px] overflow-hidden border border-white/30 rounded-sm max-w-4xl  group flex-col lg:flex-row px-2 py-4 sm:pl-6 sm:py-2 sm:px-1 lg:px-0 lg:py-0 lg:pl-8">
+    <div className="flex min-h-48 lg:h-[300px] overflow-hidden border border-white/30 rounded-sm w-full sm:max-w-4xl group flex-col lg:flex-row px-2 py-4 sm:pl-6 sm:py-2 sm:px-1 lg:px-0 lg:py-0 lg:pl-8">
       <div className="flex w-full items-center gap-x-8">
         <div className="flex flex-col items-center gap-y-4">
           <div className="w-24 h-min rounded-full overflow-hidden">
@@ -60,7 +71,7 @@ const CardAttendance = ({
             />
           </div>
           <span className="text-white/80 text-xs md:text-sm lg:text-base text-center">
-            {degree_speaker} {lastname_speaker} {name_speaker}
+            {degree_speaker} {name_speaker} {lastname_speaker}
           </span>
         </div>
         <div className="flex flex-col sm:flex-row lg:flex-col gap-y-4 items-center lg:items-start gap-x-4">
@@ -69,18 +80,43 @@ const CardAttendance = ({
               {title}
             </h4>
             <div className="flex gap-x-2 text-white/80 text-xs md:text-sm lg:text-base">
+              <IconDate size={24} color="#7AAEF1" />
+              <span>
+              {`${format(parseISO(startDate), "dd-MMMM/yyyy", { locale: es })}`
+                  .replace("-", " de ")
+                  .replace("/", " del ")}
+              </span>
+            </div>
+            <div className="flex gap-x-2 text-white/80 text-xs md:text-sm lg:text-base">
               <IconTime size={24} color="#7AAEF1" />
               <span>
-                {startDate} - {endDate} 
+                {format(new Date(startDate), "HH:mm")} - {format(new Date(endDate), "HH:mm")} 
               </span>
             </div>
           </div>
           <div className="w-full sm:w-min">
-            <BtnWorkshop
-              className="bg-[#FAAEF1] hover:bg-[#AAAEF1]"
-              label="Marcar Asistencia"
-              handleClick={() => {}}
-            />
+            {isActive(
+              startDate,
+              endDate
+            ) && !attendance ? (
+              <BtnWorkshop
+                className="bg-[#FAAEF1] hover:bg-[#AAAEF1]"
+                label="Marcar Asistencia"
+                handleClick={handleSubmitAttendance}
+              />
+            ) : attendance ? (
+              <BtnWorkshop
+                className="bg-green-500 hover:bg-[#AAAEF1]"
+                label="Registrado"
+                disabled={true}
+              />
+            ) : (
+              <BtnWorkshop
+                className="bg-gray-400 hover:bg-[#AAAEF1]"
+                label="No disponible"
+                disabled={true}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -91,8 +127,8 @@ const CardAttendance = ({
           alt="Imagen de algo relacionado al taller"
           loading="lazy"
           decoding="async"
-          width={900}
-          height={900}
+          width={600}
+          height={600}
           draggable="false"
         />
         <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/70"></div>

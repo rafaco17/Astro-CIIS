@@ -14,7 +14,7 @@ const routes = [
   { path: "/ciis", element: <Congress />  },
   { path: "/workshops", element: <Workshops />  },
   { path: "/account", element: <Account />  },
-  { path: "/asistencia", element: <Attendance />  },
+  { path: "/attendance", element: <Attendance />  },
 ]
 
 const PanelContainer = () => {

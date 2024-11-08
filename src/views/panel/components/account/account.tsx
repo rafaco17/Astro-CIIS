@@ -307,7 +307,7 @@ const Account = () => {
   return (
     <>
       <Dialog
-        style={{ top: 20 }}
+        style={{ position: "fixed", top: 20 }}
         icon="success"
         message={messageSuccess}
         open={successDialog.open}
@@ -318,7 +318,7 @@ const Account = () => {
       />
       {messageError && (
         <Dialog
-          style={{ top: 20 }}
+          style={{ position: "fixed", top: 20 }}
           icon="warning"
           message={messageError}
           open={errorDialog.open}

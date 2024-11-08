@@ -43,6 +43,7 @@ const LoginContainer = ({ disabled, handleLogin }: Props) => {
     }),
     onSubmit: (values) => {
       login(values.email, values.password).catch((err) => {
+        setLoading(false);
         setMessageErr(err.reason);
         errorDialog.handleOpen();
       });

@@ -1,14 +1,14 @@
 import { createContext, useContext, type ReactNode} from 'react'
 
 interface AttendanceContextType {
-    index: number | undefined
+    index: string | undefined
 }
 
 const AttendanceContext = createContext<AttendanceContextType | undefined>(undefined)
 
 interface AttendanceProps {
     children: ReactNode
-    index: number
+    index: string
 }
 
 export const AttendanceProvider = ({ children, index }: AttendanceProps) => {

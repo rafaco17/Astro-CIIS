@@ -145,13 +145,14 @@ const SideBarPanel = ({ nameUser, emailUser }: SideBarProps) => {
                     }} 
                   />
                   <ItemSideBar
-                    to="/asistencia"
+                    to="/attendance"
                     description="Asistencia"
                     icon={<IconCheckList size={5} />}
                     index={5}
                     onClick={() => {
                       if (transparent) setExpanded(!expanded);
                     }} 
+                    disabled={new Date("2024-11-11T20:30:00Z") > new Date()}
                   />
                 </ul>
               </SideBarProvider>
