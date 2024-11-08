@@ -37,7 +37,7 @@ const Schedules = () => {
   };
 
 
-  const [height, setHeight] = useState('auto')
+  const [height, setHeight] = useState('720px')
 
   return (
     <section
