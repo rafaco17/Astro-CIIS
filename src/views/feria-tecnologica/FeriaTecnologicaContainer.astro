@@ -9,15 +9,23 @@ import CardDynamic from "./CardDynamic.astro";
   <h2
     class="text-4xl font-bold text-center text-secondary sm:text-6xl slide-top text-balance"
   >
-  ¡Anímate y visita nuestra <span class="text-primary"
-      >Feria Tecnológica</span
+    ¡Anímate y visita nuestra <span class="text-primary">Feria Tecnológica</span
     >!
   </h2>
-  <p class="text-base sm:text-xl text-white/70 block max-w-6xl text-pretty text-center px-4">
-    ¡No te pierdas nuestra Feria Tecnológica! <time class="font-bold text-white/80" datetime="2024-11-14T11:00">14 de noviembre de 2024 a las 11:00 AM</time>. Un evento único para explorar las últimas innovaciones, conocer a empresas y startups, y conectarte con el futuro de la tecnología. ¡Te esperamos!
+  <p
+    class="text-base sm:text-xl text-white/70 block max-w-6xl text-pretty text-center px-4"
+  >
+    ¡No te pierdas nuestra Feria Tecnológica! <time
+      class="font-bold text-white/80"
+      datetime="2024-11-14T11:00">14 de noviembre de 2024 a las 11:00 AM</time
+    >. Un evento único para explorar las últimas innovaciones, conocer a
+    empresas y startups, y conectarte con el futuro de la tecnología. ¡Te
+    esperamos!
   </p>
 
-  <div class="flex flex-wrap justify-center items-center w-full gap-10 max-w-[1280px]">
+  <div
+    class="flex flex-wrap justify-center items-center w-full gap-10 max-w-[1280px]"
+  >
     <CardDynamic
       title="Bitel Perú"
       spanTitle="Muchas ofertas"
@@ -54,9 +62,28 @@ import CardDynamic from "./CardDynamic.astro";
       urlBackground="/LogosFeria/Background/Image5.jpg"
     />
 
-    <!--  <CardDynamic title="Asus" spanTitle="10 ofertas" description="" urlLogo="" urlBackground="" /> 
-     <CardDynamic title="Escuadron Tecnologico" spanTitle="10 ofertas" description="" urlLogo="" urlBackground="" /> 
-    <CardDynamic title="Verticall Gamer Store" spanTitle="10 ofertas" description="" urlLogo="" urlBackground="" /> -->
+    <CardDynamic
+      title="Asus"
+      spanTitle="Muchas ofertas"
+      description="Impulsado por la innovación y comprometido con la alta calidad, ASUS Perú tiene una amplia selección de los mejores productos de su clase."
+      urlLogo="/LogosFeria/AsusLogo.png"
+      urlBackground="/LogosFeria/Background/Image9.jpg"
+    />
+    <CardDynamic
+      title="Escuadron Tecnologico"
+      spanTitle="Muchas ofertas"
+      description="Las mejores marcas de laptops en oferta. Únete a la legión de compradores inteligentes."
+      urlLogo="/LogosFeria/LogoEscuadron.png"
+      urlBackground="/LogosFeria/Background/Image8.jpg"
+    />
+
+    <CardDynamic
+      title="Cougar"
+      spanTitle="Muchas ofertas"
+      description="Encuentra sillas gamer y periféricos tecnológicos de alta calidad para potenciar tu experiencia de juego"
+      urlLogo="/LogosFeria/LogoCougar.png"
+      urlBackground="/LogosFeria/Background/Image11.jpg"
+    />
   </div>
 
   <!-- <div
