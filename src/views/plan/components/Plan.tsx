@@ -74,7 +74,7 @@ export const Plan = ({
               </div>
             ) : (
               <div className="flex justify-center items-baseline mt-2">
-                <p className="text-5xl font-bold mr-2">S/.{cost}</p>
+                <p className="text-5xl font-bold mr-2">S/.{costOriginal}</p>
               </div>
             )}
           </div>
