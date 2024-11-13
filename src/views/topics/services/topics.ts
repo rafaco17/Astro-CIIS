@@ -27,7 +27,7 @@ export const topic : Props[] = [
         image2: Image2_4,
     },
     {
-        name: "Ingenieria de Software",
+        name: "Ingeniería de Software",
         description: "Explora cómo la Ingeniería de Software diseña y desarrolla aplicaciones eficientes, asegurando calidad y funcionalidad en sistemas complejos.",
         image1: Image1_5,
         image2: Image2_5,
