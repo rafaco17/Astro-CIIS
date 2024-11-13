@@ -65,6 +65,7 @@ const Attendance = () => {
         let conferences: any = Array.from(conferencesByDay);
         conferences[index].attendance = true;
         setConferencesByDay(conferences);
+        setAttendances((attendances) => attendances + 1);
         setMessageSuccess("Asistencia registrada");
         successDialog.handleOpen();
       })

@@ -4,7 +4,7 @@ import { plans } from "../inscription/services/plan";
 import { AuthProvider } from "../panel/context/AuthContext";
 
 const PlanContainer = () => {
-  const validDateDiscount = "2024-11-10T05:00:00Z";
+  const validDateDiscount = "2024-11-11T17:00:00Z";
   const isDiscount = new Date(validDateDiscount) > new Date();
 
   const [selectedPlan, setSelectedPlan] = useState(plans[0]);
@@ -40,7 +40,7 @@ const PlanContainer = () => {
 
       {isDiscount && (
         <p className="text-center mb-8">
-          Precios de descuento válidos hasta las 23:59 del 09 de noviembre de
+          Precios de descuento válidos hasta las 11:59 hrs del 11 de noviembre de
           2024 (UTC-5)
         </p>
       )}

@@ -143,6 +143,10 @@ const Account = () => {
   }
 
   function handleUpdateDNI(values: any) {
+    if (user.dni === values.dni) {
+      return;
+    }
+
     fetch(URI.user.dni, {
       method: "PATCH",
       body: JSON.stringify(values),
@@ -161,10 +165,14 @@ const Account = () => {
         successDialog.handleOpen();
         user.dni = values.dni;
         updateUser(user);
+        logout("/?next=/dashboard/ciis");
       })
       .catch((err) => {
         failServer(err);
-        formikDNI.setFieldValue("dni", "");
+
+        if (!Boolean(user.dni)) {
+          formikDNI.setFieldValue("dni", "");
+        }
       });
   }
 

@@ -1,5 +1,5 @@
 const Notifications = ({ attendances, planCiis } : { attendances: number, planCiis: string }) => {
-  const totalAttendances = 19;
+  const totalAttendances = 18;
   const endEvent = new Date() > new Date("2024-11-15T23:00:00Z");
 
   return (
