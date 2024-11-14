@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import LoginContainer from "../login/LoginContainer";
 import { useAuth } from "../../hooks/use-auth";
 import { AuthProvider } from "../panel/context/AuthContext";
+import AdContainer from "../modal/AdContainer";
 
 const HeaderContainer = () => {
   const styleHeader =
@@ -27,6 +28,12 @@ const HeaderContainer = () => {
 
   const handleLogin = () => {
     setLogin(!login);
+  };
+  
+  const [ad, setAd] = useState(true);
+
+  const handleAd = () => {
+    setAd(!ad);
   };
 
   const searchParams = new URLSearchParams(window.location.search);
@@ -55,6 +62,9 @@ const HeaderContainer = () => {
       </style>
       <section>
         <LoginContainer disabled={login} handleLogin={handleLogin} />
+      </section>
+      <section>
+        <AdContainer disabled={ad} handleAd={handleAd} />
       </section>
       <header
         className={`
