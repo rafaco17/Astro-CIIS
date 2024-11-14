@@ -21,7 +21,7 @@ const sponsors: Sponsors[] | undefined = await useSponsors();
                     name={sponsor.name}
                     description={sponsor.name}
                     img={`${import.meta.env.DOMAIN_BASE}/${sponsor.img}`}
-                    link={sponsor.link}
+                    webSponsor={sponsor.webSponsor}
                 />
             ))
         }

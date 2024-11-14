@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import type Props from "../adapters/sponsorAdapter";
-const { name, description, img, link } = Astro.props;
+const { name, description, img, webSponsor } = Astro.props;
 ---
 
 <a
-  href={link}
+  href={webSponsor}
   target="_blank"
   rel="noopener noreferrer"
   class="min-w-[250px] px-12 w-full relative flex justify-center items-center overflow-hidden rounded-xl py-8 group transition-transform transform hover:scale-105 max-w-80"

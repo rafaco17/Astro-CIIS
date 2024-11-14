@@ -52,7 +52,7 @@ export const DaySchedules = ({ponentes, day, date}: props) => {
         capitalizeFirstLetter(day) == "Jueves" ? 
         <CardAlmuerzo
           classname="bg-yellow-600"
-          time="11:00 - 11:30"
+          time="11:00 - 14:00"
           text="FERIA TECNOLÓGICA"
         />
         : ""
@@ -75,7 +75,7 @@ export const DaySchedules = ({ponentes, day, date}: props) => {
         capitalizeFirstLetter(day) == "Miércoles" ? 
         <CardAlmuerzo 
           classname="bg-yellow-600"
-          time="14:00 - 16:00"
+          time="15:00 - 17:00"
           text="CONCURSO DE CONOCIMIENTO"
         />
         : ""
