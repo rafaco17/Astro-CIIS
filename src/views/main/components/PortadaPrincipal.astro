@@ -1,6 +1,7 @@
 ---
 import IconStar from "../../../../public/icons/IconStar.astro";
 import Button from "../../../components/Button.astro";
+import SocialNetwork from "../../footer/components/SocialNetwork.astro";
 import Counter from "./Counter/Counter";
 import TitleMain from "./Counter/TitleMain.astro";
 import FlagsContainer from "./FlagsContainer.astro";
@@ -29,8 +30,8 @@ import Label from "./Label.astro";
   <TitleMain
     description="Explora los avances más recientes en informática y sistemas en este evento internacional."
   />
-  <div class="mb-4 text-focus-in">
-    <Counter eventDate="2024-11-11T13:30:00Z" client:load />
+  <div class="flex justify-center my-8 text-focus-in">
+    <SocialNetwork />
   </div>
   <FlagsContainer />
 </div>
