@@ -380,4 +380,47 @@ export const imagenesGaleria = [
       },
     ],
   },
+  {
+    title: "POSTMASTER XXI",
+    description: "Vigésimo primer Postmaster del Encuentro de egresados",
+    anio: 2023,
+    items: [
+      {
+        image: "/ciis-history/postmaster-xxi-flyer-principal.jpeg",
+        name: "Flyer Principal",
+      },
+      {
+        image: "/ciis-history/postmaster-xxi-flyer-ponentes.jpg",
+        name: "Flyer Ponentes",
+      },
+    ],
+  },
+  {
+    title: "CIIS XXV",
+    description:
+      "Vigésima quinta edición del Congreso internacional de informática y sistemas",
+    anio: 2024,
+    items: [
+      {
+        image: "/ciis-history/ciis-xxv-flyer-main-long.jpg",
+        name: "Flyer Principal",
+      },
+      {
+        image: "/ciis-history/ciis-xxv-ponentes.jpg",
+        name: "Fotografía de ponentes",
+      },
+      {
+        image: "/ciis-history/ciis-xxv-feria-tecnologica.jpg",
+        name: "Feria tecnológica",
+      },
+      {
+        image: "/ciis-history/ciis-xxv-clausura.jpg",
+        name: "Clausura del congreso",
+      },
+      {
+        image: "/ciis-history/ciis-xxv-organizadores.jpg",
+        name: "Organizadores del congreso",
+      },
+    ],
+  },
 ].reverse();
